@@ -172,21 +172,12 @@
 }
 .hero-photo-placeholder svg { width:56px;height:56px;opacity:0.25; }
 
-/* spinning gradient ring */
-.hero-photo-wrap::before {
-  content: '';
-  position: absolute; inset: -2px; border-radius: 30px;
-  background: conic-gradient(from 0deg, var(--accent), hsl(190,90%,50%), hsl(161,94%,38%), var(--accent));
-  z-index: 0; opacity: 0.6;
-  animation: spinRing 8s linear infinite;
-}
 .hero-photo-wrap::after {
   content: '';
   position: absolute; inset: -28px; border-radius: 48px;
   background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
   z-index: -1; animation: bgBreath 5s ease-in-out infinite alternate;
 }
-@keyframes spinRing { to { transform: rotate(360deg); } }
 
 /* ── Scroll hint ── */
 .scroll-hint {
