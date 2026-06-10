@@ -1,40 +1,53 @@
 /* ============================================
-   MAIN.JS — Animations, scroll, interactions
+   MAIN.JS — Premium interactions & animations
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ── Scroll progress bar ──────────────────
+  // ── Scroll progress bar ─────────────────
   const progressBar = document.getElementById('progress-bar');
   window.addEventListener('scroll', () => {
-    const scrollTop    = window.scrollY;
-    const docHeight    = document.documentElement.scrollHeight - window.innerHeight;
-    const pct          = (scrollTop / docHeight) * 100;
-    progressBar.style.width = pct + '%';
-  });
+    const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
+    if (progressBar) progressBar.style.width = pct + '%';
+  }, { passive: true });
 
-  // ── Navbar scroll state ──────────────────
+  // ── Capsule Navbar scroll state ─────────
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
-  });
+    if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 80);
+  }, { passive: true });
 
-  // ── Active nav link ──────────────────────
-  const sections  = document.querySelectorAll('section[id]');
+  // ── Mobile nav toggle ───────────────────
+  const toggle  = document.querySelector('.nav-toggle');
+  const navMenu = document.querySelector('.nav-links');
+  if (toggle && navMenu) {
+    toggle.addEventListener('click', () => navMenu.classList.toggle('open'));
+  }
+
+  // ── Active nav link ─────────────────────
+  const sections = document.querySelectorAll('section[id]');
   const navLinks  = document.querySelectorAll('.nav-links a[href^="#"]');
-  const observer  = new IntersectionObserver(entries => {
+  new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         navLinks.forEach(a => a.classList.remove('active'));
-        const active = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
-        if (active) active.classList.add('active');
+        const a = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+        if (a) a.classList.add('active');
       }
     });
-  }, { threshold: 0.4 });
-  sections.forEach(s => observer.observe(s));
+  }, { threshold: 0.4 }).observe && sections.forEach(s =>
+    new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navLinks.forEach(a => a.classList.remove('active'));
+          const a = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+          if (a) a.classList.add('active');
+        }
+      });
+    }, { threshold: 0.4 }).observe(s)
+  );
 
-  // ── Reveal on scroll ────────────────────
-  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  // ── Scroll reveal ───────────────────────
   const revealObs = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -42,140 +55,144 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObs.unobserve(e.target);
       }
     });
-  }, { threshold: 0.15 });
-  revealEls.forEach(el => revealObs.observe(el));
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right')
+    .forEach(el => revealObs.observe(el));
 
-  // ── Skills tag stagger ───────────────────
-  const skillLists = document.querySelectorAll('.skills-list');
-  const skillObs   = new IntersectionObserver(entries => {
+  // ── Skills stagger ──────────────────────
+  const skillObs = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         e.target.classList.add('visible');
-        const tags = e.target.querySelectorAll('.tag');
-        tags.forEach((t, i) => {
-          t.style.transitionDelay = `${i * 60}ms`;
+        e.target.querySelectorAll('.tag').forEach((t, i) => {
+          t.style.transitionDelay = `${i * 55}ms`;
         });
         skillObs.unobserve(e.target);
       }
     });
   }, { threshold: 0.2 });
-  skillLists.forEach(s => skillObs.observe(s));
+  document.querySelectorAll('.skills-list').forEach(s => skillObs.observe(s));
 
-  // ── Typewriter effect ────────────────────
+  // ── Typewriter ──────────────────────────
   const typeEl = document.getElementById('typewriter');
   if (typeEl) {
-    const words  = typeEl.dataset.words.split('|');
-    let   wi = 0, ci = 0, deleting = false;
-
+    const words = typeEl.dataset.words.split('|');
+    let wi = 0, ci = 0, deleting = false;
     function type() {
-      const word    = words[wi];
-      const current = deleting ? word.substring(0, ci--) : word.substring(0, ci++);
-      typeEl.textContent = current;
-
-      let delay = deleting ? 60 : 100;
-      if (!deleting && ci > word.length) {
-        delay   = 1800;
-        deleting = true;
-      } else if (deleting && ci < 0) {
-        deleting = false;
-        ci       = 0;
-        wi       = (wi + 1) % words.length;
-        delay    = 400;
-      }
+      const word = words[wi];
+      typeEl.textContent = deleting ? word.substring(0, ci--) : word.substring(0, ci++);
+      let delay = deleting ? 55 : 95;
+      if (!deleting && ci > word.length)  { delay = 2000; deleting = true; }
+      else if (deleting && ci < 0)         { deleting = false; ci = 0; wi = (wi + 1) % words.length; delay = 350; }
       setTimeout(type, delay);
     }
-    setTimeout(type, 1200);
+    setTimeout(type, 1300);
   }
 
-  // ── Cursor glow ──────────────────────────
+  // ── Context-aware cursor glow ───────────
   const glow = document.getElementById('cursor-glow');
   if (glow && window.innerWidth > 768) {
     document.addEventListener('mousemove', e => {
       glow.style.left = e.clientX + 'px';
       glow.style.top  = e.clientY + 'px';
+    }, { passive: true });
+
+    // Change glow state on hover targets
+    document.querySelectorAll('a, button, .btn').forEach(el => {
+      el.addEventListener('mouseenter', () => glow.classList.add('on-link'));
+      el.addEventListener('mouseleave', () => glow.classList.remove('on-link'));
+    });
+    document.querySelectorAll('.project-card').forEach(el => {
+      el.addEventListener('mouseenter', () => glow.classList.add('on-card'));
+      el.addEventListener('mouseleave', () => glow.classList.remove('on-card'));
     });
   }
 
-  // ── Mobile nav toggle ────────────────────
-  const toggle  = document.querySelector('.nav-toggle');
-  const navMenu = document.querySelector('.nav-links');
-  if (toggle) {
-    toggle.addEventListener('click', () => {
-      navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
-    });
-  }
-
-  // Close mobile nav on link click
-  navLinks.forEach(a => {
-    a.addEventListener('click', () => {
-      if (window.innerWidth <= 768) {
-        navMenu.style.display = 'none';
-      }
-    });
-  });
-
-  // ── Card tilt effect ─────────────────────
+  // ── Spotlight cards ─────────────────────
   document.querySelectorAll('.project-card').forEach(card => {
     card.addEventListener('mousemove', e => {
       const rect = card.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width  - 0.5;
-      const y = (e.clientY - rect.top)  / rect.height - 0.5;
-      card.style.transform = `translateY(-8px) rotateY(${x * 6}deg) rotateX(${-y * 4}deg)`;
+      card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+      card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
     });
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
+  });
+
+  // ── Magnetic buttons ────────────────────
+  document.querySelectorAll('.btn-magnetic').forEach(btn => {
+    const wrap = btn.closest('.btn-magnetic-wrap') || btn;
+    btn.addEventListener('mousemove', e => {
+      const rect = btn.getBoundingClientRect();
+      const x = (e.clientX - rect.left - rect.width  / 2) * 0.28;
+      const y = (e.clientY - rect.top  - rect.height / 2) * 0.28;
+      btn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+      btn.style.transition = 'transform 0.5s var(--ease)';
+      setTimeout(() => btn.style.transition = '', 500);
     });
   });
 
   // ── Button ripple ────────────────────────
+  const rippleStyle = document.createElement('style');
+  rippleStyle.textContent = `@keyframes rippleAnim { from{transform:scale(0);opacity:1} to{transform:scale(2.8);opacity:0} }`;
+  document.head.appendChild(rippleStyle);
+
   document.querySelectorAll('.btn').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-      const ripple = document.createElement('span');
-      const rect   = this.getBoundingClientRect();
-      const size   = Math.max(rect.width, rect.height);
-      ripple.style.cssText = `
-        position:absolute; border-radius:50%; pointer-events:none;
-        width:${size}px; height:${size}px;
-        left:${e.clientX - rect.left - size/2}px;
-        top:${e.clientY - rect.top  - size/2}px;
-        background:rgba(255,255,255,0.15);
-        animation: rippleAnim 0.6s ease-out forwards;
-      `;
-      this.style.position = 'relative';
-      this.style.overflow = 'hidden';
-      this.appendChild(ripple);
-      setTimeout(() => ripple.remove(), 600);
+    btn.addEventListener('click', e => {
+      const r = document.createElement('span');
+      const rect = btn.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      r.style.cssText = `position:absolute;border-radius:50%;pointer-events:none;
+        width:${size}px;height:${size}px;
+        left:${e.clientX-rect.left-size/2}px;top:${e.clientY-rect.top-size/2}px;
+        background:rgba(255,255,255,0.18);animation:rippleAnim 0.65s ease-out forwards;`;
+      btn.appendChild(r);
+      setTimeout(() => r.remove(), 650);
     });
   });
 
-  // inject ripple keyframe
-  const style = document.createElement('style');
-  style.textContent = `
-    @keyframes rippleAnim {
-      from { transform: scale(0); opacity:1; }
-      to   { transform: scale(2.5); opacity:0; }
-    }
-  `;
-  document.head.appendChild(style);
-
   // ── Counter animation ────────────────────
   document.querySelectorAll('.stat-num[data-target]').forEach(el => {
-    const obs = new IntersectionObserver(entries => {
+    new IntersectionObserver(entries => {
       if (entries[0].isIntersecting) {
         const target = +el.dataset.target;
         const suffix = el.dataset.suffix || '';
-        let   count  = 0;
-        const inc    = target / 60;
-        const tick   = () => {
+        let count = 0, inc = target / 55;
+        const tick = () => {
           count = Math.min(count + inc, target);
-          el.innerHTML = Math.floor(count) + `<span>${suffix}</span>`;
+          el.innerHTML = `${Math.floor(count)}<span>${suffix}</span>`;
           if (count < target) requestAnimationFrame(tick);
         };
         tick();
-        obs.unobserve(el);
       }
-    }, { threshold: 0.5 });
-    obs.observe(el);
+    }, { threshold: 0.6 }).observe(el);
   });
+
+  // ── Animated data flow in diagrams ───────
+  document.querySelectorAll('.diag-arrow').forEach((arrow, i) => {
+    const pulse = document.createElement('span');
+    pulse.className = 'data-pulse';
+    pulse.style.cssText = `
+      position:absolute; font-size:0.6rem; top:50%;
+      transform:translateY(-50%);
+      animation: dataFlow 2.5s ${i * 0.6}s infinite linear;
+      pointer-events:none;
+    `;
+    pulse.textContent = '⚡';
+    arrow.style.position = 'relative';
+    arrow.appendChild(pulse);
+  });
+
+  const flowStyle = document.createElement('style');
+  flowStyle.textContent = `
+    @keyframes dataFlow {
+      0%   { left:0%;   opacity:0; }
+      10%  { opacity:1; }
+      90%  { opacity:1; }
+      100% { left:100%; opacity:0; }
+    }
+  `;
+  document.head.appendChild(flowStyle);
 
 });
