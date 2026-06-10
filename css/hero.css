@@ -224,3 +224,23 @@
   .nav-links.open { display:flex; }
   .nav-toggle { display:flex; }
 }
+
+/* ── Hero Canvas — behind name text ── */
+.hero-text {
+  position: relative;
+}
+#hero-canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.85;
+}
+.hero-text-content {
+  position: relative;
+  z-index: 2;
+}

@@ -196,3 +196,122 @@ document.addEventListener('DOMContentLoaded', () => {
   document.head.appendChild(flowStyle);
 
 });
+
+
+// ── Hero Canvas — 3D Atom/Particle Orbit ─────────────────
+(function initHeroCanvas() {
+  const canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  function resize() {
+    const wrap = canvas.parentElement;
+    canvas.width  = wrap.offsetWidth;
+    canvas.height = wrap.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
+
+  // Atom node definition
+  const nodes = [];
+  const NUM_NODES = 55;
+  const cx = () => canvas.width  * 0.42;
+  const cy = () => canvas.height * 0.38;
+
+  class Node {
+    constructor() { this.reset(); }
+    reset() {
+      // random spherical orbit
+      this.orbitR  = 60  + Math.random() * 220;
+      this.theta   = Math.random() * Math.PI * 2;
+      this.phi     = Math.random() * Math.PI * 2;
+      this.speed   = (0.002 + Math.random() * 0.006) * (Math.random() < 0.5 ? 1 : -1);
+      this.tiltX   = (Math.random() - 0.5) * 1.2;
+      this.tiltY   = (Math.random() - 0.5) * 1.2;
+      this.size    = 1.2 + Math.random() * 2.2;
+      this.hue     = Math.random() < 0.6 ? 263 : 161; // violet or emerald
+      this.opacity = 0.25 + Math.random() * 0.65;
+    }
+    update() { this.theta += this.speed; }
+    get3D() {
+      // project onto tilted ellipse
+      const x3 = Math.cos(this.theta) * this.orbitR;
+      const y3 = Math.sin(this.theta) * this.orbitR * 0.38;
+      const rx = x3 * Math.cos(this.tiltY) - y3 * Math.sin(this.tiltX);
+      const ry = x3 * Math.sin(this.tiltY) + y3 * Math.cos(this.tiltX);
+      // depth for size/opacity scaling
+      const depth = (Math.sin(this.theta) + 1) / 2;
+      return { x: rx, y: ry, depth };
+    }
+    draw(offsetX, offsetY) {
+      const { x, y, depth } = this.get3D();
+      const sx = offsetX + x;
+      const sy = offsetY + y;
+      const scale = 0.5 + depth * 0.7;
+      const alpha = this.opacity * (0.3 + depth * 0.7);
+      const r     = this.size * scale;
+
+      // glow
+      const grad = ctx.createRadialGradient(sx, sy, 0, sx, sy, r * 4);
+      grad.addColorStop(0, `hsla(${this.hue}, 80%, 65%, ${alpha})`);
+      grad.addColorStop(1, `hsla(${this.hue}, 80%, 65%, 0)`);
+      ctx.beginPath();
+      ctx.arc(sx, sy, r * 4, 0, Math.PI * 2);
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      // core dot
+      ctx.beginPath();
+      ctx.arc(sx, sy, r, 0, Math.PI * 2);
+      ctx.fillStyle = `hsla(${this.hue}, 90%, 72%, ${alpha * 1.4})`;
+      ctx.fill();
+    }
+  }
+
+  for (let i = 0; i < NUM_NODES; i++) nodes.push(new Node());
+
+  // draw faint orbit rings
+  function drawRings(ox, oy) {
+    const rings = [
+      { r: 90,  tilt: 0.25, alpha: 0.06 },
+      { r: 155, tilt: -0.4, alpha: 0.05 },
+      { r: 220, tilt: 0.15, alpha: 0.04 },
+    ];
+    rings.forEach(ring => {
+      ctx.save();
+      ctx.translate(ox, oy);
+      ctx.rotate(ring.tilt);
+      ctx.scale(1, 0.38);
+      ctx.beginPath();
+      ctx.arc(0, 0, ring.r, 0, Math.PI * 2);
+      ctx.strokeStyle = `hsla(263, 70%, 58%, ${ring.alpha})`;
+      ctx.lineWidth = 1;
+      ctx.stroke();
+      ctx.restore();
+    });
+  }
+
+  // mouse parallax
+  let mouseX = 0, mouseY = 0;
+  document.addEventListener('mousemove', e => {
+    mouseX = (e.clientX / window.innerWidth  - 0.5) * 28;
+    mouseY = (e.clientY / window.innerHeight - 0.5) * 14;
+  }, { passive: true });
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const ox = cx() + mouseX;
+    const oy = cy() + mouseY;
+
+    drawRings(ox, oy);
+
+    // sort by depth so back nodes render first
+    const sorted = [...nodes].sort((a, b) => {
+      return a.get3D().depth - b.get3D().depth;
+    });
+    sorted.forEach(n => { n.update(); n.draw(ox, oy); });
+
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
