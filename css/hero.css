@@ -146,14 +146,39 @@
 /* ── Hero text ── */
 .hero-greeting {
   font-family: var(--font-mono);
-  font-size: 0.88rem;
-  color: var(--accent);
+  font-size: 1.15rem; /* Increased size from 0.88rem */
   margin-bottom: 18px;
   opacity: 0;
   animation: fadeUp 0.6s var(--ease) 0.3s forwards;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+}
+
+.hero-greeting .greeting-text {
+  background: var(--grad-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+.wave-hand {
+  display: inline-block;
+  font-size: 1.35rem; /* slightly larger emoji to stand out */
+  animation: wave-animation 2.5s infinite;
+  transform-origin: 70% 70%;
+}
+
+@keyframes wave-animation {
+    0% { transform: rotate( 0.0deg) }
+   10% { transform: rotate(14.0deg) }
+   20% { transform: rotate(-8.0deg) }
+   30% { transform: rotate(14.0deg) }
+   40% { transform: rotate(-4.0deg) }
+   50% { transform: rotate(10.0deg) }
+   60% { transform: rotate( 0.0deg) }
+  100% { transform: rotate( 0.0deg) }
 }
 
 .hero-greeting::before {
@@ -161,6 +186,27 @@
   width: 32px;
   height: 1px;
   background: var(--grad-primary);
+}
+
+.animated-dots {
+  display: inline-block;
+  width: 3ch;
+  text-align: left;
+}
+
+.animated-dots::after {
+  content: '...';
+  display: inline-block;
+  width: 0;
+  overflow: hidden;
+  vertical-align: bottom;
+  animation: continuous-dots 2s steps(4, end) infinite;
+}
+
+@keyframes continuous-dots {
+  to {
+    width: 3ch;
+  }
 }
 
 .hero-name {
@@ -185,9 +231,31 @@
   font-weight: 400;
   color: var(--text-muted);
   margin-bottom: 26px;
-  min-height: 2.2rem;
+  min-height: 4.8rem;
   opacity: 0;
   animation: fadeUp 0.6s var(--ease) 0.6s forwards;
+}
+
+@media (min-width: 901px) {
+  .hero-role {
+    min-height: 2.5rem;
+  }
+}
+
+.hero-tags {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-light);
+  margin-bottom: 8px; /* Sticks closely to the paragraph */
+  opacity: 0;
+  animation: fadeUp 0.6s var(--ease) 0.75s forwards;
+}
+
+.hero-tags .role-sep {
+  color: var(--accent-2);
+  margin: 0 6px;
+  font-weight: 700;
 }
 
 .cursor-blink {
