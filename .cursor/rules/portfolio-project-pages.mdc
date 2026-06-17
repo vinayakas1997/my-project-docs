@@ -1,0 +1,83 @@
+﻿---
+description: General portfolio project page layout, copy, diagrams, and styling conventions
+globs: projects/**/*
+alwaysApply: false
+---
+
+# Portfolio Project Pages
+
+## Page shell
+Every `projects/<slug>/index.html` follows:
+`nav` → `project-hero` → `project-body-wrap` → `project-layout` (main + aside) → footer + `main.js`
+
+Stylesheets: `../../css/style.css`, `hero.css`, `sections.css`, local `project.css`.
+
+## Hero
+- **Tags:** 4–8 relevant tech/domain tags
+- **Title:** clear project name
+- **Subtitle:** one sentence — outcome + core technologies
+- **Meta:** Company, Role, Year, Type (or Location for internships)
+- **Cover:** prefer `.cover-label` text or inline SVG — avoid emoji placeholders
+
+## Main content (flexible middle, fixed ends)
+**Required:** Overview (1–2 paragraphs: problem/outcome, then how it was solved)
+
+**Choose 1–2 middle sections by project type:**
+- Architecture — systems, platforms, pipelines
+- Research Approach / Methodology — R&D or process work
+- Key Contributions — internship or focused deliverables
+- Ingestion Strategy / Data flow — table when multi-path or trade-offs matter
+
+**Always end with:** Key Achievements (or Key Contributions) + Tech Stack grid
+
+**Sidebar:** Other Projects (always); optional summary card (e.g. Platform Layers, Stack at a glance) with 4–6 labeled rows
+
+## Copy
+- Lead with impact, then technical depth
+- Bullets: verb + outcome (Deployed, Designed, Delivered, Validated)
+- Avoid vague claims without a concrete result
+- When renaming a project, sync the card in root `index.html` (title, description, tags)
+
+## Architecture diagrams (when used)
+- Single **left-to-right** flow in one `.diagram-placeholder` — not stacked unrelated rows
+- **Data plane** = solid arrows: Source → Edge/core → Paths/modules → Processing → Storage → Visualization
+- **Ops/monitoring** = dashed branch off main flow (manage or health) — not in the KPI data chain
+- **Hub node** (`.diag-hub`): composite box with subtitle + inner chip for embedded logic
+- **Workflow card** (`.arch-n8n-card` pattern): bordered container with inner mini-flow for orchestration tools
+- **Icon nodes** (`.diag-icon-node`): img or SVG + `.diag-icon-name` + `.diag-icon-sub`
+- Diagram icons: 20–24px; `overflow-x: auto` on mobile
+- Project-specific node names belong in HTML only — the rule defines patterns, not fixed technologies
+
+## Tech stack
+- Real logos via Simple Icons: `https://cdn.simpleicons.org/{slug}/{hex}`
+- Text badge (`.tech-icon-text`) when no Simple Icon exists (proprietary hardware, protocols)
+- External links: `target="_blank" rel="noopener noreferrer"`
+- Grid: `.tech-grid`; use `.stack-wide` (4 cols) when 9+ items
+- No emoji in `.tech-icon` — migrate legacy pages when editing them
+
+## Typography and contrast (`project.css`)
+On `.project-hero` and `.project-body-wrap`:
+```css
+--text-muted: hsl(240, 10%, 72%);
+--text-dim: hsl(240, 8%, 54%);
+```
+Inside `.diagram-placeholder` only:
+```css
+--diag-label: hsl(45, 90%, 62%);
+```
+Use `--diag-label` for diagram subtitles only (`.diag-icon-sub`, `.diag-hub-sub`, `.diag-arrow-label`, etc.). Keep node titles on `--text` / `--white`.
+
+## CSS conventions
+- Per-project styles in `projects/<slug>/project.css` — avoid shared `css/` unless site-wide
+- Reuse diagram classes: `.arch-flow`, `.arch-col`, `.diag-hub`, `.arch-n8n-card`, `.ingestion-table`, `.sidebar-layer`
+- When adding diagram styles to a legacy page, copy the arch block from `projects/opc-ua-transformation/project.css`
+
+## Files
+| Action | File |
+|--------|------|
+| Page content | `projects/<slug>/index.html` |
+| Page styles | `projects/<slug>/project.css` |
+| Home card sync | `index.html` `#projects` grid |
+
+## Reference implementation
+Full example of architecture diagram + styling: `projects/opc-ua-transformation/`

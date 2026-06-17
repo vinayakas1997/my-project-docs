@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#0d0d0d;display:flex;justify-content:center;padding:30px 20px;}
+.wrap{background:#0d0d0d;padding:24px 16px;font-family:'Segoe UI',sans-serif;width:420px;}
+.label-top{text-align:center;font-size:10px;letter-spacing:3px;color:#444;font-family:monospace;margin-bottom:18px;}
+.node{border-radius:8px;padding:9px 16px;text-align:center;}
+.node .title{font-size:13px;font-weight:600;color:#f0f0f0;}
+.node .sub{font-size:11px;color:#888;margin-top:3px;}
+.n-teal{background:#0f2e26;border:0.8px solid #1D9E75;}
+.n-amber{background:#2a1f00;border:0.8px dashed #EF9F27;}
+.n-purple{background:#1a1030;border:0.8px dashed #534ab7;}
+.n-purple2{background:#1a1030;border:0.8px solid #534ab7;}
+.n-coral{background:#2a1208;border:0.8px solid #993c1d;}
+.n-blue{background:#0a1a2e;border:0.8px solid #185fa5;}
+.n-gray{background:#1a1a1a;border:0.8px solid #555;}
+.n-pg{background:#1a2a1a;border:1.2px solid #336791;}
+.file-row{display:flex;justify-content:center;gap:10px;margin-bottom:6px;}
+.file-icon{width:40px;height:48px;border-radius:4px;background:#1a1a1a;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:5px;position:relative;font-size:8px;font-weight:700;font-family:monospace;}
+.file-icon .fold{position:absolute;top:0;right:0;width:13px;height:13px;}
+.file-pdf{border:0.8px solid #993c1d;color:#993c1d;}
+.file-doc{border:0.8px solid #185fa5;color:#185fa5;}
+.file-ppt{border:0.8px solid #c04828;color:#c04828;}
+.file-png{border:0.8px solid #3b6d11;color:#3b6d11;}
+.file-pdf .fold{border-top:13px solid #993c1d;border-left:13px solid transparent;}
+.file-doc .fold{border-top:13px solid #185fa5;border-left:13px solid transparent;}
+.file-ppt .fold{border-top:13px solid #c04828;border-left:13px solid transparent;}
+.file-png .fold{border-top:13px solid #3b6d11;border-left:13px solid transparent;}
+.arr-y{color:#FFD700;font-size:14px;font-weight:700;}
+.arr-label{font-size:10px;color:#FFD700;}
+.vline{width:1px;min-height:14px;background:#FFD700;opacity:0.5;margin:0 auto;}
+.badge-red{display:inline-block;background:#2a0808;border:0.8px solid #a32d2d;border-radius:4px;padding:3px 8px;font-size:10px;color:#f09595;line-height:1.5;}
+.store-row{display:flex;justify-content:center;gap:16px;}
+.store-node{border-radius:8px;padding:8px 14px;text-align:center;min-width:120px;}
+.pg-icon{display:flex;align-items:center;justify-content:center;gap:10px;}
+.center{display:flex;flex-direction:column;align-items:center;}
+.mx-auto{max-width:280px;margin:0 auto;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="label-top">INGESTION PIPELINE</div>
+
+  <!-- FILE ICONS -->
+  <div class="file-row">
+    <div class="file-icon file-pdf"><div class="fold"></div>PDF</div>
+    <div class="file-icon file-doc"><div class="fold"></div>DOC</div>
+    <div class="file-icon file-ppt"><div class="fold"></div>PPT</div>
+    <div class="file-icon file-png"><div class="fold"></div>PNG</div>
+  </div>
+  <div style="text-align:center;font-size:10px;color:#555;margin-bottom:4px;">Japanese manufacturing docs</div>
+  <div class="vline" style="height:14px;"></div>
+  <div style="text-align:center;" class="arr-y">↓</div>
+
+  <!-- MINERU -->
+  <div class="mx-auto">
+    <div class="node n-teal">
+      <div class="title">MinerU OCR</div>
+      <div class="sub">Text / table extract · router</div>
+    </div>
+  </div>
+
+  <!-- BRANCH -->
+  <div style="display:flex;justify-content:center;align-items:flex-start;">
+    <div class="center" style="width:280px;">
+      <div class="vline" style="height:12px;"></div>
+      <div class="arr-label">text / table pages</div>
+      <div class="arr-y">↓</div>
+    </div>
+    <div style="margin-left:8px;margin-top:16px;">
+      <span style="font-size:10px;color:#FFD700;">── diagram pages ──→ GLM-4.6V Flash</span>
+    </div>
+  </div>
+
+  <!-- STAGE 1 -->
+  <div class="mx-auto">
+    <div class="node n-amber">
+      <div class="title" style="color:#EF9F27;">① Word count · anagram check</div>
+      <div class="sub">Hallucination detection</div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:36px;margin:5px 0;align-items:flex-start;">
+    <div class="center">
+      <div class="arr-label">ok</div>
+      <div class="arr-y">↓</div>
+    </div>
+    <div class="center">
+      <div class="arr-label">hallucinated ↺ retry ×3</div>
+      <div style="margin-top:3px;display:flex;align-items:center;gap:4px;">
+        <span class="arr-label">still bad</span><span class="arr-y">↓</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGE 2 -->
+  <div class="mx-auto">
+    <div class="node n-purple">
+      <div class="title" style="color:#a99ff0;">② GLM-4.6V Flash · Data validation</div>
+      <div class="sub">Page contains useful data?</div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:50px;margin:5px 0;align-items:flex-start;">
+    <div class="center">
+      <div class="arr-label">valid</div>
+      <div class="arr-y">↓</div>
+    </div>
+    <div class="center">
+      <div class="arr-label">invalid</div>
+      <div class="arr-y">↓</div>
+      <span class="badge-red">❌ dropped<br/>e.g. thank you slides,<br/>covers, form fills</span>
+    </div>
+  </div>
+
+  <!-- GLM-4.6V VLM -->
+  <div class="mx-auto">
+    <div class="node n-purple2">
+      <div class="title">GLM-4.6V · VLM OCR</div>
+      <div class="sub">Diagram pages · bad OCR fallback</div>
+    </div>
+  </div>
+  <div class="vline" style="height:14px;"></div>
+  <div style="text-align:center;" class="arr-y">↓</div>
+
+  <!-- RAW OUTPUT -->
+  <div class="mx-auto">
+    <div class="node n-gray">
+      <div class="title">Raw output</div>
+      <div class="sub">_blocks.json · Markdown</div>
+    </div>
+  </div>
+  <div class="vline" style="height:14px;"></div>
+  <div style="text-align:center;" class="arr-y">↓</div>
+
+  <!-- DATA CLEANING -->
+  <div class="mx-auto">
+    <div class="node n-coral">
+      <div class="title">Data cleaning</div>
+      <div class="sub">Strip HTML · fix table formatting</div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:70px;margin:5px 0;">
+    <div class="center"><div class="arr-label">raw</div><div class="arr-y">↓</div></div>
+    <div class="center"><div class="arr-label">cleaned</div><div class="arr-y">↓</div></div>
+  </div>
+
+  <!-- STORE ROW -->
+  <div class="store-row">
+    <div class="node n-blue store-node">
+      <div class="title">Raw store</div>
+      <div class="sub">_blocks.json</div>
+    </div>
+    <div class="node n-blue store-node">
+      <div class="title">Clean store</div>
+      <div class="sub">_clean.md</div>
+    </div>
+  </div>
+
+  <!-- arrows to postgres -->
+  <div style="display:flex;justify-content:center;gap:86px;margin:5px 0;">
+    <div class="arr-y">↓</div>
+    <div class="arr-y">↓</div>
+  </div>
+
+  <!-- POSTGRES -->
+  <div style="max-width:200px;margin:0 auto;">
+    <div class="node n-pg">
+      <div class="pg-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28">
+          <ellipse cx="14" cy="13" rx="9" ry="9" fill="#336791" opacity="0.9"/>
+          <path d="M19 17 Q24 19 23 24" fill="none" stroke="#336791" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="11" cy="11" r="1.5" fill="#0d0d0d"/>
+          <ellipse cx="8" cy="10" rx="3.5" ry="4.5" fill="#336791" opacity="0.55"/>
+          <path d="M11 19 Q10 23 13 24" fill="none" stroke="#ddd" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+        </svg>
+        <div>
+          <div class="title" style="color:#7db8d8;">PostgreSQL</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

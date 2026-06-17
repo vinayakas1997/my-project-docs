@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OPC UA Communication Platform — Vinayaka</title>
+  <title>Industrial Edge Data Platform — Vinayaka</title>
   <link rel="stylesheet" href="../../css/style.css" />
   <link rel="stylesheet" href="../../css/hero.css" />
   <link rel="stylesheet" href="../../css/sections.css" />
@@ -26,19 +26,24 @@
     </a>
     <div class="project-hero-content reveal">
       <div class="project-hero-tags">
-        <span class="tag">OPC UA</span><span class="tag">FINS Protocol</span>
-        <span class="tag">Python</span><span class="tag">Grafana</span><span class="tag">Prometheus</span>
+        <span class="tag">TRITON</span><span class="tag">OPC UA</span><span class="tag">MQTT</span>
+        <span class="tag">FastAPI</span><span class="tag">n8n</span><span class="tag">PostgreSQL</span>
+        <span class="tag">Grafana</span><span class="tag">Ansible Semaphore</span><span class="tag">AI-Ready Data</span>
       </div>
-      <h1 class="project-hero-title">OPC UA Communication Platform</h1>
-      <p class="project-hero-sub">Modernizing factory communication by migrating legacy PLC protocols to a scalable, real-time OPC UA architecture</p>
+      <h1 class="project-hero-title">Industrial Edge Data Platform</h1>
+      <p class="project-hero-sub">End-to-end factory data platform on LINX TRITON edge controllers — multi-path PLC ingestion, n8n + FastAPI processing into PostgreSQL, Grafana analytics, and Ansible Semaphore fleet management.</p>
       <div class="project-meta">
         <div class="meta-item"><span class="meta-label">Company</span><span class="meta-value">Somic Ishikawa</span></div>
-        <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">R&D Engineer</span></div>
+        <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">R&amp;D Engineer</span></div>
         <div class="meta-item"><span class="meta-label">Year</span><span class="meta-value">2024 — Present</span></div>
         <div class="meta-item"><span class="meta-label">Type</span><span class="meta-value">Platform / Infrastructure</span></div>
       </div>
     </div>
-    <div class="project-cover-full reveal"><div class="cover-placeholder">🔌</div></div>
+    <div class="project-cover-full reveal">
+      <div class="cover-placeholder">
+        <span class="cover-label">IIoT</span>
+      </div>
+    </div>
   </div></section>
 
   <div class="project-body-wrap"><div class="container project-layout">
@@ -46,55 +51,265 @@
 
       <div class="content-block reveal">
         <h2>Overview</h2>
-        <p>This project involved modernizing factory communication at Somic Ishikawa by migrating legacy proprietary protocols to a standardized <strong>OPC UA-based architecture</strong>. The goal was to enable real-time, reliable data exchange between PLCs and higher-level systems for monitoring and analytics.</p>
-        <p>A custom <strong>FINS protocol handler in Python</strong> was developed to bridge Omron PLCs into the OPC UA server, enabling seamless data access without replacing existing hardware.</p>
+        <p>The factory already ran IoT on the floor, but the stack depended on <strong>commercial software licenses</strong> and a <strong>capped register count</strong> — limiting how much granular shop-floor data could be exposed for analysis. This project replaced that constraint with a <strong>self-owned</strong> edge-to-database pipeline, improving cost efficiency and data accessibility without replacing Omron PLC hardware.</p>
+        <p>Modernized factory data at Somic Ishikawa by standardizing edge access on <strong>OPC UA</strong> and moving signals through a structured pipeline to queryable analytics for production teams.</p>
+        <p>Edge compute runs on <a href="https://linx.jp/product/triton/" target="_blank" rel="noopener noreferrer"><strong>TRITON</strong></a> controllers from LINX (CODESYS, native OPC UA), with a Python FINS bridge running on-device. Raw data is ingested over <strong>three paths</strong> (OPC UA, MQTT, CSV) matched to latency and volume, orchestrated by <strong>n8n</strong>, processed and persisted by <strong>FastAPI → PostgreSQL</strong>, and visualized in <strong>Grafana</strong>. <strong>Ansible Semaphore</strong> manages the TRITON fleet; <strong>Prometheus</strong> monitors pipeline health and logs.</p>
+        <p>This platform feeds <strong><a href="../agentic-factory-analytics/index.html">Part 2: Agentic Factory Analytics</a></strong> — AI and agentic analysis on the same PostgreSQL data layer. <em>Full case study expanding soon.</em></p>
       </div>
 
       <div class="content-block reveal">
         <h2>Architecture</h2>
         <div class="diagram-placeholder">
-          <div class="diagram-inner">
-            <div class="diag-node">Omron PLC<br/><small>FINS Protocol</small></div>
-            <div class="diag-arrow">→</div>
-            <div class="diag-node">Python Handler<br/><small>FINS→OPC UA</small></div>
-            <div class="diag-arrow">→</div>
-            <div class="diag-node">OPC UA Server<br/><small>Standardized</small></div>
-            <div class="diag-arrow">→</div>
-            <div class="diag-node">Grafana<br/><small>Visualization</small></div>
-            <div class="diag-arrow">→</div>
-            <div class="diag-node">Prometheus<br/><small>Alerting</small></div>
+          <div class="arch-wrap">
+            <div class="arch-flow">
+
+              <!-- Col 1: Edge -->
+              <div class="arch-col arch-col--edge">
+                <div class="arch-edge-manage">
+                  <div class="diag-icon-node diag-icon-node--sm">
+                    <img src="https://cdn.simpleicons.org/ansible/EE0000" alt="Ansible Semaphore" width="22" height="22" loading="lazy" />
+                    <span class="diag-icon-name">Ansible Semaphore</span>
+                  </div>
+                  <div class="diag-arrow--dashed">
+                    <span class="diag-arrow-label">manage</span>
+                    <span>↓</span>
+                  </div>
+                </div>
+                <div class="arch-edge-row">
+                  <div class="diag-icon-node">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/><circle cx="7" cy="9" r="0.5" fill="currentColor"/><circle cx="7" cy="12" r="0.5" fill="currentColor"/><circle cx="7" cy="15" r="0.5" fill="currentColor"/></svg>
+                    <span class="diag-icon-name">Omron PLC</span>
+                    <span class="diag-icon-sub">FINS</span>
+                  </div>
+                  <div class="diag-arrow">→</div>
+                  <div class="diag-hub">
+                    <span class="diag-hub-badge"><a href="https://linx.jp/product/triton/" target="_blank" rel="noopener noreferrer">TRITON</a></span>
+                    <span class="diag-hub-sub">LINX / CODESYS</span>
+                    <div class="diag-hub-python">
+                      <img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" width="16" height="16" loading="lazy" />
+                      <span>FINS bridge</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="diag-arrow">→</div>
+
+              <!-- Col 2: Ingestion paths -->
+              <div class="arch-col arch-col--ingest">
+                <div class="diag-icon-node diag-icon-node--sm">
+                  <span class="tech-icon-text">OPC UA</span>
+                  <span class="diag-icon-sub">Standardized</span>
+                </div>
+                <div class="diag-icon-node diag-icon-node--sm">
+                  <img src="https://cdn.simpleicons.org/mqtt/660066" alt="MQTT" width="22" height="22" loading="lazy" />
+                  <span class="diag-icon-name">MQTT</span>
+                  <span class="diag-icon-sub">High volume</span>
+                </div>
+                <div class="diag-icon-node diag-icon-node--sm">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>
+                  <span class="diag-icon-name">CSV</span>
+                  <span class="diag-icon-sub">Batch / slow</span>
+                </div>
+              </div>
+
+              <div class="arch-fan-arrows" aria-hidden="true">
+                <span>→</span>
+                <span>→</span>
+                <span>→</span>
+              </div>
+
+              <!-- Col 3: n8n workflow card -->
+              <div class="arch-n8n-card">
+                <div class="arch-n8n-header">
+                  <img src="https://cdn.simpleicons.org/n8n/EA4B71" alt="n8n" width="22" height="22" loading="lazy" />
+                  <span>n8n</span>
+                </div>
+                <div class="arch-n8n-inner">
+                  <div class="arch-n8n-node">Receiver</div>
+                  <div class="diag-arrow">→</div>
+                  <div class="arch-n8n-icon">
+                    <img src="https://cdn.simpleicons.org/fastapi/009688" alt="FastAPI" width="20" height="20" loading="lazy" />
+                    <span>FastAPI</span>
+                  </div>
+                  <div class="diag-arrow">→</div>
+                  <div class="arch-n8n-icon">
+                    <img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="PostgreSQL" width="20" height="20" loading="lazy" />
+                    <span>PostgreSQL</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Col 4: Downstream from PostgreSQL -->
+              <div class="arch-col arch-col--downstream">
+                <div class="arch-downstream-row">
+                  <div class="diag-arrow">→</div>
+                  <div class="diag-icon-node diag-icon-node--sm">
+                    <img src="https://cdn.simpleicons.org/grafana/F46800" alt="Grafana" width="22" height="22" loading="lazy" />
+                    <span class="diag-icon-name">Grafana</span>
+                    <span class="diag-icon-sub">Dashboards</span>
+                  </div>
+                </div>
+                <div class="arch-downstream-row">
+                  <div class="diag-arrow">→</div>
+                  <div class="diag-icon-node diag-icon-node--sm diag-icon-node--ai">
+                    <img src="https://cdn.simpleicons.org/langchain/78D9A8" alt="Agentic AI" width="22" height="22" loading="lazy" />
+                    <span class="diag-icon-name"><a href="../agentic-factory-analytics/index.html">Agentic Analytics</a></span>
+                    <span class="diag-icon-sub">Part 2 · AI / agents</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Prometheus dashed branch -->
+            <div class="arch-prometheus">
+              <div class="diag-icon-node diag-icon-node--sm">
+                <img src="https://cdn.simpleicons.org/prometheus/E6522C" alt="Prometheus" width="22" height="22" loading="lazy" />
+                <span class="diag-icon-name">Prometheus</span>
+                <span class="diag-icon-sub">Pipeline health</span>
+              </div>
+              <div class="arch-prometheus-dash"></div>
+              <span class="arch-prometheus-label">monitors → n8n / pipeline services</span>
+            </div>
           </div>
+        </div>
+      </div>
+
+      <div class="content-block reveal">
+        <h2>Ingestion Strategy</h2>
+        <p>Each protocol path was chosen by data profile — not every signal uses the same transport.</p>
+        <div class="table-wrap">
+          <table class="ingestion-table">
+            <thead>
+              <tr>
+                <th>Path</th>
+                <th>Use case</th>
+                <th>Rationale</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>OPC UA</td>
+                <td>Standardized edge access + lightweight live streams</td>
+                <td>IIoT interoperability on TRITON; HTTP used within OPC UA for real-time feeds</td>
+              </tr>
+              <tr>
+                <td>MQTT</td>
+                <td>Large, fast live datasets</td>
+                <td>Pub/sub for high-throughput tags</td>
+              </tr>
+              <tr>
+                <td>CSV</td>
+                <td>Slow / batch data</td>
+                <td>Efficient infrequent or bulk loads</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
 
       <div class="content-block reveal">
         <h2>Key Achievements</h2>
         <ul class="achievement-list">
-          <li>Developed a custom <strong>FINS–OPC UA integration module in Python</strong>, enabling seamless PLC data access</li>
-          <li>Delivered <strong>real-time Grafana dashboards</strong> for live factory floor monitoring</li>
-          <li>Configured <strong>Prometheus alerts</strong> for system performance and anomaly detection</li>
-          <li>Improved machine-to-system communication, reducing data handling complexity for factory teams</li>
-          <li>Increased operational transparency across production lines</li>
+          <li>Replaced <strong>license- and register-limited</strong> legacy IoT with a <strong>self-owned</strong> edge-to-PostgreSQL pipeline, reducing vendor dependency and cost</li>
+          <li>Built a <strong>Python FINS bridge</strong> for Omron PLCs — no PLC hardware replacement required</li>
+          <li>Deployed <strong><a href="https://linx.jp/product/triton/" target="_blank" rel="noopener noreferrer">LINX TRITON</a></strong> edge controllers as the OPC UA aggregation layer</li>
+          <li>Designed <strong>multi-path ingestion</strong> (OPC UA, MQTT, CSV) matched to data velocity and volume</li>
+          <li>Implemented <strong>n8n workflows</strong> and a <strong>FastAPI</strong> processing node → <strong>PostgreSQL</strong> as system of record</li>
+          <li>Delivered <strong>Grafana dashboards</strong> querying PostgreSQL for production analytics</li>
+          <li>Unlocked <strong>higher-granularity factory data</strong> for the <strong>agentic AI team</strong> — <a href="../agentic-factory-analytics/index.html">Part 2: Agentic Factory Analytics</a></li>
+          <li>Introduced <strong>Ansible Semaphore</strong> for repeatable TRITON fleet provisioning and configuration</li>
+          <li>Used <strong>Prometheus</strong> for pipeline and log health monitoring with failure detection</li>
         </ul>
       </div>
 
       <div class="content-block reveal">
         <h2>Tech Stack</h2>
-        <div class="tech-grid">
-          <div class="tech-item"><div class="tech-icon">🔌</div><div class="tech-name">OPC UA</div><div class="tech-desc">Standardized industrial protocol</div></div>
-          <div class="tech-item"><div class="tech-icon">🐍</div><div class="tech-name">Python</div><div class="tech-desc">FINS handler & integration</div></div>
-          <div class="tech-item"><div class="tech-icon">📊</div><div class="tech-name">Grafana</div><div class="tech-desc">Real-time dashboards</div></div>
-          <div class="tech-item"><div class="tech-icon">🔔</div><div class="tech-name">Prometheus</div><div class="tech-desc">Monitoring & alerting</div></div>
-          <div class="tech-item"><div class="tech-icon">🏭</div><div class="tech-name">Omron PLC</div><div class="tech-desc">Factory floor devices</div></div>
-          <div class="tech-item"><div class="tech-icon">🐳</div><div class="tech-name">Docker</div><div class="tech-desc">Service containerization</div></div>
+        <div class="tech-grid stack-wide">
+          <div class="tech-item">
+            <div class="tech-icon"><span class="tech-icon-text">TRITON</span></div>
+            <div class="tech-name"><a href="https://linx.jp/product/triton/" target="_blank" rel="noopener noreferrer">TRITON (LINX)</a></div>
+            <div class="tech-desc">CODESYS edge PLC, OPC UA</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon"><span class="tech-icon-text">OPC UA</span></div>
+            <div class="tech-name">OPC UA</div>
+            <div class="tech-desc">Standardized industrial protocol</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon"><span class="tech-icon-text">OMRON</span></div>
+            <div class="tech-name">Omron PLC</div>
+            <div class="tech-desc">Factory floor devices</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">Python</div>
+            <div class="tech-desc">FINS handler &amp; integration</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon"><img src="https://cdn.simpleicons.org/fastapi/009688" alt="FastAPI" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">FastAPI</div>
+            <div class="tech-desc">Processing node → PostgreSQL</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon"><img src="https://cdn.simpleicons.org/n8n/EA4B71" alt="n8n" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">n8n</div>
+            <div class="tech-desc">Workflow orchestration</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon"><img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="PostgreSQL" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">PostgreSQL</div>
+            <div class="tech-desc">System of record</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon"><img src="https://cdn.simpleicons.org/mqtt/660066" alt="MQTT" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">MQTT</div>
+            <div class="tech-desc">High-throughput live data</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon"><img src="https://cdn.simpleicons.org/grafana/F46800" alt="Grafana" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">Grafana</div>
+            <div class="tech-desc">Production dashboards</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon"><img src="https://cdn.simpleicons.org/prometheus/E6522C" alt="Prometheus" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">Prometheus</div>
+            <div class="tech-desc">Pipeline health monitoring</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon"><img src="https://cdn.simpleicons.org/ansible/EE0000" alt="Ansible Semaphore" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">Ansible Semaphore</div>
+            <div class="tech-desc">TRITON fleet management</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon"><img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">Docker</div>
+            <div class="tech-desc">Service containerization</div>
+          </div>
         </div>
       </div>
 
     </main>
     <aside class="project-sidebar">
       <div class="sidebar-card reveal">
+        <h4>Platform Layers</h4>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Edge</span><span class="sidebar-layer-val">TRITON, OPC UA</span></div>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Ingest</span><span class="sidebar-layer-val">FINS, OPC UA, MQTT, CSV</span></div>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Process</span><span class="sidebar-layer-val">n8n, FastAPI</span></div>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Store</span><span class="sidebar-layer-val">PostgreSQL</span></div>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Visualize</span><span class="sidebar-layer-val">Grafana</span></div>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Analyze</span><span class="sidebar-layer-val"><a href="../agentic-factory-analytics/index.html">Agentic AI (Part 2)</a></span></div>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Ops</span><span class="sidebar-layer-val">Ansible Semaphore, Prometheus</span></div>
+      </div>
+      <div class="sidebar-card reveal">
+        <h4>Related</h4>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Part 1</span><span class="sidebar-layer-val">Industrial Edge Data Platform</span></div>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Part 2</span><span class="sidebar-layer-val"><a href="../agentic-factory-analytics/index.html">Agentic Factory Analytics</a></span></div>
+      </div>
+      <div class="sidebar-card reveal">
         <h4>Other Projects</h4>
-        <a href="../robotic-hand/index.html" class="sidebar-proj-link"><span>🦾</span> Robotic Hand R&D</a>
+        <a href="../robotic-hand/index.html" class="sidebar-proj-link"><span>🦾</span> Robotic Hand R&amp;D</a>
         <a href="../power-testing/index.html" class="sidebar-proj-link"><span>⚡</span> Power Testing Machine</a>
         <a href="../bosch-monitoring/index.html" class="sidebar-proj-link"><span>🔬</span> Bosch Process Monitor</a>
         <a href="../healthcare-analytics/index.html" class="sidebar-proj-link"><span>🏥</span> Healthcare Analytics</a>

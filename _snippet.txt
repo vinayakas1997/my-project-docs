@@ -1,0 +1,11 @@
+  </div>
+                </div>
+              </div>
+
+              <div class="diag-arrow">ↁE/div>
+
+              <!-- Col 4: Grafana -->
+              <div class="diag-icon-node">
+                <img src="https://cdn.simpleicons.org/grafana/F46800" alt="Grafana" width="22" height="22" loading="lazy" />
+                <span class="diag-icon-name">Grafana</span>
+   

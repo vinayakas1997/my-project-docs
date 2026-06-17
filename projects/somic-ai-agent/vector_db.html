@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#0d0d0d;display:flex;justify-content:center;padding:30px 20px;}
+.wrap{background:#0d0d0d;padding:24px 16px;font-family:'Segoe UI',sans-serif;width:360px;}
+.label-top{text-align:center;font-size:10px;letter-spacing:3px;color:#444;font-family:monospace;margin-bottom:18px;}
+.node{border-radius:8px;padding:9px 16px;text-align:center;}
+.node .title{font-size:13px;font-weight:600;color:#f0f0f0;}
+.node .sub{font-size:11px;color:#888;margin-top:3px;}
+.n-purple{background:#1a1030;border:0.8px solid #534ab7;}
+.n-purple-dim{background:#120c22;border:0.8px solid #3a3480;}
+.n-teal{background:#0f2e26;border:0.8px solid #1D9E75;}
+.n-blue{background:#0a1a2e;border:0.8px solid #185fa5;}
+.n-pg{background:#1a2a1a;border:1.2px solid #336791;}
+.arr-y{color:#FFD700;font-size:14px;font-weight:700;text-align:center;}
+.arr-label{font-size:10px;color:#FFD700;}
+.vline{width:1px;min-height:14px;background:#FFD700;opacity:0.5;margin:0 auto;}
+.center{display:flex;flex-direction:column;align-items:center;}
+.pill-row{display:flex;justify-content:center;gap:8px;margin:0 auto;}
+.pill{border-radius:6px;padding:6px 10px;text-align:center;flex:1;}
+.pill .title{font-size:11px;font-weight:600;color:#f0f0f0;}
+.pill .sub{font-size:9px;color:#888;margin-top:2px;}
+.p-world{background:#1a1030;border:0.8px solid #534ab7;}
+.p-obs{background:#0f2e26;border:0.8px solid #1D9E75;}
+.p-exp{background:#2a1f00;border:0.8px solid #EF9F27;}
+.container{border:0.8px solid #3a3480;border-radius:10px;padding:12px;margin:0 auto;background:#0e0c1a;}
+.pg-icon{display:flex;align-items:center;justify-content:center;gap:10px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="label-top">VECTOR DATABASE</div>
+
+  <!-- HINDSIGHT CONTAINER -->
+  <div class="container">
+    <div style="text-align:center;font-size:10px;letter-spacing:2px;color:#534ab7;font-family:monospace;margin-bottom:10px;">HINDSIGHT AI</div>
+
+    <!-- RETAIN -->
+    <div class="node n-purple">
+      <div class="title">RETAIN</div>
+      <div class="sub">Structured memory from docs</div>
+    </div>
+    <div class="vline" style="height:12px;"></div>
+    <div class="arr-y">↓</div>
+
+    <!-- FACT EXTRACTION -->
+    <div class="node n-purple-dim">
+      <div class="title" style="color:#a99ff0;">Fact extraction</div>
+      <div class="sub">Entities · relations · context</div>
+    </div>
+    <div class="vline" style="height:12px;"></div>
+    <div class="arr-y">↓</div>
+
+    <!-- THREE MEMORY BANKS -->
+    <div class="pill-row">
+      <div class="pill p-world">
+        <div class="title">World facts</div>
+        <div class="sub">Domain knowledge</div>
+      </div>
+      <div class="pill p-obs">
+        <div class="title">Observations</div>
+        <div class="sub">Page-level notes</div>
+      </div>
+      <div class="pill p-exp">
+        <div class="title">Experience</div>
+        <div class="sub">Past interactions</div>
+      </div>
+    </div>
+
+    <!-- BGE-M3 -->
+    <div class="vline" style="height:12px;"></div>
+    <div class="arr-y">↓</div>
+    <div class="node n-teal">
+      <div class="title">BGE-M3 embeddings</div>
+      <div class="sub">Dense · sparse vectors</div>
+    </div>
+  </div>
+
+  <div class="vline" style="height:14px;"></div>
+  <div class="arr-y">↓</div>
+
+  <!-- KNOWLEDGE GRAPH -->
+  <div class="node n-blue">
+    <div class="title">Knowledge Graph</div>
+    <div class="sub">Entity · relation store</div>
+  </div>
+
+  <div class="vline" style="height:14px;"></div>
+  <div class="arr-y">↓</div>
+
+  <!-- POSTGRESQL -->
+  <div style="max-width:220px;margin:0 auto;">
+    <div class="node n-pg">
+      <div class="pg-icon">
+        <svg width="26" height="26" viewBox="0 0 28 28">
+          <ellipse cx="14" cy="13" rx="9" ry="9" fill="#336791" opacity="0.9"/>
+          <path d="M19 17 Q24 19 23 24" fill="none" stroke="#336791" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="11" cy="11" r="1.5" fill="#0d0d0d"/>
+          <ellipse cx="8" cy="10" rx="3.5" ry="4.5" fill="#336791" opacity="0.55"/>
+          <path d="M11 19 Q10 23 13 24" fill="none" stroke="#ddd" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+        </svg>
+        <div>
+          <div class="title" style="color:#7db8d8;">PostgreSQL</div>
+          <div class="sub">Document store · fetching</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
