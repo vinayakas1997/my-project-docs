@@ -19,10 +19,16 @@
       <li><a href="../../resume.pdf" target="_blank" class="nav-resume">Resume ↗</a></li>
     </ul>
   </div></nav>
+
   <section class="project-hero"><div class="container">
-    <a href="../../index.html#projects" class="back-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>Back to Projects</a>
+    <a href="../../index.html#projects" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>Back to Projects
+    </a>
     <div class="project-hero-content reveal">
-      <div class="project-hero-tags"><span class="tag">Computer Vision</span><span class="tag">OpenCV</span><span class="tag">Process Monitoring</span><span class="tag">POC</span></div>
+      <div class="project-hero-tags hero-tags-stagger">
+        <span class="tag">Computer Vision</span><span class="tag">OpenCV</span>
+        <span class="tag">Process Monitoring</span><span class="tag">POC</span>
+      </div>
       <h1 class="project-hero-title">Bosch Soldering Process Monitor</h1>
       <p class="project-hero-sub">Analyzing heat-induced failures in selective soldering with 3 POC monitoring models including computer vision</p>
       <div class="project-meta">
@@ -32,15 +38,62 @@
         <div class="meta-item"><span class="meta-label">Location</span><span class="meta-value">Bangalore, India</span></div>
       </div>
     </div>
-    <div class="project-cover-full reveal"><div class="cover-placeholder">🔬</div></div>
+    <div class="project-cover-full project-cover-video-wrap reveal">
+      <div class="cover-placeholder"><span class="cover-label">CV</span></div>
+    </div>
   </div></section>
+
   <div class="project-body-wrap"><div class="container project-layout">
     <main class="project-content">
-      <div class="content-block reveal">
+
+      <div class="content-block reveal content-prose">
         <h2>Overview</h2>
         <p>During an internship at <strong>Bosch Automotive Electronics</strong>, analyzed heat-induced failures in the selective soldering process that reduced filter assembly reliability and increased chip wastage. Built 3 POC monitoring models to identify root causes and define optimal operating windows.</p>
       </div>
+
       <div class="content-block reveal">
+        <h2>Monitoring Capabilities</h2>
+        <p class="section-lead">From heat-failure analysis through POC prototypes to data-driven operating windows.</p>
+        <div class="capability-grid">
+          <div class="capability-card reveal" style="--i:0">
+            <h3>Heat-failure root-cause analysis</h3>
+            <p>Studied <strong>heat-induced filter reliability loss</strong> in selective soldering — linking thermal stress patterns to assembly failures and chip wastage.</p>
+          </div>
+          <div class="capability-card reveal" style="--i:1">
+            <h3>3 POC monitoring models</h3>
+            <p>Proposed and built <strong>three proof-of-concept approaches</strong> to compare monitoring strategies before committing to production instrumentation.</p>
+          </div>
+          <div class="capability-card reveal" style="--i:2">
+            <h3>Mini-camera computer vision setup</h3>
+            <p>Deployed a <strong>mini-camera CV pipeline</strong> for visual process monitoring — capturing solder joint quality signals without disrupting the line.</p>
+          </div>
+          <div class="capability-card reveal" style="--i:3">
+            <h3>Optimal operating window identification</h3>
+            <p>Combined POC findings to define <strong>data-driven operating windows</strong> and maintenance timing recommendations for production teams.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-block reveal">
+        <h2>Challenges Tackled</h2>
+        <p class="section-lead">Process reliability issues that motivated the monitoring POC work.</p>
+        <div class="challenge-grid">
+          <div class="challenge-card reveal" style="--i:0">
+            <h3>Heat-induced filter reliability loss</h3>
+            <p>Thermal stress during selective soldering degraded filter assembly quality — requiring systematic failure analysis before monitoring could be designed.</p>
+          </div>
+          <div class="challenge-card reveal" style="--i:1">
+            <h3>Chip wastage in selective soldering</h3>
+            <p>Material loss from process variability demanded measurable signals — not just post-hoc inspection — to catch drift before scrap accumulated.</p>
+          </div>
+          <div class="challenge-card reveal" style="--i:2">
+            <h3>Maintenance timing without production data</h3>
+            <p>Teams lacked objective usage and condition data to schedule maintenance — POC models explored time-based and visual proxies for equipment health.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-block reveal content-prose">
         <h2>Key Contributions</h2>
         <ul class="achievement-list">
           <li>Analyzed heat-induced failures causing <strong>reduced filter reliability and chip wastage</strong></li>
@@ -49,29 +102,73 @@
           <li>Supported reduced material wastage and improved production efficiency through findings</li>
         </ul>
       </div>
+
       <div class="content-block reveal">
         <h2>Tech Stack</h2>
         <div class="tech-grid">
-          <div class="tech-item"><div class="tech-icon">👁️</div><div class="tech-name">OpenCV</div><div class="tech-desc">Computer vision / camera</div></div>
-          <div class="tech-item"><div class="tech-icon">🐍</div><div class="tech-name">Python</div><div class="tech-desc">Analysis & automation</div></div>
-          <div class="tech-item"><div class="tech-icon">📈</div><div class="tech-name">Data Analysis</div><div class="tech-desc">Failure pattern study</div></div>
-          <div class="tech-item"><div class="tech-icon">📷</div><div class="tech-name">Camera Setup</div><div class="tech-desc">Mini-camera monitoring</div></div>
+          <div class="tech-item reveal" style="--i:0">
+            <div class="tech-icon"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">Python</div>
+            <div class="tech-desc">Analysis &amp; automation</div>
+          </div>
+          <div class="tech-item reveal" style="--i:1">
+            <div class="tech-icon"><img src="https://cdn.simpleicons.org/opencv/5C3EE8" alt="OpenCV" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">OpenCV</div>
+            <div class="tech-desc">Computer vision / camera</div>
+          </div>
+          <div class="tech-item reveal" style="--i:2">
+            <div class="tech-icon"><span class="tech-icon-text">DATA</span></div>
+            <div class="tech-name">Data Analysis</div>
+            <div class="tech-desc">Failure pattern study</div>
+          </div>
+          <div class="tech-item reveal" style="--i:3">
+            <div class="tech-icon"><span class="tech-icon-text">CAM</span></div>
+            <div class="tech-name">Camera Setup</div>
+            <div class="tech-desc">Mini-camera monitoring</div>
+          </div>
         </div>
       </div>
+
     </main>
     <aside class="project-sidebar">
-      <div class="sidebar-card reveal">
+      <div class="sidebar-card sidebar-card--pipeline reveal">
+        <h4>POC Models</h4>
+        <div class="sidebar-layer">
+          <span class="sidebar-layer-key">Analysis</span>
+          <span class="sidebar-layer-val">Heat failure study</span>
+        </div>
+        <div class="sidebar-layer">
+          <span class="sidebar-layer-key">POC 1</span>
+          <span class="sidebar-layer-val">Mini-camera CV</span>
+        </div>
+        <div class="sidebar-layer">
+          <span class="sidebar-layer-key">POC 2</span>
+          <span class="sidebar-layer-val">Time-based usage</span>
+        </div>
+        <div class="sidebar-layer">
+          <span class="sidebar-layer-key">POC 3</span>
+          <span class="sidebar-layer-val">Combined sensor monitoring</span>
+        </div>
+        <div class="sidebar-layer">
+          <span class="sidebar-layer-key">Outcome</span>
+          <span class="sidebar-layer-val">Operating windows</span>
+        </div>
+      </div>
+      <div class="sidebar-card sidebar-card--projects reveal">
         <h4>Other Projects</h4>
-        <a href="../opc-ua-transformation/index.html" class="sidebar-proj-link"><span>🔌</span> Industrial Edge Data Platform</a>
-        <a href="../robotic-hand/index.html" class="sidebar-proj-link"><span>🦾</span> Robotic Hand R&D</a>
-        <a href="../power-testing/index.html" class="sidebar-proj-link"><span>⚡</span> Power Testing Machine</a>
+        <a href="../somic-ai-agent/index.html" class="sidebar-proj-link"><span>🧠</span> Intelligent RAG with Knowledge Graph</a>
+        <a href="../opc-ua-transformation/index.html" class="sidebar-proj-link"><span>🔌</span> IIoT Industrial Edge Data Platform</a>
+        <a href="../robotic-hand/index.html" class="sidebar-proj-link"><span>🦾</span> Robotic Hand R&amp;D</a>
+        <a href="../power-testing/index.html" class="sidebar-proj-link"><span>⚡</span> US–Japan Power Tester</a>
         <a href="../healthcare-analytics/index.html" class="sidebar-proj-link"><span>🏥</span> Healthcare Analytics</a>
       </div>
     </aside>
   </div></div>
+
   <footer><div class="container footer-inner">
     <p class="footer-copy">© 2025 <span>Vinayaka Sajjanshetty</span></p>
     <div class="footer-links"><a href="../../index.html">Home</a><a href="../../index.html#projects">Projects</a></div>
   </div></footer>
   <script src="../../js/main.js"></script>
+  <script src="project.js"></script>
 </body></html>

@@ -19,28 +19,81 @@
       <li><a href="../../resume.pdf" target="_blank" class="nav-resume">Resume ↗</a></li>
     </ul>
   </div></nav>
+
   <section class="project-hero"><div class="container">
-    <a href="../../index.html#projects" class="back-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>Back to Projects</a>
+    <a href="../../index.html#projects" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>Back to Projects
+    </a>
     <div class="project-hero-content reveal">
-      <div class="project-hero-tags"><span class="tag">ETL</span><span class="tag">Data Analytics</span><span class="tag">SQL</span><span class="tag">pandas</span><span class="tag">Healthcare</span></div>
+      <div class="project-hero-tags hero-tags-stagger">
+        <span class="tag">ETL</span><span class="tag">Data Analytics</span>
+        <span class="tag">SQL</span><span class="tag">pandas</span><span class="tag">Healthcare</span>
+      </div>
       <h1 class="project-hero-title">Healthcare Analytics Platform</h1>
       <p class="project-hero-sub">Supporting clinical, claims, and billing data analytics for business and operations teams at Legato Health Technologies</p>
       <div class="project-meta">
         <div class="meta-item"><span class="meta-label">Company</span><span class="meta-value">Legato Health Technologies</span></div>
-        <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">Software Engineer — Data & Analytics</span></div>
+        <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">Software Engineer — Data &amp; Analytics</span></div>
         <div class="meta-item"><span class="meta-label">Year</span><span class="meta-value">Sep 2022 — Sep 2024</span></div>
         <div class="meta-item"><span class="meta-label">Location</span><span class="meta-value">Bangalore, India</span></div>
       </div>
     </div>
-    <div class="project-cover-full reveal"><div class="cover-placeholder">🏥</div></div>
+    <div class="project-cover-full project-cover-video-wrap reveal">
+      <div class="cover-placeholder"><span class="cover-label">HLTH</span></div>
+    </div>
   </div></section>
+
   <div class="project-body-wrap"><div class="container project-layout">
     <main class="project-content">
-      <div class="content-block reveal">
+
+      <div class="content-block reveal content-prose">
         <h2>Overview</h2>
         <p>Supported a <strong>healthcare analytics product</strong> used by business and operations teams to manage and analyze clinical, claims, insurance, and billing data. Worked across development, QA, and operations to maintain data accuracy and delivery reliability.</p>
       </div>
+
       <div class="content-block reveal">
+        <h2>Platform Capabilities</h2>
+        <p class="section-lead">Analytics support across clinical, claims, and billing domains with reliable ETL and cross-team delivery.</p>
+        <div class="capability-grid">
+          <div class="capability-card reveal" style="--i:0">
+            <h3>Clinical / claims / billing analytics support</h3>
+            <p>Enabled business and operations teams to work with <strong>clinical, claims, insurance, and billing data</strong> through accurate, queryable analytics layers.</p>
+          </div>
+          <div class="capability-card reveal" style="--i:1">
+            <h3>Cross-team requirement gathering</h3>
+            <p>Collaborated with <strong>development, QA, and operations</strong> to capture new data requirements while protecting existing database entities.</p>
+          </div>
+          <div class="capability-card reveal" style="--i:2">
+            <h3>Root-cause data debugging</h3>
+            <p>Improved data accuracy through <strong>systematic root-cause analysis</strong> on production data issues and migration debugging.</p>
+          </div>
+          <div class="capability-card reveal" style="--i:3">
+            <h3>ETL pipeline reliability</h3>
+            <p>Maintained dependable <strong>ETL data flows</strong> — reducing issue resolution time and improving delivery predictability for downstream consumers.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-block reveal">
+        <h2>Challenges Tackled</h2>
+        <p class="section-lead">Data platform constraints common in regulated healthcare analytics environments.</p>
+        <div class="challenge-grid">
+          <div class="challenge-card reveal" style="--i:0">
+            <h3>New requirements without breaking existing DB entities</h3>
+            <p>Business teams needed expanded analytics without schema regressions — requiring careful requirement scoping and backward-compatible data modeling.</p>
+          </div>
+          <div class="challenge-card reveal" style="--i:1">
+            <h3>Data migration debugging</h3>
+            <p>Migration issues surfaced as subtle data drift in production — resolved through targeted debugging rather than broad re-runs that risked downtime.</p>
+          </div>
+          <div class="challenge-card reveal" style="--i:2">
+            <h3>Cross-team communication latency</h3>
+            <p>Handoffs between dev, QA, and ops slowed issue resolution — streamlined through structured communication workflows and clearer ownership.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-block reveal content-prose">
         <h2>Key Contributions</h2>
         <ul class="achievement-list">
           <li>Collaborated with business stakeholders, QA, and operations to understand <strong>new data requirements</strong> without impacting existing database entities</li>
@@ -49,29 +102,69 @@
           <li>Improved delivery predictability through structured communication workflows</li>
         </ul>
       </div>
+
       <div class="content-block reveal">
         <h2>Tech Stack</h2>
         <div class="tech-grid">
-          <div class="tech-item"><div class="tech-icon">🗄️</div><div class="tech-name">SQL</div><div class="tech-desc">Data querying & analysis</div></div>
-          <div class="tech-item"><div class="tech-icon">🐍</div><div class="tech-name">Python</div><div class="tech-desc">ETL pipeline scripting</div></div>
-          <div class="tech-item"><div class="tech-icon">📊</div><div class="tech-name">pandas</div><div class="tech-desc">Data manipulation</div></div>
-          <div class="tech-item"><div class="tech-icon">🔄</div><div class="tech-name">ETL Pipelines</div><div class="tech-desc">Data flow design</div></div>
+          <div class="tech-item reveal" style="--i:0">
+            <div class="tech-icon"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">Python</div>
+            <div class="tech-desc">ETL pipeline scripting</div>
+          </div>
+          <div class="tech-item reveal" style="--i:1">
+            <div class="tech-icon"><img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="PostgreSQL" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">PostgreSQL</div>
+            <div class="tech-desc">Data querying &amp; analysis</div>
+          </div>
+          <div class="tech-item reveal" style="--i:2">
+            <div class="tech-icon"><span class="tech-icon-text">pandas</span></div>
+            <div class="tech-name">pandas</div>
+            <div class="tech-desc">Data manipulation</div>
+          </div>
+          <div class="tech-item reveal" style="--i:3">
+            <div class="tech-icon"><span class="tech-icon-text">ETL</span></div>
+            <div class="tech-name">ETL Pipelines</div>
+            <div class="tech-desc">Data flow design</div>
+          </div>
         </div>
       </div>
+
     </main>
     <aside class="project-sidebar">
-      <div class="sidebar-card reveal">
+      <div class="sidebar-card sidebar-card--pipeline reveal">
+        <h4>Data Domains</h4>
+        <div class="sidebar-layer">
+          <span class="sidebar-layer-key">Clinical</span>
+          <span class="sidebar-layer-val">Clinical data</span>
+        </div>
+        <div class="sidebar-layer">
+          <span class="sidebar-layer-key">Claims</span>
+          <span class="sidebar-layer-val">Claims &amp; insurance</span>
+        </div>
+        <div class="sidebar-layer">
+          <span class="sidebar-layer-key">Billing</span>
+          <span class="sidebar-layer-val">Billing analytics</span>
+        </div>
+        <div class="sidebar-layer">
+          <span class="sidebar-layer-key">Delivery</span>
+          <span class="sidebar-layer-val">Dev / QA / Ops</span>
+        </div>
+      </div>
+      <div class="sidebar-card sidebar-card--projects reveal">
         <h4>Other Projects</h4>
-        <a href="../opc-ua-transformation/index.html" class="sidebar-proj-link"><span>🔌</span> Industrial Edge Data Platform</a>
-        <a href="../robotic-hand/index.html" class="sidebar-proj-link"><span>🦾</span> Robotic Hand R&D</a>
-        <a href="../power-testing/index.html" class="sidebar-proj-link"><span>⚡</span> Power Testing Machine</a>
+        <a href="../somic-ai-agent/index.html" class="sidebar-proj-link"><span>🧠</span> Intelligent RAG with Knowledge Graph</a>
+        <a href="../opc-ua-transformation/index.html" class="sidebar-proj-link"><span>🔌</span> IIoT Industrial Edge Data Platform</a>
+        <a href="../robotic-hand/index.html" class="sidebar-proj-link"><span>🦾</span> Robotic Hand R&amp;D</a>
+        <a href="../power-testing/index.html" class="sidebar-proj-link"><span>⚡</span> US–Japan Power Tester</a>
         <a href="../bosch-monitoring/index.html" class="sidebar-proj-link"><span>🔬</span> Bosch Process Monitor</a>
       </div>
     </aside>
   </div></div>
+
   <footer><div class="container footer-inner">
     <p class="footer-copy">© 2025 <span>Vinayaka Sajjanshetty</span></p>
     <div class="footer-links"><a href="../../index.html">Home</a><a href="../../index.html#projects">Projects</a></div>
   </div></footer>
   <script src="../../js/main.js"></script>
+  <script src="project.js"></script>
 </body></html>

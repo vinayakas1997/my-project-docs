@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Industrial Edge Data Platform — Vinayaka</title>
+  <title>IIoT Industrial Edge Data Platform — Vinayaka</title>
   <link rel="stylesheet" href="../../css/style.css" />
   <link rel="stylesheet" href="../../css/hero.css" />
   <link rel="stylesheet" href="../../css/sections.css" />
@@ -25,21 +25,21 @@
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>Back to Projects
     </a>
     <div class="project-hero-content reveal">
-      <div class="project-hero-tags">
+      <div class="project-hero-tags hero-tags-stagger">
         <span class="tag">TRITON</span><span class="tag">OPC UA</span><span class="tag">MQTT</span>
         <span class="tag">FastAPI</span><span class="tag">n8n</span><span class="tag">PostgreSQL</span>
         <span class="tag">Grafana</span><span class="tag">Ansible Semaphore</span><span class="tag">AI-Ready Data</span>
       </div>
-      <h1 class="project-hero-title">Industrial Edge Data Platform</h1>
+      <h1 class="project-hero-title">IIoT Industrial Edge Data Platform</h1>
       <p class="project-hero-sub">End-to-end factory data platform on LINX TRITON edge controllers — multi-path PLC ingestion, n8n + FastAPI processing into PostgreSQL, Grafana analytics, and Ansible Semaphore fleet management.</p>
       <div class="project-meta">
         <div class="meta-item"><span class="meta-label">Company</span><span class="meta-value">Somic Ishikawa</span></div>
         <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">R&amp;D Engineer</span></div>
-        <div class="meta-item"><span class="meta-label">Year</span><span class="meta-value">2024 — Present</span></div>
+        <div class="meta-item"><span class="meta-label">Year</span><span class="meta-value">2024 — <span class="meta-present">Present</span></span></div>
         <div class="meta-item"><span class="meta-label">Type</span><span class="meta-value">Platform / Infrastructure</span></div>
       </div>
     </div>
-    <div class="project-cover-full reveal">
+    <div class="project-cover-full project-cover-video-wrap reveal">
       <div class="cover-placeholder">
         <span class="cover-label">IIoT</span>
       </div>
@@ -49,17 +49,46 @@
   <div class="project-body-wrap"><div class="container project-layout">
     <main class="project-content">
 
-      <div class="content-block reveal">
+      <div class="content-block reveal content-prose">
         <h2>Overview</h2>
         <p>The factory already ran IoT on the floor, but the stack depended on <strong>commercial software licenses</strong> and a <strong>capped register count</strong> — limiting how much granular shop-floor data could be exposed for analysis. This project replaced that constraint with a <strong>self-owned</strong> edge-to-database pipeline, improving cost efficiency and data accessibility without replacing Omron PLC hardware.</p>
         <p>Modernized factory data at Somic Ishikawa by standardizing edge access on <strong>OPC UA</strong> and moving signals through a structured pipeline to queryable analytics for production teams.</p>
         <p>Edge compute runs on <a href="https://linx.jp/product/triton/" target="_blank" rel="noopener noreferrer"><strong>TRITON</strong></a> controllers from LINX (CODESYS, native OPC UA), with a Python FINS bridge running on-device. Raw data is ingested over <strong>three paths</strong> (OPC UA, MQTT, CSV) matched to latency and volume, orchestrated by <strong>n8n</strong>, processed and persisted by <strong>FastAPI → PostgreSQL</strong>, and visualized in <strong>Grafana</strong>. <strong>Ansible Semaphore</strong> manages the TRITON fleet; <strong>Prometheus</strong> monitors pipeline health and logs.</p>
-        <p>This platform feeds <strong><a href="../agentic-factory-analytics/index.html">Part 2: Agentic Factory Analytics</a></strong> — AI and agentic analysis on the same PostgreSQL data layer. <em>Full case study expanding soon.</em></p>
+        <p>The platform is <strong>live in production</strong> and feeds <strong><a href="../agentic-factory-analytics/index.html">Part 2: Agentic Factory Analytics</a></strong> — AI and agentic analysis on the same PostgreSQL data layer.</p>
+      </div>
+
+      <div class="content-block reveal">
+        <h2>Platform Capabilities</h2>
+        <p class="section-lead">Self-owned edge-to-cloud pipeline — from PLC signals to queryable analytics and AI-ready data.</p>
+        <div class="capability-grid">
+          <div class="capability-card reveal" style="--i:0">
+            <h3>Self-owned data pipeline</h3>
+            <p>Replaced <strong>license- and register-limited</strong> legacy IoT with an owned edge-to-PostgreSQL path — less vendor dependency, more granular shop-floor exposure.</p>
+          </div>
+          <div class="capability-card reveal" style="--i:1">
+            <h3>Multi-path ingestion</h3>
+            <p><strong>OPC UA</strong>, <strong>MQTT</strong>, and <strong>CSV</strong> routes matched to data velocity and volume — not one protocol forced on every signal.</p>
+          </div>
+          <div class="capability-card reveal" style="--i:2">
+            <h3>FINS bridge on TRITON</h3>
+            <p>Python FINS handler on LINX TRITON edge controllers — <strong>no Omron PLC hardware replacement</strong> required.</p>
+          </div>
+          <div class="capability-card reveal" style="--i:3">
+            <h3>Production analytics</h3>
+            <p><strong>n8n</strong> orchestration and <strong>FastAPI</strong> processing into <strong>PostgreSQL</strong>, with <strong>Grafana</strong> dashboards for production teams.</p>
+          </div>
+          <div class="capability-card reveal" style="--i:4">
+            <h3>AI-ready foundation</h3>
+            <p>PostgreSQL as system of record unlocks <strong>higher-granularity factory data</strong> for <a href="../agentic-factory-analytics/index.html">Part 2: Agentic Factory Analytics</a>.</p>
+          </div>
+        </div>
       </div>
 
       <div class="content-block reveal">
         <h2>Architecture</h2>
-        <div class="diagram-placeholder">
+        <p class="section-lead">Edge ingestion through n8n and FastAPI into PostgreSQL — Grafana dashboards and agentic analytics downstream.</p>
+        <div class="diagram-placeholder diagram-scanlines" aria-expanded="false">
+          <span class="diagram-expand-hint" aria-hidden="true">Hover or click to expand</span>
           <div class="arch-wrap">
             <div class="arch-flow">
 
@@ -178,7 +207,7 @@
 
       <div class="content-block reveal">
         <h2>Ingestion Strategy</h2>
-        <p>Each protocol path was chosen by data profile — not every signal uses the same transport.</p>
+        <p class="section-lead">Each protocol path was chosen by data profile — not every signal uses the same transport.</p>
         <div class="table-wrap">
           <table class="ingestion-table">
             <thead>
@@ -210,6 +239,25 @@
       </div>
 
       <div class="content-block reveal">
+        <h2>Challenges Tackled</h2>
+        <p class="section-lead">Legacy constraints, heterogeneous protocols, and fleet operations — solved without replacing PLC hardware.</p>
+        <div class="challenge-grid">
+          <div class="challenge-card reveal" style="--i:0">
+            <h3>License and register limits</h3>
+            <p>The legacy commercial IoT stack capped how many registers could be exposed for analysis. Replaced with a <strong>self-owned edge-to-PostgreSQL pipeline</strong> — higher data granularity, lower vendor lock-in.</p>
+          </div>
+          <div class="challenge-card reveal" style="--i:1">
+            <h3>Heterogeneous shop-floor protocols</h3>
+            <p>Factory signals differ in latency, volume, and format. Unified via <strong>TRITON OPC UA</strong> aggregation and a <strong>multi-path strategy</strong> — OPC UA for standardized access, MQTT for high-throughput streams, CSV for batch loads.</p>
+          </div>
+          <div class="challenge-card reveal" style="--i:2">
+            <h3>Operational reliability at scale</h3>
+            <p>Multi-node TRITON fleet needs repeatable provisioning and pipeline health visibility. Addressed with <strong>Ansible Semaphore</strong> for fleet management and <strong>Prometheus</strong> monitoring across n8n and pipeline services.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-block reveal content-prose">
         <h2>Key Achievements</h2>
         <ul class="achievement-list">
           <li>Replaced <strong>license- and register-limited</strong> legacy IoT with a <strong>self-owned</strong> edge-to-PostgreSQL pipeline, reducing vendor dependency and cost</li>
@@ -227,62 +275,62 @@
       <div class="content-block reveal">
         <h2>Tech Stack</h2>
         <div class="tech-grid stack-wide">
-          <div class="tech-item">
+          <div class="tech-item reveal" style="--i:0">
             <div class="tech-icon"><span class="tech-icon-text">TRITON</span></div>
             <div class="tech-name"><a href="https://linx.jp/product/triton/" target="_blank" rel="noopener noreferrer">TRITON (LINX)</a></div>
             <div class="tech-desc">CODESYS edge PLC, OPC UA</div>
           </div>
-          <div class="tech-item">
+          <div class="tech-item reveal" style="--i:1">
             <div class="tech-icon"><span class="tech-icon-text">OPC UA</span></div>
             <div class="tech-name">OPC UA</div>
             <div class="tech-desc">Standardized industrial protocol</div>
           </div>
-          <div class="tech-item">
+          <div class="tech-item reveal" style="--i:2">
             <div class="tech-icon"><span class="tech-icon-text">OMRON</span></div>
             <div class="tech-name">Omron PLC</div>
             <div class="tech-desc">Factory floor devices</div>
           </div>
-          <div class="tech-item">
+          <div class="tech-item reveal" style="--i:3">
             <div class="tech-icon"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" width="28" height="28" loading="lazy" /></div>
             <div class="tech-name">Python</div>
             <div class="tech-desc">FINS handler &amp; integration</div>
           </div>
-          <div class="tech-item">
+          <div class="tech-item reveal" style="--i:4">
             <div class="tech-icon"><img src="https://cdn.simpleicons.org/fastapi/009688" alt="FastAPI" width="28" height="28" loading="lazy" /></div>
             <div class="tech-name">FastAPI</div>
             <div class="tech-desc">Processing node → PostgreSQL</div>
           </div>
-          <div class="tech-item">
+          <div class="tech-item reveal" style="--i:5">
             <div class="tech-icon"><img src="https://cdn.simpleicons.org/n8n/EA4B71" alt="n8n" width="28" height="28" loading="lazy" /></div>
             <div class="tech-name">n8n</div>
             <div class="tech-desc">Workflow orchestration</div>
           </div>
-          <div class="tech-item">
+          <div class="tech-item reveal" style="--i:6">
             <div class="tech-icon"><img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="PostgreSQL" width="28" height="28" loading="lazy" /></div>
             <div class="tech-name">PostgreSQL</div>
             <div class="tech-desc">System of record</div>
           </div>
-          <div class="tech-item">
+          <div class="tech-item reveal" style="--i:7">
             <div class="tech-icon"><img src="https://cdn.simpleicons.org/mqtt/660066" alt="MQTT" width="28" height="28" loading="lazy" /></div>
             <div class="tech-name">MQTT</div>
             <div class="tech-desc">High-throughput live data</div>
           </div>
-          <div class="tech-item">
+          <div class="tech-item reveal" style="--i:8">
             <div class="tech-icon"><img src="https://cdn.simpleicons.org/grafana/F46800" alt="Grafana" width="28" height="28" loading="lazy" /></div>
             <div class="tech-name">Grafana</div>
             <div class="tech-desc">Production dashboards</div>
           </div>
-          <div class="tech-item">
+          <div class="tech-item reveal" style="--i:9">
             <div class="tech-icon"><img src="https://cdn.simpleicons.org/prometheus/E6522C" alt="Prometheus" width="28" height="28" loading="lazy" /></div>
             <div class="tech-name">Prometheus</div>
             <div class="tech-desc">Pipeline health monitoring</div>
           </div>
-          <div class="tech-item">
+          <div class="tech-item reveal" style="--i:10">
             <div class="tech-icon"><img src="https://cdn.simpleicons.org/ansible/EE0000" alt="Ansible Semaphore" width="28" height="28" loading="lazy" /></div>
             <div class="tech-name">Ansible Semaphore</div>
             <div class="tech-desc">TRITON fleet management</div>
           </div>
-          <div class="tech-item">
+          <div class="tech-item reveal" style="--i:11">
             <div class="tech-icon"><img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker" width="28" height="28" loading="lazy" /></div>
             <div class="tech-name">Docker</div>
             <div class="tech-desc">Service containerization</div>
@@ -292,7 +340,7 @@
 
     </main>
     <aside class="project-sidebar">
-      <div class="sidebar-card reveal">
+      <div class="sidebar-card sidebar-card--pipeline reveal">
         <h4>Platform Layers</h4>
         <div class="sidebar-layer"><span class="sidebar-layer-key">Edge</span><span class="sidebar-layer-val">TRITON, OPC UA</span></div>
         <div class="sidebar-layer"><span class="sidebar-layer-key">Ingest</span><span class="sidebar-layer-val">FINS, OPC UA, MQTT, CSV</span></div>
@@ -302,15 +350,12 @@
         <div class="sidebar-layer"><span class="sidebar-layer-key">Analyze</span><span class="sidebar-layer-val"><a href="../agentic-factory-analytics/index.html">Agentic AI (Part 2)</a></span></div>
         <div class="sidebar-layer"><span class="sidebar-layer-key">Ops</span><span class="sidebar-layer-val">Ansible Semaphore, Prometheus</span></div>
       </div>
-      <div class="sidebar-card reveal">
-        <h4>Related</h4>
-        <div class="sidebar-layer"><span class="sidebar-layer-key">Part 1</span><span class="sidebar-layer-val">Industrial Edge Data Platform</span></div>
-        <div class="sidebar-layer"><span class="sidebar-layer-key">Part 2</span><span class="sidebar-layer-val"><a href="../agentic-factory-analytics/index.html">Agentic Factory Analytics</a></span></div>
-      </div>
-      <div class="sidebar-card reveal">
+      <div class="sidebar-card sidebar-card--projects reveal">
         <h4>Other Projects</h4>
+        <a href="../agentic-factory-analytics/index.html" class="sidebar-proj-link"><span>🤖</span> Agentic Factory Analytics (Part 2)</a>
+        <a href="../somic-ai-agent/index.html" class="sidebar-proj-link"><span>🧠</span> Intelligent RAG with Knowledge Graph</a>
         <a href="../robotic-hand/index.html" class="sidebar-proj-link"><span>🦾</span> Robotic Hand R&amp;D</a>
-        <a href="../power-testing/index.html" class="sidebar-proj-link"><span>⚡</span> Power Testing Machine</a>
+        <a href="../power-testing/index.html" class="sidebar-proj-link"><span>⚡</span> US–Japan Power Tester</a>
         <a href="../bosch-monitoring/index.html" class="sidebar-proj-link"><span>🔬</span> Bosch Process Monitor</a>
         <a href="../healthcare-analytics/index.html" class="sidebar-proj-link"><span>🏥</span> Healthcare Analytics</a>
       </div>
@@ -322,4 +367,5 @@
     <div class="footer-links"><a href="../../index.html">Home</a><a href="../../index.html#projects">Projects</a></div>
   </div></footer>
   <script src="../../js/main.js"></script>
+  <script src="project.js"></script>
 </body></html>

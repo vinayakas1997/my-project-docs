@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SOMIC AI Agent — Vinayaka</title>
+  <title>Intelligent RAG with Knowledge Graph — Vinayaka</title>
+  <meta name="description" content="Intelligent RAG with knowledge graph — autonomous ingestion, Hindsight memory, LangGraph agents, and Atlas inference over 2,500+ manufacturing documents." />
   <link rel="stylesheet" href="../../css/style.css" />
   <link rel="stylesheet" href="../../css/hero.css" />
   <link rel="stylesheet" href="../../css/sections.css" />
@@ -25,21 +26,22 @@
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>Back to Projects
     </a>
     <div class="project-hero-content reveal">
-      <div class="project-hero-tags">
-        <span class="tag">RAG</span><span class="tag">LLM</span><span class="tag">AI Agent</span>
-        <span class="tag">Embeddings</span><span class="tag">Retrieval</span>
+      <div class="project-hero-tags hero-tags-stagger">
+        <span class="tag">RAG</span><span class="tag">Knowledge Graph</span><span class="tag">Hindsight</span>
+        <span class="tag">LangGraph</span><span class="tag">Atlas</span><span class="tag">Qwen3.6</span>
+        <span class="tag">PostgreSQL</span><span class="tag">MinerU</span>
       </div>
-      <h1 class="project-hero-title">SOMIC AI Agent</h1>
-      <p class="project-hero-sub">RAG retrieval agent over internal documents at Somic Ishikawa — full case study coming soon.</p>
+      <h1 class="project-hero-title">Intelligent RAG with Knowledge Graph</h1>
+      <p class="project-hero-sub">Fully autonomous RAG over 2,500+ manufacturing docs — Hindsight memory, LangGraph agents, hybrid retrieval, and local Qwen3.6 inference at ~70 tok/s via <a href="https://atlasinference.io/" target="_blank" rel="noopener noreferrer">Atlas</a> on DGX Spark.</p>
       <div class="project-meta">
         <div class="meta-item"><span class="meta-label">Company</span><span class="meta-value">Somic Ishikawa</span></div>
         <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">R&amp;D Engineer</span></div>
-        <div class="meta-item"><span class="meta-label">Year</span><span class="meta-value">2024 — Present</span></div>
+        <div class="meta-item"><span class="meta-label">Year</span><span class="meta-value">2024 — <span class="meta-present">Present</span></span></div>
         <div class="meta-item"><span class="meta-label">Type</span><span class="meta-value">RAG / AI Agent</span></div>
       </div>
     </div>
-    <div class="project-cover-full reveal">
-      <video class="project-cover-video" controls playsinline preload="metadata">
+    <div class="project-cover-full project-cover-video-wrap reveal">
+      <video class="project-cover-video" controls playsinline preload="metadata" poster="assets/chatbot-poster.jpg">
         <source src="chatbot_working_glimpse.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
@@ -49,22 +51,51 @@
   <div class="project-body-wrap"><div class="container project-layout">
     <main class="project-content">
 
-      <div class="content-block reveal">
+      <div class="content-block reveal content-prose">
         <h2>Overview</h2>
-        <p>At Somic Ishikawa, internal technical knowledge is spread across documents that are difficult to search quickly. This project builds a <strong>RAG retrieval agent</strong> so teams can get <strong>grounded answers</strong> from internal sources instead of relying on guesswork or manual lookup.</p>
-        <p>The RAG pipeline, document ingestion, and agent behavior are <strong>in progress</strong>. Architecture, tech stack, and measured outcomes will be published here as the case study is completed.</p>
+        <p>Internal technical knowledge at Somic Ishikawa lives across thousands of files — PDFs, slides, diagrams, mixed Japanese and English. Manual search is slow; generic LLMs hallucinate without grounding.</p>
+        <p>Built a <strong>fully autonomous pipeline</strong> from folder upload to indexed memory: the system <strong>segregates processable files automatically</strong>, routes each through OCR and quality gates, stores raw and clean outputs in <strong>PostgreSQL</strong>, and indexes structured memory in <strong>Hindsight</strong> with a <strong>knowledge graph</strong> and hybrid retrieval — no manual steps between upload and queryable intelligence.</p>
+        <p><strong>2,500+ documents</strong> ingested. A <strong>LangGraph manager agent</strong> routes queries to RAG, summarizer, concept-relationship, or greeting flows. Answers are <strong>grounded, cited, and streamed</strong> with related source documents. Evaluation is team-driven: each upload batch can define golden questions and expected answers to test coverage and reverse-engineer gaps. See the demo video above.</p>
+      </div>
+
+      <div class="content-block reveal">
+        <h2>Intelligent Agent Capabilities</h2>
+        <p class="section-lead">Beyond basic Q&amp;A — the agent stack supports memory, summarization, and cross-lingual access.</p>
+        <div class="capability-grid">
+          <div class="capability-card reveal" style="--i:0">
+            <h3>Grounded answers + sources</h3>
+            <p>Responses include <strong>related source documents</strong>, not isolated generated text.</p>
+          </div>
+          <div class="capability-card reveal" style="--i:1">
+            <h3>Hindsight memory</h3>
+            <p>Chat history is not stored as raw transcripts — <strong>important facts</strong> are extracted into Hindsight for useful retrieval across sessions.</p>
+          </div>
+          <div class="capability-card reveal" style="--i:2">
+            <h3>Conversation summarizer</h3>
+            <p>After long threads across multiple topics, summarizes <strong>from the start</strong> so context is not lost.</p>
+          </div>
+          <div class="capability-card reveal" style="--i:3">
+            <h3>Concept relationships</h3>
+            <p>Surfaces <strong>open concepts</strong> across the full chat for better understanding of how ideas connect.</p>
+          </div>
+          <div class="capability-card reveal" style="--i:4">
+            <h3>Cross-lingual Q&amp;A</h3>
+            <p><strong>Bidirectional JP ↔ EN</strong> — ask in Japanese or English, receive grounded answers in the other language with sources.</p>
+          </div>
+        </div>
       </div>
 
       <div class="content-block reveal">
         <h2>Architecture</h2>
-        <p>Hybrid RAG in three stages: MinerU extraction with hallucination-checked retries, GLM-4.6V VLM fallback for diagram pages, cleaning, and PostgreSQL raw/clean document stores before indexing into Hindsight (world facts, observations, experience), hybrid retrieval (RRF, semantic, BM25), and local vLLM inference on DGX Spark.</p>
-        <div class="diagram-placeholder">
+        <p class="section-lead">Three stages — ingestion, indexing, and agentic query — running end-to-end without manual handoffs.</p>
+        <div class="diagram-placeholder diagram-scanlines" aria-expanded="false">
+          <span class="diagram-expand-hint" aria-hidden="true">Hover or click to expand</span>
           <div class="arch-wrap">
 
             <div class="arch-triptych">
 
               <!-- LEFT: Ingestion (ported from ingestion.html) -->
-              <div class="arch-triptych-col arch-triptych-col--ingest">
+              <div class="arch-triptych-col arch-triptych-col--ingest" data-stage="ingest">
                 <p class="diagram-label">Ingestion</p>
 
                 <div class="ingest-pipeline">
@@ -205,7 +236,7 @@
               </div>
 
               <!-- CENTER: Hindsight (ported from vector_db.html) -->
-              <div class="arch-triptych-col arch-triptych-col--hub">
+              <div class="arch-triptych-col arch-triptych-col--hub" data-stage="hub">
                 <p class="diagram-label">Vector database</p>
 
                 <div class="vector-pipeline">
@@ -290,7 +321,7 @@
               </div>
 
               <!-- RIGHT: Query (ported from query.html) -->
-              <div class="arch-triptych-col arch-triptych-col--query">
+              <div class="arch-triptych-col arch-triptych-col--query" data-stage="query">
                 <p class="diagram-label">Query</p>
 
                 <div class="query-pipeline">
@@ -334,9 +365,9 @@
 
                     <div class="query-side-col query-side-col--llm">
                       <div class="query-node query-n-teal query-node--vllm">
-                        <img src="assets/vllm-icon.png" alt="vLLM" class="query-brand-vllm" loading="lazy" />
-                        <div class="query-title">vLLM</div>
-                        <div class="query-sub">Local LLM</div>
+                        <span class="tech-icon-text">Atlas</span>
+                        <div class="query-title">Atlas Inference</div>
+                        <div class="query-sub">Qwen3.6 · local LLM</div>
                       </div>
                       <span class="query-docs-label">docs ↑</span>
                       <div class="query-node query-n-blue query-node--pg">
@@ -370,23 +401,138 @@
                 <span class="diag-icon-sub">GB10 · Blackwell</span>
               </div>
               <div class="arch-prometheus-dash"></div>
-              <span class="arch-prometheus-label">hosts → vLLM (no external API)</span>
+              <span class="arch-prometheus-label">hosts → Atlas inference (no external API)</span>
             </div>
 
           </div>
         </div>
       </div>
 
+      <div class="content-block reveal">
+        <h2>Challenges Tackled</h2>
+        <div class="challenge-grid">
+          <div class="challenge-card reveal" style="--i:0">
+            <h3>Local inference speed</h3>
+            <p>First deployed <strong>vLLM</strong> on DGX Spark with latest attention optimizations; throughput plateaued at <strong>~45 tok/s</strong>. Switched to <strong><a href="https://atlasinference.io/" target="_blank" rel="noopener noreferrer">Atlas Inference</a></strong> (Rust + CUDA) running <strong>Qwen3.6 35B A3B NVFP4</strong> and reached <strong>~<span class="metric-count" data-from="45" data-to="70">70</span> tok/s</strong>.</p>
+            <div class="challenge-metric" aria-hidden="true">
+              <span class="metric-pill metric-pill--from">vLLM ~45</span>
+              <span class="metric-arrow">→</span>
+              <span class="metric-pill metric-pill--to">Atlas ~70 tok/s</span>
+            </div>
+          </div>
+          <div class="challenge-card reveal" style="--i:1">
+            <h3>OCR hallucination</h3>
+            <p>Manufacturing PDFs (tables, diagrams, mixed layouts) triggered <strong>OCR hallucinations</strong>. Mitigated with MinerU extraction, word-count/anagram checks, retry logic, GLM-4.6V validation, and VLM fallback — invalid pages dropped before indexing.</p>
+          </div>
+          <div class="challenge-card reveal" style="--i:2">
+            <h3>Japanese ↔ English barrier</h3>
+            <p>Factory teams work in both languages. Built <strong>bidirectional cross-lingual Q&amp;A</strong> — ask in Japanese or English, receive grounded answers in the other language with source documents attached.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-block reveal content-prose">
+        <h2>Key Achievements</h2>
+        <ul class="achievement-list">
+          <li>Delivered <strong>fully autonomous ingestion</strong> — folder upload → file segregation → processing → indexed memory without manual intervention</li>
+          <li>Processed <strong>2,500+ internal documents</strong> with automatic filtering of non-processable files into a separate store for later fetching</li>
+          <li>Built <strong>hallucination-resistant OCR</strong> pipeline for Japanese manufacturing docs (MinerU + validation + GLM-4.6V fallback)</li>
+          <li>Indexed <strong>Hindsight structured memory</strong> and <strong>knowledge graph</strong> with BGE-M3 embeddings and hybrid retrieval (RRF, semantic, BM25)</li>
+          <li>Deployed <strong>LangGraph manager agent</strong> — RAG, summarizer, concept-relationship, and greeting sub-agents</li>
+          <li>Optimized on-prem inference: <strong>vLLM (~45 tok/s) → Atlas (~70 tok/s)</strong> with Qwen3.6 35B A3B NVFP4 on DGX Spark</li>
+          <li>Enabled <strong>bidirectional JP ↔ EN</strong> grounded Q&amp;A with related document retrieval</li>
+          <li>Established <strong>golden Q&amp;A evaluation workflow</strong> per team upload batch for coverage testing and gap analysis</li>
+          <li>Shipped working <strong>chatbot demo</strong> with cited, streamed responses (see video above)</li>
+        </ul>
+      </div>
+
+      <div class="content-block reveal">
+        <h2>Tech Stack</h2>
+        <div class="tech-grid stack-wide">
+          <div class="tech-item reveal" style="--i:0">
+            <div class="tech-icon"><img src="assets/mineru-icon.png" alt="MinerU" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">MinerU</div>
+            <div class="tech-desc">OCR / layout extraction</div>
+          </div>
+          <div class="tech-item reveal" style="--i:1">
+            <div class="tech-icon"><span class="tech-icon-text">GLM-4.6V</span></div>
+            <div class="tech-name">GLM-4.6V</div>
+            <div class="tech-desc">VLM for diagrams + validation</div>
+          </div>
+          <div class="tech-item reveal" style="--i:2">
+            <div class="tech-icon"><img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="PostgreSQL" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">PostgreSQL</div>
+            <div class="tech-desc">Raw / clean document store</div>
+          </div>
+          <div class="tech-item reveal" style="--i:3">
+            <div class="tech-icon"><img src="assets/hindsight-icon.png" alt="Hindsight" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">Hindsight</div>
+            <div class="tech-desc">Structured memory + KG indexing</div>
+          </div>
+          <div class="tech-item reveal" style="--i:4">
+            <div class="tech-icon"><span class="tech-icon-text">BGE-M3</span></div>
+            <div class="tech-name">BGE-M3</div>
+            <div class="tech-desc">Dense + sparse embeddings</div>
+          </div>
+          <div class="tech-item reveal" style="--i:5">
+            <div class="tech-icon"><img src="assets/knowledge-graph-icon.png" alt="Knowledge Graph" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">Knowledge Graph</div>
+            <div class="tech-desc">Entity / relation store</div>
+          </div>
+          <div class="tech-item reveal" style="--i:6">
+            <div class="tech-icon"><img src="https://cdn.simpleicons.org/langchain/1C3C3C" alt="LangGraph" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">LangGraph</div>
+            <div class="tech-desc">Agent orchestration</div>
+          </div>
+          <div class="tech-item reveal" style="--i:7">
+            <div class="tech-icon"><img src="assets/vllm-icon.png" alt="vLLM" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">vLLM</div>
+            <div class="tech-desc">Initial inference baseline</div>
+          </div>
+          <div class="tech-item reveal" style="--i:8">
+            <div class="tech-icon"><span class="tech-icon-text">Atlas</span></div>
+            <div class="tech-name"><a href="https://atlasinference.io/" target="_blank" rel="noopener noreferrer">Atlas Inference</a></div>
+            <div class="tech-desc">Production inference (~70 tok/s)</div>
+          </div>
+          <div class="tech-item reveal" style="--i:9">
+            <div class="tech-icon"><span class="tech-icon-text">Qwen3.6</span></div>
+            <div class="tech-name">Qwen3.6 35B A3B</div>
+            <div class="tech-desc">NVFP4 on-prem LLM</div>
+          </div>
+          <div class="tech-item reveal" style="--i:10">
+            <div class="tech-icon"><img src="https://cdn.simpleicons.org/nvidia/76B900" alt="NVIDIA" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">DGX Spark</div>
+            <div class="tech-desc">On-prem inference hardware</div>
+          </div>
+          <div class="tech-item reveal" style="--i:11">
+            <div class="tech-icon"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">Python</div>
+            <div class="tech-desc">Pipeline + agent code</div>
+          </div>
+        </div>
+      </div>
+
     </main>
     <aside class="project-sidebar">
-      <div class="sidebar-card reveal">
+      <div class="sidebar-card sidebar-card--pipeline reveal">
+        <h4>Pipeline at a Glance</h4>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Upload</span><span class="sidebar-layer-val">Folder drop · auto segregation</span></div>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Ingest</span><span class="sidebar-layer-val">MinerU, GLM-4.6V, quality gates</span></div>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Store</span><span class="sidebar-layer-val">PostgreSQL (raw + clean)</span></div>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Index</span><span class="sidebar-layer-val">Hindsight, BGE-M3, KG</span></div>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Retrieve</span><span class="sidebar-layer-val">RRF, semantic, BM25</span></div>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Agent</span><span class="sidebar-layer-val">LangGraph sub-agents</span></div>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Inference</span><span class="sidebar-layer-val">Atlas + Qwen3.6</span></div>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Eval</span><span class="sidebar-layer-val">Golden Q&amp;A per batch</span></div>
+      </div>
+      <div class="sidebar-card sidebar-card--projects reveal">
         <h4>Other Projects</h4>
-        <a href="../opc-ua-transformation/index.html" class="sidebar-proj-link"><span>🔌</span> Industrial Edge Data Platform</a>
-        <a href="../agentic-factory-analytics/index.html" class="sidebar-proj-link"><span>🤖</span> Agentic Factory Analytics</a>
+        <a href="../opc-ua-transformation/index.html" class="sidebar-proj-link"><span>🔌</span> IIoT Industrial Edge Data Platform</a>
         <a href="../robotic-hand/index.html" class="sidebar-proj-link"><span>🦾</span> Robotic Hand R&amp;D</a>
-        <a href="../power-testing/index.html" class="sidebar-proj-link"><span>⚡</span> Power Testing Machine</a>
+        <a href="../power-testing/index.html" class="sidebar-proj-link"><span>⚡</span> US–Japan Power Tester</a>
         <a href="../bosch-monitoring/index.html" class="sidebar-proj-link"><span>🔬</span> Bosch Process Monitor</a>
         <a href="../healthcare-analytics/index.html" class="sidebar-proj-link"><span>🏥</span> Healthcare Analytics</a>
+        <a href="../agentic-factory-analytics/index.html" class="sidebar-proj-link"><span>🤖</span> Agentic Factory Analytics</a>
       </div>
     </aside>
   </div></div>
@@ -396,4 +542,5 @@
     <div class="footer-links"><a href="../../index.html">Home</a><a href="../../index.html#projects">Projects</a></div>
   </div></footer>
   <script src="../../js/main.js"></script>
+  <script src="project.js"></script>
 </body></html>

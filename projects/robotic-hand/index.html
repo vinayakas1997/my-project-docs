@@ -25,7 +25,7 @@
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>Back to Projects
     </a>
     <div class="project-hero-content reveal">
-      <div class="project-hero-tags">
+      <div class="project-hero-tags hero-tags-stagger">
         <span class="tag">Robotics</span><span class="tag">ROS2</span>
         <span class="tag">R&D</span><span class="tag">Factory Automation</span><span class="tag">Prototyping</span>
       </div>
@@ -34,33 +34,67 @@
       <div class="project-meta">
         <div class="meta-item"><span class="meta-label">Company</span><span class="meta-value">Somic Ishikawa</span></div>
         <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">R&D Engineer</span></div>
-        <div class="meta-item"><span class="meta-label">Year</span><span class="meta-value">2024 — Present</span></div>
+        <div class="meta-item"><span class="meta-label">Year</span><span class="meta-value">2024 — <span class="meta-present">Present</span></span></div>
         <div class="meta-item"><span class="meta-label">Type</span><span class="meta-value">Internal R&D</span></div>
       </div>
     </div>
-    <div class="project-cover-full reveal"><div class="cover-placeholder">🦾</div></div>
+    <div class="project-cover-full project-cover-video-wrap reveal">
+      <div class="cover-placeholder"><span class="cover-label">R&D</span></div>
+    </div>
   </div></section>
 
   <div class="project-body-wrap"><div class="container project-layout">
     <main class="project-content">
 
-      <div class="content-block reveal">
+      <div class="content-block reveal content-prose">
         <h2>Overview</h2>
         <p>An internal R&D initiative at Somic Ishikawa to explore the feasibility of an <strong>automated robotic hand</strong> for factory managers — aimed at improving efficiency by automating repeatable assembly work that currently requires human operators.</p>
         <p>The project involved defining real-world usage scenarios, building a prototype, and running phased validation cycles to assess viability for production deployment.</p>
       </div>
 
       <div class="content-block reveal">
-        <h2>Research Approach</h2>
-        <ul class="achievement-list">
-          <li>Defined two core usage scenarios: <strong>standing work</strong> (fixed position tasks) and <strong>moving work</strong> (dynamic assembly tasks)</li>
-          <li>Validated <strong>Phase 1 feasibility</strong> through successful standing-work cycles (left/right), demonstrating repeatable motion reliability</li>
-          <li>Identified <strong>finger-grip limitations</strong> during moving tasks — defining clear next-step requirements for the product roadmap</li>
-          <li>Structured findings into a phased development plan for future engineering iterations</li>
-        </ul>
+        <h2>R&D Capabilities</h2>
+        <p class="section-lead">Scenario-driven validation from standing-work cycles through moving-work feasibility and a phased roadmap to production.</p>
+        <div class="capability-grid">
+          <div class="capability-card reveal" style="--i:0">
+            <h3>Standing-work validation</h3>
+            <p>Defined and tested <strong>fixed-position assembly</strong> scenarios — validated repeatable left/right motion cycles demonstrating baseline motion reliability.</p>
+          </div>
+          <div class="capability-card reveal" style="--i:1">
+            <h3>Moving-work feasibility</h3>
+            <p>Explored <strong>dynamic assembly tasks</strong> to stress-test grip and motion under changing workpiece positions — surfacing finger-grip limits for the next engineering phase.</p>
+          </div>
+          <div class="capability-card reveal" style="--i:2">
+            <h3>Scenario-driven R&D</h3>
+            <p>Structured research around two core usage modes — <strong>standing vs moving work</strong> — so findings map directly to factory deployment requirements.</p>
+          </div>
+          <div class="capability-card reveal" style="--i:3">
+            <h3>Phased roadmap to production</h3>
+            <p>Converted validation results into a <strong>phased development plan</strong> with clear next-step requirements for future engineering iterations.</p>
+          </div>
+        </div>
       </div>
 
       <div class="content-block reveal">
+        <h2>Challenges Tackled</h2>
+        <p class="section-lead">Technical and process hurdles identified during prototype validation and scenario testing.</p>
+        <div class="challenge-grid">
+          <div class="challenge-card reveal" style="--i:0">
+            <h3>Finger-grip limits on dynamic tasks</h3>
+            <p>Moving-work scenarios exposed grip constraints that standing cycles did not — defining hardware and control requirements before production-scale investment.</p>
+          </div>
+          <div class="challenge-card reveal" style="--i:1">
+            <h3>Bridging research to engineering requirements</h3>
+            <p>Translating exploratory R&D findings into actionable specs for a product roadmap — separating validated capabilities from open engineering questions.</p>
+          </div>
+          <div class="challenge-card reveal" style="--i:2">
+            <h3>Repeatable motion reliability for factory use</h3>
+            <p>Factory automation demands consistent cycle performance; validation focused on proving repeatable motion before expanding to more complex assembly paths.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-block reveal content-prose">
         <h2>Key Achievements</h2>
         <ul class="achievement-list">
           <li>Successfully validated first-phase feasibility through <strong>repeatable standing-work motion demos</strong></li>
@@ -71,22 +105,66 @@
 
       <div class="content-block reveal">
         <h2>Tech Stack</h2>
-        <div class="tech-grid">
-          <div class="tech-item"><div class="tech-icon">🤖</div><div class="tech-name">ROS2</div><div class="tech-desc">Robot operating system</div></div>
-          <div class="tech-item"><div class="tech-icon">🎯</div><div class="tech-name">RViz2</div><div class="tech-desc">3D visualization</div></div>
-          <div class="tech-item"><div class="tech-icon">🌍</div><div class="tech-name">Gazebo</div><div class="tech-desc">Physics simulation</div></div>
-          <div class="tech-item"><div class="tech-icon">🐍</div><div class="tech-name">Python</div><div class="tech-desc">Control scripting</div></div>
-          <div class="tech-item"><div class="tech-icon">⚙️</div><div class="tech-name">C++</div><div class="tech-desc">Performance-critical components</div></div>
-          <div class="tech-item"><div class="tech-icon">📋</div><div class="tech-name">Prototyping</div><div class="tech-desc">Hardware iteration</div></div>
+        <div class="tech-grid stack-wide">
+          <div class="tech-item reveal" style="--i:0">
+            <div class="tech-icon"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">Python</div>
+            <div class="tech-desc">Control scripting</div>
+          </div>
+          <div class="tech-item reveal" style="--i:1">
+            <div class="tech-icon"><img src="https://cdn.simpleicons.org/cplusplus/00599C" alt="C++" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">C++</div>
+            <div class="tech-desc">Performance-critical components</div>
+          </div>
+          <div class="tech-item reveal" style="--i:2">
+            <div class="tech-icon"><span class="tech-icon-text">ROS2</span></div>
+            <div class="tech-name">ROS2</div>
+            <div class="tech-desc">Robot operating system</div>
+          </div>
+          <div class="tech-item reveal" style="--i:3">
+            <div class="tech-icon"><span class="tech-icon-text">Gazebo</span></div>
+            <div class="tech-name">Gazebo</div>
+            <div class="tech-desc">Physics simulation</div>
+          </div>
+          <div class="tech-item reveal" style="--i:4">
+            <div class="tech-icon"><span class="tech-icon-text">RViz</span></div>
+            <div class="tech-name">RViz2</div>
+            <div class="tech-desc">3D visualization</div>
+          </div>
+          <div class="tech-item reveal" style="--i:5">
+            <div class="tech-icon"><span class="tech-icon-text">HW</span></div>
+            <div class="tech-name">Prototyping</div>
+            <div class="tech-desc">Hardware iteration</div>
+          </div>
         </div>
       </div>
 
     </main>
     <aside class="project-sidebar">
-      <div class="sidebar-card reveal">
+      <div class="sidebar-card sidebar-card--pipeline reveal">
+        <h4>R&D Phases</h4>
+        <div class="sidebar-layer">
+          <span class="sidebar-layer-key">Scenarios</span>
+          <span class="sidebar-layer-val">Standing / Moving work</span>
+        </div>
+        <div class="sidebar-layer">
+          <span class="sidebar-layer-key">Phase 1</span>
+          <span class="sidebar-layer-val">Standing cycles validated</span>
+        </div>
+        <div class="sidebar-layer">
+          <span class="sidebar-layer-key">Phase 2</span>
+          <span class="sidebar-layer-val">Moving work — grip limits identified</span>
+        </div>
+        <div class="sidebar-layer">
+          <span class="sidebar-layer-key">Next</span>
+          <span class="sidebar-layer-val">Product roadmap</span>
+        </div>
+      </div>
+      <div class="sidebar-card sidebar-card--projects reveal">
         <h4>Other Projects</h4>
-        <a href="../opc-ua-transformation/index.html" class="sidebar-proj-link"><span>🔌</span> Industrial Edge Data Platform</a>
-        <a href="../power-testing/index.html" class="sidebar-proj-link"><span>⚡</span> Power Testing Machine</a>
+        <a href="../somic-ai-agent/index.html" class="sidebar-proj-link"><span>🧠</span> Intelligent RAG with Knowledge Graph</a>
+        <a href="../opc-ua-transformation/index.html" class="sidebar-proj-link"><span>🔌</span> IIoT Industrial Edge Data Platform</a>
+        <a href="../power-testing/index.html" class="sidebar-proj-link"><span>⚡</span> US–Japan Power Tester</a>
         <a href="../bosch-monitoring/index.html" class="sidebar-proj-link"><span>🔬</span> Bosch Process Monitor</a>
         <a href="../healthcare-analytics/index.html" class="sidebar-proj-link"><span>🏥</span> Healthcare Analytics</a>
       </div>
@@ -98,4 +176,5 @@
     <div class="footer-links"><a href="../../index.html">Home</a><a href="../../index.html#projects">Projects</a></div>
   </div></footer>
   <script src="../../js/main.js"></script>
+  <script src="project.js"></script>
 </body></html>
