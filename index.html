@@ -21,9 +21,9 @@
       <ul class="nav-links">
         <li><a href="#home" class="active">Home</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#blog">Blog</a></li>
-        <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="resume.pdf" target="_blank" class="nav-resume">Resume ↗</a></li>
       </ul>
@@ -45,7 +45,7 @@
           </p>
           <h1 class="hero-name">Vinayaka Sajjanshetty</h1>
           <p class="hero-role">
-            <span id="typewriter" data-words="Bridging IoT &amp; Agentic AI|Applied AI Researcher|Physical AI &amp; Robotics|Industrial Intelligence"></span>
+            <span id="typewriter" data-words="Bridging IoT &amp; Agentic AI|Forward Deployed Engineer|Applied AI Researcher|Physical AI &amp; Robotics|Industrial Intelligence"></span>
             <span class="cursor-blink"></span>
           </p>
           <p class="hero-tags">
@@ -178,81 +178,10 @@
 
 
   <!-- EDUCATION -->
-  <section id="education">
-    <div class="container">
-      <p class="section-eyebrow reveal">02 — Education</p>
-      <h2 class="section-title reveal">Academic Background</h2>
-
-      <div class="edu-timeline">
-
-        <div class="edu-item reveal">
-          <div class="edu-year">Oct 2022 — Sep 2024</div>
-          <div class="edu-degree">Master of Science — Computer Science</div>
-          <div class="edu-school">Shizuoka University, Japan 🇯🇵</div>
-          <div class="edu-desc">
-            Focused on applied computing, machine learning, and image processing.
-            Relevant coursework: X-ray Backscattering, Photonics, Image Processing,
-            Probability & Discrete Mathematics, Machine Learning.
-          </div>
-          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-            <span class="tag">Machine Learning</span>
-            <span class="tag">Image Processing</span>
-            <span class="tag">Photonics</span>
-          </div>
-        </div>
-
-        <div class="edu-item reveal">
-          <div class="edu-year">Jul 2015 — Jun 2019</div>
-          <div class="edu-degree">B.E. — Electronics & Communication Engineering</div>
-          <div class="edu-school">PES University, Bangalore, India 🇮🇳</div>
-          <div class="edu-desc">
-            Strong foundation in electronics, embedded systems, communication protocols,
-            and signal processing. Built early projects in sensor integration and hardware prototyping.
-          </div>
-          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
-            <span class="tag">Embedded Systems</span>
-            <span class="tag">Signal Processing</span>
-            <span class="tag">Electronics</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- BLOG -->
-  <section id="blog">
-    <div class="container">
-      <p class="section-eyebrow reveal">03 — Blog</p>
-      <h2 class="section-title reveal">Writing</h2>
-
-      <div class="blog-list">
-        <a href="https://medium.com/@vinayakasomic/building-edas-an-event-driven-multi-agent-approach-to-iot-data-analysis-with-langgraph-da48994e12d5"
-           class="blog-card reveal" target="_blank" rel="noopener noreferrer">
-          <div class="blog-card-thumb">
-            <img src="projects/agentic-factory-analytics/model_architecture.png"
-                 alt="EDAS Task Registry architecture" loading="lazy" />
-          </div>
-          <div class="blog-card-body">
-            <h3 class="blog-card-title">Building EDAS: An Event-Driven Multi-Agent Approach to IoT Data Analysis with LangGraph</h3>
-            <p class="blog-card-desc">
-              Factory PostgreSQL is a black box to most teams — EDAS lets users describe analysis in natural language
-              while Manager, Planner, and Executor agents coordinate through a shared Task Registry instead of a rigid pipeline.
-            </p>
-            <span class="blog-card-meta">Medium · Jun 2026 · 10 min read</span>
-          </div>
-          <span class="blog-card-arrow" aria-hidden="true">↗</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-
   <!-- PROJECTS -->
   <section id="projects">
     <div class="container">
-      <p class="section-eyebrow reveal">04 — Projects</p>
+      <p class="section-eyebrow reveal">02 — Projects</p>
       <h2 class="section-title reveal">Things I've Built</h2>
 
       <div class="projects-grid">
@@ -279,7 +208,7 @@
           <div class="project-body">
             <h3 class="project-title">Parallel Multi-Agent 1:1 Corporate Interviewer</h3>
             <p class="project-desc">
-              LangGraph-driven autonomous interview framework running parallel AI conversational 1:1 sessions with real-time extraction, 7 guardrails (≥0.85 score, 5-turn limit, difflib repetition detection), and prompt-driven agent customization — compressing 10+ hours of manual 1:1s into 1 hour.
+              Autonomous LangGraph state-machine running parallel AI 1:1 sessions — Planner deconstructs objectives into 3 criteria tags, Extractor tracks completion score (≥0.85 threshold), 7 guardrails including difflib repetition detection and tenacity retry, prompt-driven agent customization via standalone .txt files. Compresses 10h of manual meetings into 1h.
             </p>
             <div class="project-tags">
               <span class="tag">LangGraph</span>
@@ -288,6 +217,7 @@
               <span class="tag">React</span>
               <span class="tag">Docker</span>
               <span class="tag">Guardrails</span>
+              <span class="tag">Prompts</span>
             </div>
           </div>
         </a>
@@ -301,14 +231,15 @@
           <div class="project-body">
             <h3 class="project-title">Intelligent RAG with Knowledge Graph</h3>
             <p class="project-desc">
-              Fully autonomous RAG over 2,500+ manufacturing docs — Hindsight memory, LangGraph agents, hybrid retrieval, and Atlas inference (~70 t/s) with bidirectional JP ↔ EN cited answers.
+              100% on-premises bilingual (JP↔EN) RAG for a 10-member team — MinerU layout parsing overcame 45% OCR failure, algorithmic Mean Anagram Hash-Mapping guardrails eliminated VLM hallucinations, Atlas inference on DGX Spark boosted throughput 35→80 t/s, end-to-end latency crashed from 90s down to 6-10s.
             </p>
             <div class="project-tags">
-              <span class="tag">RAG</span>
-              <span class="tag">Knowledge Graph</span>
+              <span class="tag">On-Premise RAG</span>
+              <span class="tag">MinerU Layouts</span>
+              <span class="tag">Atlas Inference</span>
+              <span class="tag">Hallucination Guardrails</span>
               <span class="tag">LangGraph</span>
-              <span class="tag">Hindsight</span>
-              <span class="tag">Atlas</span>
+              <span class="tag">DGX Spark</span>
             </div>
           </div>
         </a>
@@ -322,12 +253,12 @@
           <div class="project-body">
             <h3 class="project-title">Phase 2: HITL Evaluation &amp; Specialized Ingestion</h3>
             <p class="project-desc">
-              Human-in-the-Loop evaluation dashboard with Golden Dataset management, plus a specialized
-              PLC ingestion pipeline with entity-anchored metadata enrichment achieving 85-90% retrieval accuracy.
+              Scaled RAG into a multi-department enterprise tool — LLM-as-a-judge regression engine with HITL override eliminated false-negative eval failures. Entity-Anchored Ingestion with Hindsight Tagging bound PLC register maps directly to vector metadata, achieving 85-90% retrieval accuracy on 500-page automation manuals.
             </p>
             <div class="project-tags">
               <span class="tag">HITL</span>
-              <span class="tag">Golden Dataset</span>
+              <span class="tag">LLM-as-Judge</span>
+              <span class="tag">Entity Tagging</span>
               <span class="tag">PLC Ingestion</span>
               <span class="tag">Hybrid Search</span>
               <span class="tag">LangGraph</span>
@@ -344,8 +275,8 @@
           <div class="project-body">
             <h3 class="project-title">IIoT Industrial Edge Data Platform</h3>
             <p class="project-desc">
-              LINX TRITON IIoT edge platform with multi-path PLC ingestion (OPC UA, HTTP, MQTT, CSV),
-              n8n + FastAPI → PostgreSQL pipeline, Grafana dashboards, and Ansible Semaphore fleet ops.
+              LINX TRITON IIoT edge platform with multi-path PLC ingestion (OPC UA, HTTP, MQTT, CSV) —
+              n8n + FastAPI → PostgreSQL pipeline, Grafana dashboards, Ansible Semaphore fleet ops, and Docker containerization. Scaled to 20+ concurrent PLC connections across production lines.
             </p>
             <div class="project-tags">
               <span class="tag">IIoT</span>
@@ -353,6 +284,7 @@
               <span class="tag">FastAPI</span>
               <span class="tag">PostgreSQL</span>
               <span class="tag">Grafana</span>
+              <span class="tag">Ansible</span>
             </div>
           </div>
         </a>
@@ -366,14 +298,15 @@
           <div class="project-body">
             <h3 class="project-title">Phase 2: Agentic Factory Analytics (EDAS)</h3>
             <p class="project-desc">
-              Event-driven LangGraph agents for natural-language factory data analysis on PostgreSQL —
-              Manager, Planner, and Executor coordinated through a shared Task Registry. Part 2 of the IIoT Industrial Edge Data Platform.
+              Event-driven multi-agent analytics (LangGraph) on live factory PostgreSQL — Dynamic Schema Fetcher via semantic router eliminates context bloat, regex AST parser + transactional rollbacks enforce deterministic SQL security, SELECT...FOR UPDATE SKIP LOCKED resolves race conditions across concurrent agent threads.
             </p>
             <div class="project-tags">
               <span class="tag">LangGraph</span>
               <span class="tag">Agentic AI</span>
-              <span class="tag">EDAS</span>
+              <span class="tag">AST Guardrails</span>
+              <span class="tag">Concurrency Control</span>
               <span class="tag">PostgreSQL</span>
+              <span class="tag">Semantic Router</span>
             </div>
           </div>
         </a>
@@ -387,8 +320,7 @@
           <div class="project-body">
             <h3 class="project-title">Robotic Hand R&D</h3>
             <p class="project-desc">
-              Internal R&D project exploring automated robotic hand for factory assembly.
-              Validated standing-work motion cycles, identified grip limitations for roadmap.
+              Internal R&D for automated robotic hand in factory assembly — validated standing-work motion cycles via ROS2, RViz2, and Gazebo simulation. Identified grip torque limitations informing next-gen hardware roadmap.
             </p>
             <div class="project-tags">
               <span class="tag">Robotics</span>
@@ -408,7 +340,7 @@
           <div class="project-body">
             <h3 class="project-title">US–Japan Power Tester Integration</h3>
             <p class="project-desc">
-              Collaborated with a US startup and Japan factory teams to successfully deploy a Wi-Fi power testing system on-site — resolving critical data failures and enabling real-time power analytics for operators.
+              Cross-border delivery: collaborated with a US startup and Japan factory teams to deploy a Wi-Fi power testing system. Resolved critical data failures and enabled real-time power analytics for operators across production lines.
             </p>
             <div class="project-tags">
               <span class="tag">Cross-Border Delivery</span>
@@ -462,6 +394,77 @@
 
         <!-- Add more projects here -->
 
+      </div>
+    </div>
+  </section>
+
+
+  <section id="education">
+    <div class="container">
+      <p class="section-eyebrow reveal">03 — Education</p>
+      <h2 class="section-title reveal">Academic Background</h2>
+
+      <div class="edu-timeline">
+
+        <div class="edu-item reveal">
+          <div class="edu-year">Oct 2022 — Sep 2024</div>
+          <div class="edu-degree">Master of Science — Computer Science</div>
+          <div class="edu-school">Shizuoka University, Japan 🇯🇵</div>
+          <div class="edu-desc">
+            Focused on applied computing, machine learning, and image processing.
+            Relevant coursework: X-ray Backscattering, Photonics, Image Processing,
+            Probability & Discrete Mathematics, Machine Learning.
+          </div>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Image Processing</span>
+            <span class="tag">Photonics</span>
+          </div>
+        </div>
+
+        <div class="edu-item reveal">
+          <div class="edu-year">Jul 2015 — Jun 2019</div>
+          <div class="edu-degree">B.E. — Electronics & Communication Engineering</div>
+          <div class="edu-school">PES University, Bangalore, India 🇮🇳</div>
+          <div class="edu-desc">
+            Strong foundation in electronics, embedded systems, communication protocols,
+            and signal processing. Built early projects in sensor integration and hardware prototyping.
+          </div>
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span class="tag">Embedded Systems</span>
+            <span class="tag">Signal Processing</span>
+            <span class="tag">Electronics</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- BLOG -->
+  <section id="blog">
+    <div class="container">
+      <p class="section-eyebrow reveal">04 — Blog</p>
+      <h2 class="section-title reveal">Writing</h2>
+
+      <div class="blog-list">
+        <a href="https://medium.com/@vinayakasomic/building-edas-an-event-driven-multi-agent-approach-to-iot-data-analysis-with-langgraph-da48994e12d5"
+           class="blog-card reveal" target="_blank" rel="noopener noreferrer">
+          <div class="blog-card-thumb">
+            <img src="projects/agentic-factory-analytics/model_architecture.png"
+                 alt="EDAS Task Registry architecture" loading="lazy" />
+          </div>
+          <div class="blog-card-body">
+            <h3 class="blog-card-title">Building EDAS: An Event-Driven Multi-Agent Approach to IoT Data Analysis with LangGraph</h3>
+            <p class="blog-card-desc">
+              Factory PostgreSQL is a black box to most teams — EDAS lets users describe analysis in natural language
+              while Manager, Planner, and Executor agents coordinate through a shared Task Registry instead of a rigid pipeline.
+            </p>
+            <span class="blog-card-meta">Medium · Jun 2026 · 10 min read</span>
+          </div>
+          <span class="blog-card-arrow" aria-hidden="true">↗</span>
+        </a>
       </div>
     </div>
   </section>
