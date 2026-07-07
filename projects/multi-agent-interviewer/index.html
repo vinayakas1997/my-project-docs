@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parallel Multi-Agent 1:1 Corporate Interviewer — Vinayaka</title>
+  <meta name="description" content="Case study: LangGraph-driven autonomous interview framework with 4 specialized agents (Planner, Interviewer, Extractor, Synthesis) — runs parallel AI conversational 1:1 sessions, real-time extraction with convergence guardrails (≥0.85 score, 5-turn max, difflib repetition detection), and prompt-driven agent customization. Compresses 10+ hours of manual meetings into 1 hour." />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/hero.css" />
+  <link rel="stylesheet" href="../../css/sections.css" />
+  <link rel="stylesheet" href="project.css" />
+</head>
+<body>
+  <div id="progress-bar"></div><div id="cursor-glow"></div>
+  <nav id="navbar"><div class="container nav-inner">
+    <a href="../../index.html" class="nav-logo">&lt;<span>Vinayaka</span> /&gt;</a>
+    <ul class="nav-links">
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="../../index.html#projects" class="active">Projects</a></li>
+      <li><a href="../../index.html#contact">Contact</a></li>
+      <li><a href="../../resume.pdf" target="_blank" class="nav-resume">Resume ↗</a></li>
+    </ul>
+  </div></nav>
+
+  <section class="project-hero"><div class="container">
+    <a href="../../index.html#projects" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>Back to Projects
+    </a>
+    <div class="project-hero-content reveal">
+      <div class="project-hero-tags hero-tags-stagger">
+        <span class="tag">LangGraph</span><span class="tag">FastAPI</span><span class="tag">Agentic AI</span>
+        <span class="tag">React</span><span class="tag">Docker</span><span class="tag">Pydantic</span>
+        <span class="tag">Guardrails</span><span class="tag">Prompts</span>
+      </div>
+      <h1 class="project-hero-title">Parallel Multi-Agent 1:1 Corporate Interviewer</h1>
+      <p class="project-hero-sub">An <strong>autonomous, state-driven interview framework</strong> that eliminates organizational meeting fatigue by running parallel AI conversational 1:1 sessions. Built with LangGraph, a dedicated <strong>Planner → Interviewer → Extractor → Synthesis</strong> agent pipeline, 7 production guardrails, and prompt-driven customization. <a href="https://github.com/vinayakas1997/Parallel-Multi-Agent-1-1-Corporate-Interviewer" target="_blank" rel="noopener noreferrer">View on GitHub ↗</a></p>
+      <div class="project-meta">
+        <div class="meta-item"><span class="meta-label">Type</span><span class="meta-value">AI / Agentic Framework</span></div>
+        <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">AI Engineer</span></div>
+        <div class="meta-item"><span class="meta-label">Year</span><span class="meta-value">2025</span></div>
+        <div class="meta-item"><span class="meta-label">Stack</span><span class="meta-value">LangGraph · FastAPI · React+Vite</span></div>
+      </div>
+    </div>
+    <div class="project-cover-full project-cover-video-wrap reveal">
+      <div class="cover-placeholder" style="height:auto;padding:28px 20px;">
+        <div class="arch-flow-label" style="margin-bottom:12px;font-size:0.55rem;">Agent Pipeline — Parallel Interview Flow</div>
+        <div class="arch-flow-row" style="max-width:100%;">
+          <div class="arch-flow-node">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--accent);margin-bottom:2px;"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            <span class="node-title">Planner</span><span class="node-sub">3 criteria tags</span>
+          </div>
+          <span class="arch-flow-arrow">→</span>
+          <div class="arch-flow-node">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--accent);margin-bottom:2px;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span class="node-title">Interviewer</span><span class="node-sub">Adaptive Q&amp;A</span>
+          </div>
+          <span class="arch-flow-arrow">↔</span>
+          <div class="arch-flow-node" style="border-color:rgba(255,200,50,0.3);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:#e8c547;margin-bottom:2px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span class="node-title">Employee ×N</span><span class="node-sub">Parallel sessions</span>
+          </div>
+          <span class="arch-flow-arrow">→</span>
+          <div class="arch-flow-node">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--accent);margin-bottom:2px;"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <span class="node-title">Extractor</span><span class="node-sub">Score + parse</span>
+          </div>
+          <span class="arch-flow-arrow">→</span>
+          <div class="arch-flow-node" style="border-color:rgba(29,158,117,0.5);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:#1D9E75;margin-bottom:2px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span class="node-title" style="color:#1D9E75;">Synthesis</span><span class="node-sub">Anonymized summary</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div></section>
+
+  <div class="project-body-wrap"><div class="container project-layout">
+    <main class="project-content">
+
+      <div class="content-block reveal content-prose">
+        <h2>Overview</h2>
+        <p><strong>Corporate 1:1 meetings are a paradox</strong> — critical for surfacing bottlenecks, team sentiment, and process friction, yet astronomically expensive in manager time. A 10-person team consumes <strong>10+ hours per sprint</strong> just in scheduling, conducting, and documenting individual sessions. Worse, manual summaries suffer from subjective bias, critical feedback gets lost, and static pulse surveys lack the conversational depth to ask "why?" when an employee raises a blocker.</p>
+        <p><strong>This system eliminates the bottleneck entirely.</strong> Instead of a manager running sequential 1:1s, the platform runs <strong>parallelized AI conversational streams</strong> — each employee gets a private, adaptive interview driven by a LangGraph state machine. The conversation converges autonomously when sufficient data has been collected, and a synthesis engine produces a polished, anonymized executive summary for operations management.</p>
+      </div>
+
+      <div class="content-block reveal content-prose">
+        <h2>Production Context &amp; Business Impact</h2>
+        <p><strong>The Meeting Fatigue Cycle:</strong> Managers and team leads at organizations lose 10+ hours per sprint scheduling, preparing, and documenting individual 1:1 meetings. This administrative overhead pulls technical leadership away from engineering and strategic planning — a hidden tax on productivity that grows linearly with team size.</p>
+        <p><strong>Synthesis Lag &amp; Subjective Bias:</strong> Compiling unstructured notes from ten separate human conversations into a cohesive roadmap takes days. Manual summaries are prone to the manager's own cognitive bias, causing critical or sensitive feedback to get lost in translation. Worse, employees hesitate to report technical debt or team friction when the feedback channel is their direct manager.</p>
+        <p><strong>The Solution:</strong> A state-machine-driven agent pipeline that replaces the entire manual workflow with parallel AI conversations. The Manager sets a single objective (e.g., "Identify bottlenecks and burnout in engineering"), and the platform autonomously plans, conducts, extracts, and synthesizes — delivering a comprehensive 1-page executive summary.</p>
+        <p><strong>Measurable Impact:</strong></p>
+        <ul class="achievement-list">
+          <li><strong>10× Time Compression:</strong> 10+ hours of manual 1:1 work collapses to under 1 hour of automated parallel processing.</li>
+          <li><strong>Seconds-Level Insight Delivery:</strong> Executive dashboards update moments after the last parallel session completes — not days later.</li>
+          <li><strong>Psychological Safety:</strong> Automated anonymization and aggregation lets employees report blockers honestly, without fear of interpersonal friction.</li>
+        </ul>
+      </div>
+
+      <div class="content-block reveal">
+        <h2>Core Engineering Challenges &amp; Solutions</h2>
+        <div class="challenge-grid">
+
+          <div class="challenge-card reveal" style="--i:0">
+            <h3>1. Dynamic State-Machine Graph (LangGraph Orchestration)</h3>
+            <p><strong>The Challenge:</strong> Traditional chat systems run on linear prompt chains or static questionnaires. If an employee responds with an unexpected or multi-part answer, a rigid script continues down its preset list — the experience feels robotic, nuance is lost, and critical signals are missed.</p>
+            <p><strong>The Architecture:</strong> Built an event-driven state graph using <strong>LangGraph's StateGraph</strong> with <strong>MemorySaver</strong> checkpointing to manage global interview context. A specialized <strong>Planner Agent</strong> first ingests the manager's high-level operational objective and deconstructs it into an array of <strong>3 distinct, actionable data criteria tags</strong> — e.g., <code>"Identify bottlenecks and burnout in engineering"</code> becomes <code>["Operational Bottlenecks", "Tooling Friction", "Team Morale Impacts"]</code>.</p>
+            <p><strong>The Result:</strong> The <strong>Interviewer Agent</strong> constantly polls this shared state. It reviews the current chat history along with which criteria have already been satisfied, dynamically formulating natural, context-aware follow-up questions to dig into uncovered targets. Once a criterion is met, the agent gracefully shifts topics — no wasted turns, no robotic repetition.</p>
+            <div class="arch-flow-label" style="margin-top:14px;margin-bottom:8px">State Graph Decision Flow</div>
+            <div class="arch-flow-row" style="gap:4px">
+              <div class="arch-flow-node" style="padding:8px 10px;min-width:65px"><span class="node-title">Objective</span><span class="node-sub">Manager input</span></div>
+              <span class="arch-flow-arrow">→</span>
+              <div class="arch-flow-node" style="padding:8px 10px;min-width:65px"><span class="node-title">Planner</span><span class="node-sub">3 criteria tags</span></div>
+              <span class="arch-flow-arrow">→</span>
+              <div class="arch-flow-node" style="padding:8px 10px;min-width:65px"><span class="node-title">StateGraph</span><span class="node-sub">LangGraph + MemorySaver</span></div>
+              <span class="arch-flow-arrow">→</span>
+              <div class="arch-flow-node" style="padding:8px 10px;min-width:65px"><span class="node-title">Interviewer</span><span class="node-sub">Poll state · adapt questions</span></div>
+              <span class="arch-flow-arrow">→</span>
+              <div class="arch-flow-node" style="padding:8px 10px;min-width:65px"><span class="node-title">Conditional Edge</span><span class="node-sub">Criteria met? → Next / Loop</span></div>
+            </div>
+          </div>
+
+          <div class="challenge-card reveal" style="--i:1">
+            <h3>2. Real-Time Extraction &amp; Convergence Guardrails</h3>
+            <p><strong>The Challenge:</strong> Open-ended conversational agents risk dialogue drift. If an employee goes off on a tangent, a naive chatbot follows indefinitely — massive token bloat, high computation costs, and un-converged logs that yield no actionable output.</p>
+            <p><strong>The Solution:</strong> Implemented a backend <strong>Extractor Agent</strong> that runs concurrently with the dialogue graph. Every incoming employee response is immediately parsed against the target criteria array and mapped into a structured JSON schema. The extractor computes a weighted <strong>Completion Score (0.0–1.0)</strong> — the moment the score hits the configurable threshold, a strict conditional graph edge forces automatic exit and routes the state to the synthesis phase.</p>
+            <p><strong>7 Production Guardrails:</strong></p>
+            <table class="guardrails-table">
+              <thead><tr><th>Guardrail</th><th>Config</th><th>Behavior</th></tr></thead>
+              <tbody>
+                <tr><td>Max turn limit</td><td><code>MAX_TURNS=5</code></td><td>Stops interview after N turns, routes to synthesis</td></tr>
+                <tr><td>Completion threshold</td><td><code>COMPLETION_THRESHOLD=0.85</code></td><td>Ends when weighted score crosses 85%</td></tr>
+                <tr><td>Empty response</td><td>&lt;3 characters</td><td>Re-prompts for a substantive answer</td></tr>
+                <tr><td>Repetition detection</td><td><code>difflib.SequenceMatcher</code> ≥85%</td><td>Detects copy-paste or repeated responses</td></tr>
+                <tr><td>Response length limit</td><td>2000 chars</td><td>Truncates excessively long messages</td></tr>
+                <tr><td>Session TTL</td><td><code>SESSION_TTL_MINUTES=30</code></td><td>Auto-expires inactive sessions</td></tr>
+                <tr><td>LLM error recovery</td><td><code>tenacity</code> (3 retries, 2–10s)</td><td>Exponential backoff on API failures</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="challenge-card reveal" style="--i:2">
+            <h3>3. Prompt-Driven Agent Architecture &amp; Split-Screen UI</h3>
+            <p><strong>The Challenge:</strong> A terminal backend isn't usable by non-technical managers, while employees need a clean, private workspace. Additionally, customizing agent behavior typically requires modifying Python code — blocking domain experts from tuning interview styles.</p>
+            <p><strong>The Engineering Solution:</strong> Built a fully functioning <strong>React 19 + TypeScript + Vite</strong> frontend with a <strong>split-screen paradigm</strong>. The Employee Interface renders a distraction-free, localized chat application. Concurrently, the Management Dashboard provides live visibility into aggregate operations, visualizing real-time completion percentages and checkboxes as information is extracted across parallel sessions.</p>
+            <p><strong>Prompt-Driven Customization:</strong> Each agent reads a standalone <code>.txt</code> prompt file at runtime via a shared <code>BaseAgent</code>. A <code>str.format(**kwargs)</code> call injects the current state variables into the template's <code>{placeholders}</code>. This means anyone can change interview style, criteria count, or summary format by editing a text file — no Python code changes required.</p>
+            <div style="margin:10px 0 0;">
+              <pre style="background:#0a0a12;border:1px solid rgba(108,99,255,0.25);border-radius:8px;padding:14px 16px;overflow-x:auto;font-size:0.78rem;line-height:1.5;font-family:var(--font-mono);color:hsl(240,12%,78%);"><span style="color:#6ee7b7;"># agents/base.py</span>
+<span style="color:#e8c547;">class</span><span style="color:#fff;"> </span><span style="color:#7dd3fc;">BaseAgent</span><span style="color:#fff;">:</span>
+    <span style="color:#7dd3fc;">prompt_file</span><span style="color:#fff;">: </span><span style="color:#e8c547;">str</span><span style="color:#fff;"> = </span><span style="color:#a5d6a7;">""</span>
+
+    <span style="color:#e8c547;">def</span> <span style="color:#7dd3fc;">system_prompt</span><span style="color:#fff;">(</span><span style="color:#e8c547;">self</span><span style="color:#fff;">):</span>
+        <span style="color:#e8c547;">return</span> <span style="color:#7dd3fc;">Path</span><span style="color:#fff;">(</span><span style="color:#a5d6a7;">f"prompts/</span><span style="color:#fff;">{</span><span style="color:#e8c547;">self</span><span style="color:#fff;">.prompt_file}</span><span style="color:#a5d6a7;">"</span><span style="color:#fff;">).read_text()</span>
+
+    <span style="color:#e8c547;">def</span> <span style="color:#7dd3fc;">call</span><span style="color:#fff;">(</span><span style="color:#e8c547;">self</span><span style="color:#fff;">, user_message: </span><span style="color:#e8c547;">str</span><span style="color:#fff;">, **fmt_kwargs):</span>
+        prompt <span style="color:#fff;">=</span> <span style="color:#e8c547;">self</span><span style="color:#fff;">.system_prompt.format(**fmt_kwargs)</span>
+        <span style="color:#e8c547;">return</span> <span style="color:#fff;">llm_call(prompt, user_message)</span>
+</pre>
+            </div>
+            <p><strong>The Synthesis Layer:</strong> Upon session termination, the <strong>Synthesis Agent</strong> pulls raw logs from all parallel sessions, executes a comprehensive data-cleansing step to strip identifying metadata or names, maps conflicting or overlapping team perspectives onto a variance matrix, and outputs a highly polished, 1-page executive summary tracking overarching operational trends.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="content-block reveal">
+        <h2>Achievements</h2>
+        <ul class="achievement-list">
+          <li><strong>10× Time Compression</strong> — 10+ hours of manual 1:1 meetings reduced to under 1 hour of autonomous parallel processing.</li>
+          <li><strong>4 Specialized Autonomous Agents</strong> — Planner, Interviewer, Extractor, and Synthesis agents, each with a dedicated role in the LangGraph state machine.</li>
+          <li><strong>7 Production Guardrails</strong> — Configurable safety layers including max turn limit (<code>5</code>), completion threshold (<code>0.85</code>), repetition detection (<code>difflib</code> ≥85%), empty response detection, length limit (<code>2000</code> chars), session TTL (<code>30</code> min), and <code>tenacity</code>-backed LLM error recovery.</li>
+          <li><strong>Configurable Convergence</strong> — The <code>COMPLETION_THRESHOLD</code> and <code>MAX_TURNS</code> variables allow teams to balance conversation depth against session duration.</li>
+          <li><strong>Prompt-Driven Customization</strong> — Agent behavior is fully defined in standalone <code>.txt</code> prompt files with <code>{variable}</code> injection — any domain expert can tune interview style, criteria count, or output format by editing a text file, with zero Python changes.</li>
+          <li><strong>LLM-Agnostic Architecture</strong> — Works with any OpenAI-compatible endpoint — OpenAI, Azure OpenAI, Ollama, vLLM, or custom providers — configurable via <code>OPENAI_BASE_URL</code>.</li>
+          <li><strong>One-Command Deployment</strong> — Single <code>docker compose up</code> spins up the entire stack: FastAPI backend, React+Vite frontend, and Nginx production proxy via multi-stage Docker builds.</li>
+          <li><strong>Production Scaling Path</strong> — Architecture supports horizontal scaling to 100+ concurrent sessions via PostgresSaver, Redis session store, and Celery worker pools.</li>
+        </ul>
+      </div>
+
+      <div class="content-block reveal">
+        <h2>Technology Stack</h2>
+        <div class="tech-grid stack-wide">
+          <div class="tech-item reveal" style="--i:0">
+            <div class="tech-icon"><img src="https://cdn.simpleicons.org/langchain/1C3C3C" alt="LangGraph" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">LangGraph</div>
+            <div class="tech-desc">StateGraph + MemorySaver</div>
+          </div>
+          <div class="tech-item reveal" style="--i:1">
+            <div class="tech-icon"><img src="https://cdn.simpleicons.org/fastapi/009688" alt="FastAPI" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">FastAPI</div>
+            <div class="tech-desc">Python backend (4 REST endpoints)</div>
+          </div>
+          <div class="tech-item reveal" style="--i:2">
+            <div class="tech-icon"><img src="https://cdn.simpleicons.org/react/61DAFB" alt="React" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">React + TypeScript + Vite</div>
+            <div class="tech-desc">Split-screen frontend</div>
+          </div>
+          <div class="tech-item reveal" style="--i:3">
+            <div class="tech-icon"><img src="https://cdn.simpleicons.org/pydantic/E92063" alt="Pydantic" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">Pydantic v2</div>
+            <div class="tech-desc">Structured outputs + settings</div>
+          </div>
+          <div class="tech-item reveal" style="--i:4">
+            <div class="tech-icon"><img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">Docker + Compose</div>
+            <div class="tech-desc">Containerized deployment</div>
+          </div>
+          <div class="tech-item reveal" style="--i:5">
+            <div class="tech-icon"><span class="tech-icon-text">Tenacity</span></div>
+            <div class="tech-name">Tenacity</div>
+            <div class="tech-desc">Exponential backoff retry</div>
+          </div>
+          <div class="tech-item reveal" style="--i:6">
+            <div class="tech-icon"><img src="https://cdn.simpleicons.org/nginx/009639" alt="Nginx" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">Nginx</div>
+            <div class="tech-desc">Multi-stage production build</div>
+          </div>
+          <div class="tech-item reveal" style="--i:7">
+            <div class="tech-icon"><span class="tech-icon-text">OpenAI</span></div>
+            <div class="tech-name">OpenAI SDK</div>
+            <div class="tech-desc">Any OpenAI-compatible endpoint</div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+    <aside class="project-sidebar">
+      <div class="sidebar-card sidebar-card--pipeline reveal">
+        <h4>Agent Pipeline</h4>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Objective</span><span class="sidebar-layer-val">Manager sets the interview goal</span></div>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Planner</span><span class="sidebar-layer-val">Deconstructs into 3 criteria tags</span></div>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Interviewer</span><span class="sidebar-layer-val">Adaptive Q&amp;A · polls state</span></div>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Extractor</span><span class="sidebar-layer-val">JSON parsing · completion score</span></div>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Guardrails</span><span class="sidebar-layer-val">7 safety layers · configurable</span></div>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Synthesis</span><span class="sidebar-layer-val">Anonymize · aggregate · report</span></div>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Dashboard</span><span class="sidebar-layer-val">React split-screen UI</span></div>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Repo</span><span class="sidebar-layer-val"><a href="https://github.com/vinayakas1997/Parallel-Multi-Agent-1-1-Corporate-Interviewer" target="_blank" rel="noopener noreferrer">GitHub ↗</a></span></div>
+      </div>
+      <div class="sidebar-card sidebar-card--projects reveal">
+        <h4>Other Projects</h4>
+        <a href="../somic-ai-agent/index.html" class="sidebar-proj-link"><span>📄</span> Intelligent RAG with Knowledge Graph (Phase 1)</a>
+        <a href="../somic-ai-agent-part-2/index.html" class="sidebar-proj-link"><span>📊</span> Phase 2: HITL Evaluation &amp; Specialized Ingestion</a>
+        <a href="../opc-ua-transformation/index.html" class="sidebar-proj-link"><span>🔌</span> IIoT Industrial Edge Data Platform</a>
+        <a href="../agentic-factory-analytics/index.html" class="sidebar-proj-link"><span>🤖</span> Agentic Factory Analytics</a>
+        <a href="../robotic-hand/index.html" class="sidebar-proj-link"><span>🦾</span> Robotic Hand R&amp;D</a>
+        <a href="../power-testing/index.html" class="sidebar-proj-link"><span>⚡</span> US–Japan Power Tester</a>
+        <a href="../bosch-monitoring/index.html" class="sidebar-proj-link"><span>🔬</span> Bosch Process Monitor</a>
+        <a href="../healthcare-analytics/index.html" class="sidebar-proj-link"><span>🏥</span> Healthcare Analytics</a>
+      </div>
+    </aside>
+  </div></div>
+
+  <footer><div class="container footer-inner">
+    <p class="footer-copy">© 2025 <span>Vinayaka Sajjanshetty</span></p>
+    <div class="footer-links"><a href="../../index.html">Home</a><a href="../../index.html#projects">Projects</a></div>
+  </div></footer>
+  <script src="../../js/main.js"></script>
+  <script src="project.js"></script>
+</body></html>
