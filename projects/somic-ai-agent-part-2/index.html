@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phase 2: HITL Evaluation &amp; Specialized Ingestion Pipeline — Vinayaka</title>
+  <meta name="description" content="Case study: Phase 2 of the Intelligent RAG platform — Human-in-the-Loop evaluation dashboard with Golden Dataset management, plus specialized PLC ingestion with entity-anchored metadata enrichment for 85-90% retrieval accuracy." />
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../../css/hero.css" />
+  <link rel="stylesheet" href="../../css/sections.css" />
+  <link rel="stylesheet" href="project.css" />
+</head>
+<body>
+  <div id="progress-bar"></div><div id="cursor-glow"></div>
+  <nav id="navbar"><div class="container nav-inner">
+    <a href="../../index.html" class="nav-logo">&lt;<span>Vinayaka</span> /&gt;</a>
+    <ul class="nav-links">
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="../../index.html#projects" class="active">Projects</a></li>
+      <li><a href="../../index.html#contact">Contact</a></li>
+      <li><a href="../../resume.pdf" target="_blank" class="nav-resume">Resume ↗</a></li>
+    </ul>
+  </div></nav>
+
+  <section class="project-hero"><div class="container">
+    <a href="../../index.html#projects" class="back-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>Back to Projects
+    </a>
+    <div class="project-hero-content reveal">
+      <div class="project-hero-tags hero-tags-stagger">
+        <span class="tag">HITL</span><span class="tag">Golden Dataset</span><span class="tag">PLC Ingestion</span>
+        <span class="tag">Hindsight Tagging</span><span class="tag">Hybrid Search</span><span class="tag">LangGraph</span>
+        <span class="tag">MinerU</span><span class="tag">BGE-M3</span>
+      </div>
+      <h1 class="project-hero-title">Phase 2: HITL Evaluation &amp; Specialized Ingestion Pipeline</h1>
+      <p class="project-hero-sub">Phase 2 of the <a href="../somic-ai-agent/index.html">Intelligent RAG with Knowledge Graph</a> platform — a <strong>Human-in-the-Loop evaluation dashboard</strong> with Golden Dataset management for non-technical teams, plus a <strong>specialized PLC ingestion pipeline</strong> with entity-anchored metadata enrichment achieving <strong>85-90% retrieval accuracy</strong> on technical engineering manuals.</p>
+      <div class="project-meta">
+        <div class="meta-item"><span class="meta-label">Company</span><span class="meta-value">Somic Ishikawa</span></div>
+        <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">R&amp;D Engineer</span></div>
+        <div class="meta-item"><span class="meta-label">Year</span><span class="meta-value">2024 — <span class="meta-present">Present</span></span></div>
+        <div class="meta-item"><span class="meta-label">Type</span><span class="meta-value">RAG / Evaluation Platform</span></div>
+      </div>
+    </div>
+    <div class="project-cover-full project-cover-video-wrap reveal">
+      <div class="cover-placeholder" style="height:auto;padding:32px 24px;background:linear-gradient(135deg,rgba(108,99,255,0.08),rgba(29,158,117,0.04));">
+        <div class="arch-flow-row" style="max-width:100%;">
+          <div class="arch-flow-node" style="border-color:rgba(108,99,255,0.4);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--accent);margin-bottom:2px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            <span class="node-title">Upload</span><span class="node-sub">Folder drop</span>
+          </div>
+          <span class="arch-flow-arrow">→</span>
+          <div class="arch-flow-node">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--accent);margin-bottom:2px;"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <span class="node-title">Metadata Enrichment</span><span class="node-sub">LLM entity extractor</span>
+          </div>
+          <span class="arch-flow-arrow">→</span>
+          <div class="arch-flow-node">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--accent);margin-bottom:2px;"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5"/><line x1="12" y1="22" x2="12" y2="15.5"/><polyline points="22 8.5 12 15.5 2 8.5"/></svg>
+            <span class="node-title">Entity Tagging</span><span class="node-sub">Registers · codes</span>
+          </div>
+          <span class="arch-flow-arrow">→</span>
+          <div class="arch-flow-node">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--accent);margin-bottom:2px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span class="node-title">Vector Embedding</span><span class="node-sub">BGE-M3</span>
+          </div>
+          <span class="arch-flow-arrow">→</span>
+          <div class="arch-flow-node">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--accent);margin-bottom:2px;"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            <span class="node-title">Hybrid Filtering</span><span class="node-sub">Exact + semantic</span>
+          </div>
+          <span class="arch-flow-arrow">→</span>
+          <div class="arch-flow-node" style="border-color:rgba(29,158,117,0.5);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:#1D9E75;margin-bottom:2px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span class="node-title" style="color:#1D9E75;">Query Answer</span><span class="node-sub">Grounded · cited</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div></section>
+
+  <div class="project-body-wrap"><div class="container project-layout">
+    <main class="project-content">
+
+      <div class="content-block reveal content-prose">
+        <h2>Overview</h2>
+        <p><strong>Phase 2</strong> of the Intelligent RAG platform at Somic Ishikawa — extending the autonomous ingestion pipeline into an <strong>Enterprise AI Platform</strong> with two major additions: a <strong>Human-in-the-Loop (HITL) Evaluation Dashboard</strong> and a <strong>specialized PLC ingestion pipeline</strong> with entity-anchored metadata enrichment.</p>
+        <p>Part 1 solved the core problem of making 2,500+ bilingual documents queryable in seconds. Phase 2 solves two new problems: (1) enabling non-technical business teams to <strong>self-serve regression testing</strong> of model updates, and (2) expanding ingestion to handle <strong>PLC automation manuals</strong> with hyper-specific technical registers and memory addresses — a fundamentally different chunking and retrieval challenge.</p>
+      </div>
+
+      <div class="content-block reveal content-prose">
+        <h2>Production Context &amp; Business Impact</h2>
+        <p><strong>The Eval Bottleneck:</strong> Whenever the team updated the underlying model or retrieval pipeline, business users had to request engineering to manually run regression scripts. The automated LLM-as-a-judge evaluation suffered from high <strong>False Negative rates</strong> — marking semantically accurate answers as "Failed" because phrasing differed from the golden answer.</p>
+        <p><strong>The PLC Expansion:</strong> The PLC Code Design team requested access to the platform for 500-page automation manuals. These documents are dense with hardware registers (<code>%MW100</code>), error codes, Kanban identifiers, and network addresses. Standard text chunking shattered the structural relationship between register addresses and their functional descriptions — destroying retrieval accuracy.</p>
+        <p><strong>The Solution:</strong> A self-serve Golden Dataset Management Dashboard with <strong>HITL override capability</strong> for eval, and a <strong>Metadata Enrichment Pipeline</strong> that extracts technical entities before chunking and binds them to vector metadata payloads for hybrid filtering.</p>
+        <p><strong>Measurable Impact:</strong> Non-technical teams gained independent eval capability. PLC retrieval accuracy reached <strong>85-90%</strong> on complex register-level queries.</p>
+      </div>
+
+      <div class="content-block reveal">
+        <h2>Core Engineering Challenges &amp; Solutions</h2>
+        <div class="challenge-grid">
+          <div class="challenge-card reveal" style="--i:0">
+            <h3>1. Human-in-the-Loop Evaluation Dashboard</h3>
+            <p><strong>The Bottleneck:</strong> Initially, every model update required engineering to manually run regression scripts for the business team. The automated LLM-as-a-judge evaluation, while useful, suffered from excessive <strong>False Negatives</strong> — marking correct answers as failed when vocabulary or phrasing differed from the golden ground truth.</p>
+            <p><strong>The Architecture:</strong> Built a localized Golden Dataset Management Dashboard where non-technical team leads can input, edit, and version their own ground-truth question-answer pairs. The system automates regression evaluation via an LLM judge scoring both correctness and source attribution.</p>
+            <p><strong>The Solution:</strong> Integrated a <strong>Human-in-the-Loop (HITL) Override System</strong>. The AI judge acts as a first-pass filter; domain experts can audit flagged failures, override the machine verdict, and re-mark cases as passed. This produces a clean, enterprise-audited benchmarking dataset over time — eliminating the false-negative bottleneck without sacrificing rigor.</p>
+          </div>
+          <div class="challenge-card reveal" style="--i:1">
+            <h3>2. Specialized PLC Ingestion Pipeline</h3>
+            <p><strong>The Expansion:</strong> Scaled the platform to serve the PLC Code Design team, who needed to query 500-page automation manuals dense with hardware registers (<code>%MW100</code>), memory addresses, Kanban identifiers, error codes, and network protocols.</p>
+            <p><strong>The Challenge:</strong> Standard text chunking (e.g., 500-token sliding windows) shatters the structural relationship between a register address and its functional description. When a PLC engineer queries a specific register, the vector store returns chunks that mention the register but lose the surrounding context — destroying retrieval accuracy.</p>
+            <p><strong>The Solution (Hindsight Tagging):</strong> Developed a pre-ingestion <strong>Metadata Enrichment Pipeline</strong>. Before chunking, a targeted LLM scans each document to extract hyper-specific technical primitives: register addresses, error codes, protocol identifiers, and system names. These extracted entities are hard-bound to each vector chunk's <strong>Metadata Payload</strong>. When a PLC engineer queries a register address, the system uses <strong>Hybrid Filtering</strong> — Exact Metadata Match combined with Vector Similarity — instead of relying solely on noisy semantic similarity.</p>
+            <p><strong>The Result:</strong> Retrieval accuracy on complex technical queries rose to <strong><span class="metric-count" data-from="45" data-to="85">85</span>-90%</strong>, enabling the PLC team to find register-level information in seconds instead of manually flipping through hundreds of pages.</p>
+            <div class="challenge-metric" aria-hidden="true">
+              <span class="metric-pill metric-pill--from">Naive chunking ~45%</span>
+              <span class="metric-arrow">→</span>
+              <span class="metric-pill metric-pill--to">Entity-anchored ~85-90%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-block reveal">
+        <h2>Architecture</h2>
+        <p class="section-lead">Two parallel tracks — the HITL Evaluation Dashboard and the PLC Ingestion Pipeline — extending the existing RAG infrastructure from Phase 1.</p>
+        <div class="diagram-placeholder diagram-scanlines">
+          <p class="diagram-label">Phase 2 Architecture</p>
+          <div style="display:flex;flex-direction:column;gap:28px;">
+
+            <!-- Track 1: HITL Eval -->
+            <div>
+              <p class="diagram-label" style="margin-bottom:10px;font-size:0.62rem;color:var(--accent-light);">TRACK 1: HITL EVALUATION DASHBOARD</p>
+              <div class="arch-flow-row" style="flex-wrap:wrap;">
+                <div class="arch-flow-node">
+                  <span class="node-title">Golden Dataset UI</span>
+                  <span class="node-sub">QA pairs · versions</span>
+                </div>
+                <span class="arch-flow-arrow">→</span>
+                <div class="arch-flow-node">
+                  <span class="node-title">LLM-as-Judge</span>
+                  <span class="node-sub">Correctness · attribution</span>
+                </div>
+                <span class="arch-flow-arrow">→</span>
+                <div class="arch-flow-node" style="border-color:rgba(239,159,39,0.5);">
+                  <span class="node-title" style="color:#EF9F27;">HITL Override</span>
+                  <span class="node-sub">Expert review pass</span>
+                </div>
+                <span class="arch-flow-arrow">→</span>
+                <div class="arch-flow-node" style="border-color:rgba(29,158,117,0.5);">
+                  <span class="node-title" style="color:#1D9E75;">Clean Benchmark</span>
+                  <span class="node-sub">Audited dataset</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Track 2: PLC Ingestion -->
+            <div>
+              <p class="diagram-label" style="margin-bottom:10px;font-size:0.62rem;color:var(--accent-light);">TRACK 2: PLC INGESTION PIPELINE</p>
+              <div class="arch-flow-row" style="flex-wrap:wrap;">
+                <div class="arch-flow-node">
+                  <span class="node-title">Upload</span>
+                  <span class="node-sub">PLC manuals</span>
+                </div>
+                <span class="arch-flow-arrow">→</span>
+                <div class="arch-flow-node">
+                  <span class="node-title">Metadata LLM</span>
+                  <span class="node-sub">Registers · codes · IDs</span>
+                </div>
+                <span class="arch-flow-arrow">→</span>
+                <div class="arch-flow-node">
+                  <span class="node-title">Entity Binding</span>
+                  <span class="node-sub">→ metadata payload</span>
+                </div>
+                <span class="arch-flow-arrow">→</span>
+                <div class="arch-flow-node">
+                  <span class="node-title">Vector Embedding</span>
+                  <span class="node-sub">BGE-M3</span>
+                </div>
+                <span class="arch-flow-arrow">→</span>
+                <div class="arch-flow-node">
+                  <span class="node-title">Hybrid Filter</span>
+                  <span class="node-sub">Exact + semantic</span>
+                </div>
+                <span class="arch-flow-arrow">→</span>
+                <div class="arch-flow-node" style="border-color:rgba(29,158,117,0.5);">
+                  <span class="node-title" style="color:#1D9E75;">Register Query</span>
+                  <span class="node-sub">85-90% accuracy</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="content-block reveal content-prose">
+        <h2>Key Achievements &amp; Impact</h2>
+        <ul class="achievement-list">
+          <li>Delivered <strong>self-serve Golden Dataset Management Dashboard</strong> — non-technical teams manage ground-truth QA pairs, trigger regression eval runs, and inspect results independently</li>
+          <li>Built <strong>HITL Override System</strong> — domain experts audit and override LLM-as-judge false negatives, producing a clean enterprise-audited benchmark over time</li>
+          <li>Developed <strong>Entity-Anchored Ingestion (Hindsight Tagging)</strong> — pre-chunking metadata enrichment extracts registers, error codes, and protocol IDs, bound to vector payloads</li>
+          <li>Implemented <strong>Hybrid Filtering</strong> (Exact Metadata Match + Semantic Similarity) — PLC query accuracy improved from <strong>~45% to 85-90%</strong></li>
+          <li>Expanded the platform to serve <strong>PLC Code Design team</strong> — 500-page automation manuals with hyper-specific technical primitives</li>
+          <li>Eliminated the <strong>engineering eval bottleneck</strong> — business teams now self-serve regression testing without developer intervention</li>
+          <li>All systems remain <strong>fully on-premise</strong> — no external APIs, data never leaves the local DGX Spark environment</li>
+        </ul>
+      </div>
+
+      <div class="content-block reveal">
+        <h2>Intelligent Platform Capabilities</h2>
+        <p class="section-lead">Two new capability clusters extending the Phase 1 RAG platform.</p>
+        <div class="capability-grid">
+          <div class="capability-card reveal" style="--i:0">
+            <h3>Golden Dataset Management</h3>
+            <p>Non-technical team leads can input, version, and manage ground-truth <strong>question-answer pairs</strong>. Regression eval is one click — no engineering scripts needed.</p>
+          </div>
+          <div class="capability-card reveal" style="--i:1">
+            <h3>HITL Override System</h3>
+            <p>LLM-as-judge flags potential failures; domain experts audit, override, and re-mark. Produces a <strong>highly accurate, audited benchmark</strong> over time without false-negative noise.</p>
+          </div>
+          <div class="capability-card reveal" style="--i:2">
+            <h3>Entity-Anchored Ingestion</h3>
+            <p>Pre-chunking <strong>metadata enrichment</strong> extracts registers, error codes, and protocol IDs. Entities are hard-bound to vector metadata payloads for precise filtering.</p>
+          </div>
+          <div class="capability-card reveal" style="--i:3">
+            <h3>Hybrid Filtering Search</h3>
+            <p><strong>Exact Metadata Match</strong> combined with <strong>Semantic Similarity</strong> — PLC engineers query register addresses and get results anchored to the right context, not just similar text.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-block reveal">
+        <h2>Tech Stack</h2>
+        <div class="tech-grid stack-wide">
+          <div class="tech-item reveal" style="--i:0">
+            <div class="tech-icon"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">Python</div>
+            <div class="tech-desc">Pipeline + eval engine</div>
+          </div>
+          <div class="tech-item reveal" style="--i:1">
+            <div class="tech-icon"><img src="https://cdn.simpleicons.org/langchain/1C3C3C" alt="LangGraph" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">LangGraph</div>
+            <div class="tech-desc">Agent orchestration</div>
+          </div>
+          <div class="tech-item reveal" style="--i:2">
+            <div class="tech-icon"><img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="PostgreSQL" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">PostgreSQL</div>
+            <div class="tech-desc">Golden dataset + doc store</div>
+          </div>
+          <div class="tech-item reveal" style="--i:3">
+            <div class="tech-icon"><span class="tech-icon-text">BGE-M3</span></div>
+            <div class="tech-name">BGE-M3</div>
+            <div class="tech-desc">Dense + sparse embeddings</div>
+          </div>
+          <div class="tech-item reveal" style="--i:4">
+            <div class="tech-icon"><span class="tech-icon-text">GLM-4.6V</span></div>
+            <div class="tech-name">GLM-4.6V</div>
+            <div class="tech-desc">Entity extraction LLM</div>
+          </div>
+          <div class="tech-item reveal" style="--i:5">
+            <div class="tech-icon"><span class="tech-icon-text">Atlas</span></div>
+            <div class="tech-name">Atlas Inference</div>
+            <div class="tech-desc">On-prem LLM serving</div>
+          </div>
+          <div class="tech-item reveal" style="--i:6">
+            <div class="tech-icon"><span class="tech-icon-text">MinerU</span></div>
+            <div class="tech-name">MinerU</div>
+            <div class="tech-desc">OCR + layout extraction</div>
+          </div>
+          <div class="tech-item reveal" style="--i:7">
+            <div class="tech-icon"><img src="https://cdn.simpleicons.org/nvidia/76B900" alt="NVIDIA" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">DGX Spark</div>
+            <div class="tech-desc">On-prem inference hardware</div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+    <aside class="project-sidebar">
+      <div class="sidebar-card sidebar-card--pipeline reveal">
+        <h4>Pipeline at a Glance</h4>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Eval UI</span><span class="sidebar-layer-val">Golden Dataset · LLM judge · HITL override</span></div>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Extract</span><span class="sidebar-layer-val">Metadata enrichment (registers · codes)</span></div>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Tag</span><span class="sidebar-layer-val">Entity binding → metadata payload</span></div>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Embed</span><span class="sidebar-layer-val">BGE-M3 (dense · sparse)</span></div>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Filter</span><span class="sidebar-layer-val">Exact match + semantic similarity</span></div>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Inference</span><span class="sidebar-layer-val">Atlas + GLM-4.6V</span></div>
+        <div class="sidebar-layer"><span class="sidebar-layer-key">Hardware</span><span class="sidebar-layer-val">DGX Spark (on-prem)</span></div>
+      </div>
+      <div class="sidebar-card sidebar-card--projects reveal">
+        <h4>Other Projects</h4>
+        <a href="../somic-ai-agent/index.html" class="sidebar-proj-link"><span>📄</span> Intelligent RAG with Knowledge Graph (Phase 1)</a>
+        <a href="../opc-ua-transformation/index.html" class="sidebar-proj-link"><span>🔌</span> IIoT Industrial Edge Data Platform</a>
+        <a href="../robotic-hand/index.html" class="sidebar-proj-link"><span>🦾</span> Robotic Hand R&amp;D</a>
+        <a href="../power-testing/index.html" class="sidebar-proj-link"><span>⚡</span> US–Japan Power Tester</a>
+        <a href="../bosch-monitoring/index.html" class="sidebar-proj-link"><span>🔬</span> Bosch Process Monitor</a>
+        <a href="../healthcare-analytics/index.html" class="sidebar-proj-link"><span>🏥</span> Healthcare Analytics</a>
+        <a href="../agentic-factory-analytics/index.html" class="sidebar-proj-link"><span>🤖</span> Agentic Factory Analytics</a>
+      </div>
+    </aside>
+  </div></div>
+
+  <footer><div class="container footer-inner">
+    <p class="footer-copy">© 2025 <span>Vinayaka Sajjanshetty</span></p>
+    <div class="footer-links"><a href="../../index.html">Home</a><a href="../../index.html#projects">Projects</a></div>
+  </div></footer>
+  <script src="../../js/main.js"></script>
+  <script src="project.js"></script>
+</body></html>
