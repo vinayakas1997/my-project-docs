@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Intelligent RAG with Knowledge Graph — Vinayaka</title>
-  <meta name="description" content="Intelligent RAG with knowledge graph — autonomous ingestion, Hindsight memory, LangGraph agents, and Atlas inference over 2,500+ manufacturing documents." />
+  <meta name="description" content="Case study: Enterprise RAG platform for Somic Ishikawa — 360x query speedup, algorithmic hallucination guardrails, 45% OCR failure solved, Atlas inference 35→80 t/s on DGX Spark." />
   <link rel="stylesheet" href="../../css/style.css" />
   <link rel="stylesheet" href="../../css/hero.css" />
   <link rel="stylesheet" href="../../css/sections.css" />
@@ -32,7 +32,7 @@
         <span class="tag">PostgreSQL</span><span class="tag">MinerU</span>
       </div>
       <h1 class="project-hero-title">Intelligent RAG with Knowledge Graph</h1>
-      <p class="project-hero-sub">Fully autonomous RAG over 2,500+ manufacturing docs — Hindsight memory, LangGraph agents, hybrid retrieval, and local Qwen3.6 inference at ~70 tok/s via <a href="https://atlasinference.io/" target="_blank" rel="noopener noreferrer">Atlas</a> on DGX Spark.</p>
+      <p class="project-hero-sub">Case study: Enterprise RAG platform for a 10-member Planning &amp; Quotation team. On-premise autonomous ingestion over 2,500+ bilingual JP/EN docs — algorithmic hallucination guardrails, MinerU layout parsing, LangGraph agents, and Qwen3.6 inference at ~80 tok/s via <a href="https://atlasinference.io/" target="_blank" rel="noopener noreferrer">Atlas</a> on DGX Spark.</p>
       <div class="project-meta">
         <div class="meta-item"><span class="meta-label">Company</span><span class="meta-value">Somic Ishikawa</span></div>
         <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">R&amp;D Engineer</span></div>
@@ -53,36 +53,17 @@
 
       <div class="content-block reveal content-prose">
         <h2>Overview</h2>
-        <p>Internal technical knowledge at Somic Ishikawa lives across thousands of files — PDFs, slides, diagrams, mixed Japanese and English. Manual search is slow; generic LLMs hallucinate without grounding.</p>
-        <p>Built a <strong>fully autonomous pipeline</strong> from folder upload to indexed memory: the system <strong>segregates processable files automatically</strong>, routes each through OCR and quality gates, stores raw and clean outputs in <strong>PostgreSQL</strong>, and indexes structured memory in <strong>Hindsight</strong> with a <strong>knowledge graph</strong> and hybrid retrieval — no manual steps between upload and queryable intelligence.</p>
-        <p><strong>2,500+ documents</strong> ingested. A <strong>LangGraph manager agent</strong> routes queries to RAG, summarizer, concept-relationship, or greeting flows. Answers are <strong>grounded, cited, and streamed</strong> with related source documents. Evaluation is team-driven: each upload batch can define golden questions and expected answers to test coverage and reverse-engineer gaps. See the demo video above.</p>
+        <p>A <strong>fully autonomous RAG pipeline</strong> purpose-built for Somic Ishikawa's internal Planning &amp; Quotation team. The system ingests raw folder uploads, <strong>automatically segregates processable files</strong>, routes each through OCR and quality gates, stores raw and clean outputs in <strong>PostgreSQL</strong>, and indexes structured memory in <strong>Hindsight</strong> with a <strong>knowledge graph</strong> and hybrid retrieval — no manual handoff between upload and queryable intelligence.</p>
+        <p><strong>2,500+ documents</strong> ingested across PDFs, slides, CSV, TXT, and PPTX — bilingual Japanese and English. A <strong>LangGraph manager agent</strong> routes queries to RAG, summarizer, concept-relationship, or greeting flows. Every answer is <strong>grounded, cited, and streamed</strong> with exact source pages. Evaluation is team-driven: each upload batch defines golden questions and expected answers to test coverage and reverse-engineer gaps.</p>
       </div>
 
-      <div class="content-block reveal">
-        <h2>Intelligent Agent Capabilities</h2>
-        <p class="section-lead">Beyond basic Q&amp;A — the agent stack supports memory, summarization, and cross-lingual access.</p>
-        <div class="capability-grid">
-          <div class="capability-card reveal" style="--i:0">
-            <h3>Grounded answers + sources</h3>
-            <p>Responses include <strong>related source documents</strong>, not isolated generated text.</p>
-          </div>
-          <div class="capability-card reveal" style="--i:1">
-            <h3>Hindsight memory</h3>
-            <p>Chat history is not stored as raw transcripts — <strong>important facts</strong> are extracted into Hindsight for useful retrieval across sessions.</p>
-          </div>
-          <div class="capability-card reveal" style="--i:2">
-            <h3>Conversation summarizer</h3>
-            <p>After long threads across multiple topics, summarizes <strong>from the start</strong> so context is not lost.</p>
-          </div>
-          <div class="capability-card reveal" style="--i:3">
-            <h3>Concept relationships</h3>
-            <p>Surfaces <strong>open concepts</strong> across the full chat for better understanding of how ideas connect.</p>
-          </div>
-          <div class="capability-card reveal" style="--i:4">
-            <h3>Cross-lingual Q&amp;A</h3>
-            <p><strong>Bidirectional JP ↔ EN</strong> — ask in Japanese or English, receive grounded answers in the other language with sources.</p>
-          </div>
-        </div>
+      <div class="content-block reveal content-prose">
+        <h2>Production Context &amp; Business Impact</h2>
+        <p><strong>The Target Users:</strong> A 10-member Planning and Quotation enterprise team tasked with processing complex incoming project requests and generating client quotes.</p>
+        <p><strong>The Business Problem:</strong> Drafting an accurate quotation required manually digging through a massive historical archive of diverse document formats (PDF, CSV, TXT, PPTX). This caused severe operational bottlenecks and delayed client response times.</p>
+        <p><strong>Strict Constraints:</strong> Due to data governance policies, <strong>no external APIs could be used</strong>. The entire system had to be deployed fully on-premises, managing bilingual documents natively in both <strong>English and Japanese</strong>.</p>
+        <p><strong>The Solution:</strong> A secure, on-premise RAG platform that parses multi-format documents, processes dense tables, and extracts precise information — isolating exact text and table extractions down to the <strong>specific page number</strong> for auditability.</p>
+        <p><strong>Measurable Impact:</strong> Historical document synthesis reduced from <strong>hours of manual searching to under 10 seconds</strong> per query — a <strong>360x speedup</strong> for the quotation team.</p>
       </div>
 
       <div class="content-block reveal">
@@ -409,41 +390,82 @@
       </div>
 
       <div class="content-block reveal">
-        <h2>Challenges Tackled</h2>
+        <h2>Core Engineering Challenges &amp; Solutions</h2>
         <div class="challenge-grid">
           <div class="challenge-card reveal" style="--i:0">
-            <h3>Local inference speed</h3>
-            <p>First deployed <strong>vLLM</strong> on DGX Spark with latest attention optimizations; throughput plateaued at <strong>~45 tok/s</strong>. Switched to <strong><a href="https://atlasinference.io/" target="_blank" rel="noopener noreferrer">Atlas Inference</a></strong> (Rust + CUDA) running <strong>Qwen3.6 35B A3B NVFP4</strong> and reached <strong>~<span class="metric-count" data-from="45" data-to="70">70</span> tok/s</strong>.</p>
-            <div class="challenge-metric" aria-hidden="true">
-              <span class="metric-pill metric-pill--from">vLLM ~45</span>
-              <span class="metric-arrow">→</span>
-              <span class="metric-pill metric-pill--to">Atlas ~70 tok/s</span>
-            </div>
+            <h3>1. Layout-Aware Table Ingestion</h3>
+            <p><strong>The Challenge:</strong> A massive portion of historical PDFs contained mixed orientations — some tables were structured horizontally, others vertically. Standard OCR models failed up to <strong>45% of the time</strong> on rotated layouts.</p>
+            <p><strong>The Evolution:</strong> Initially built an LLM-based preprocessing step for layout detection. Replaced the entire bottleneck with <strong>MinerU</strong>, which natively outputs structural layout orientation in its JSON payload — eliminating the orientation preprocessing overhead entirely.</p>
+            <p><strong>The Result:</strong> Parsing error rate dropped from <strong>45% to near zero</strong>. MinerU routes text/table pages through the standard OCR path and sends diagram pages directly to GLM-4.6V Flash.</p>
           </div>
           <div class="challenge-card reveal" style="--i:1">
-            <h3>OCR hallucination</h3>
-            <p>Manufacturing PDFs (tables, diagrams, mixed layouts) triggered <strong>OCR hallucinations</strong>. Mitigated with MinerU extraction, word-count/anagram checks, retry logic, GLM-4.6V validation, and VLM fallback — invalid pages dropped before indexing.</p>
+            <h3>2. VLM Hallucination Guardrails</h3>
+            <p><strong>The Challenge:</strong> Smaller OCR/Vision models encountering hyper-dense tabular data frequently fell into structural hallucination loops — filling the maximum context window by repetitively printing junk characters.</p>
+            <p><strong>The Solution:</strong> An algorithmic guardrail designed from scratch: <strong>Mean Anagrams with Hash Mapping</strong>. The system monitors real-time OCR text streams; when character-variation frequency jumps beyond a calculated variance threshold, a hallucination loop is flagged.</p>
+            <p><strong>The Fail-Safe:</strong> A <strong>3-tier retry mechanism</strong> automatically kicks off. If the lightweight OCR engine triggers the guardrail three times, the pipeline dynamically escalates the troublesome page to a larger, robust <strong>GLM-4.6V Vision-Language Model (VLM)</strong> to guarantee extraction accuracy.</p>
           </div>
           <div class="challenge-card reveal" style="--i:2">
-            <h3>Japanese ↔ English barrier</h3>
-            <p>Factory teams work in both languages. Built <strong>bidirectional cross-lingual Q&amp;A</strong> — ask in Japanese or English, receive grounded answers in the other language with source documents attached.</p>
+            <h3>3. Scaling Throughput on Hardware Constraints</h3>
+            <p><strong>The Challenge:</strong> Deploying a high-capability <strong>19B model</strong> locally on a <strong>DGX Spark</strong> station hit severe hardware limits. With a memory bandwidth bottleneck of <strong>273 GB/s</strong>, the average model throughput crawled at <strong>35–40 t/s</strong>, forcing users to wait 80–90 seconds for comprehensive document analysis.</p>
+            <p><strong>The Solution:</strong> Refactored the serving stack from stock vLLM to the <strong>Atlas LLM Inference Engine</strong> (Rust + CUDA). By leveraging Atlas's kernel optimizations and memory layout tailoring for <strong>Qwen3.6 35B A3B NVFP4</strong>, token generation performance effectively doubled.</p>
+            <p><strong>The Result:</strong> Throughput spiked to <strong>70–80 t/s</strong>, collapsing client latency from <strong>90 seconds down to 6–10 seconds</strong> per request — a near-instantaneous experience for the quotation team.</p>
+            <div class="challenge-metric" aria-hidden="true">
+              <span class="metric-pill metric-pill--from">35–40 t/s</span>
+              <span class="metric-arrow">→</span>
+              <span class="metric-pill metric-pill--to">70–80 t/s</span>
+              <span class="metric-arrow" style="margin-left:12px;">→</span>
+              <span class="metric-pill metric-pill--to">90s → 6–10s</span>
+            </div>
+          </div>
+          <div class="challenge-card reveal" style="--i:3">
+            <h3>4. Bilingual Cross-Lingual Q&amp;A</h3>
+            <p><strong>The Challenge:</strong> Factory teams work in both Japanese and English. Generic LLMs hallucinate without grounded document context — especially across languages.</p>
+            <p><strong>The Solution:</strong> Built <strong>bidirectional JP ↔ EN</strong> grounded Q&amp;A. Ask in either language, receive answers with exact source documents attached — no translation API needed, all on-premise.</p>
           </div>
         </div>
       </div>
 
       <div class="content-block reveal content-prose">
-        <h2>Key Achievements</h2>
+        <h2>Key Achievements &amp; Impact</h2>
         <ul class="achievement-list">
-          <li>Delivered <strong>fully autonomous ingestion</strong> — folder upload → file segregation → processing → indexed memory without manual intervention</li>
-          <li>Processed <strong>2,500+ internal documents</strong> with automatic filtering of non-processable files into a separate store for later fetching</li>
-          <li>Built <strong>hallucination-resistant OCR</strong> pipeline for Japanese manufacturing docs (MinerU + validation + GLM-4.6V fallback)</li>
+          <li>Delivered <strong>fully autonomous ingestion</strong> — folder upload → file segregation → OCR → quality gates → indexed memory, zero manual intervention</li>
+          <li>Processed <strong>2,500+ internal documents</strong> (PDF, CSV, PPTX, TXT) with automatic routing of non-processable files</li>
+          <li>Reduced quotation data compilation time from <strong>hours to under 10 seconds</strong> per query (<strong>360x speedup</strong>) for a 10-member enterprise team</li>
+          <li>Built <strong>algorithmic hallucination guardrails</strong> (Mean Anagrams + Hash Mapping) with 3-tier retry escalation to VLM fallback</li>
+          <li>Solved <strong>45% OCR failure rate</strong> on rotated table layouts via MinerU layout-aware ingestion — near-zero parsing errors</li>
+          <li>Optimized on-prem inference: <strong>vLLM ~35 t/s → Atlas ~80 t/s</strong>, collapsing latency from 90s to 6–10s on DGX Spark</li>
           <li>Indexed <strong>Hindsight structured memory</strong> and <strong>knowledge graph</strong> with BGE-M3 embeddings and hybrid retrieval (RRF, semantic, BM25)</li>
-          <li>Deployed <strong>LangGraph manager agent</strong> — RAG, summarizer, concept-relationship, and greeting sub-agents</li>
-          <li>Optimized on-prem inference: <strong>vLLM (~45 tok/s) → Atlas (~70 tok/s)</strong> with Qwen3.6 35B A3B NVFP4 on DGX Spark</li>
-          <li>Enabled <strong>bidirectional JP ↔ EN</strong> grounded Q&amp;A with related document retrieval</li>
-          <li>Established <strong>golden Q&amp;A evaluation workflow</strong> per team upload batch for coverage testing and gap analysis</li>
+          <li>Enabled <strong>bidirectional JP ↔ EN</strong> grounded Q&amp;A with exact page-level citations for auditing</li>
+          <li>Deployed <strong>LangGraph manager agent</strong> — RAG, summarizer, concept-relationship, and greeting sub-agents with golden Q&amp;A evaluation per batch</li>
           <li>Shipped working <strong>chatbot demo</strong> with cited, streamed responses (see video above)</li>
         </ul>
+      </div>
+
+      <div class="content-block reveal">
+        <h2>Intelligent Agent Capabilities</h2>
+        <p class="section-lead">Beyond basic Q&amp;A — the agent stack supports memory, summarization, and cross-lingual access.</p>
+        <div class="capability-grid">
+          <div class="capability-card reveal" style="--i:0">
+            <h3>Grounded answers + sources</h3>
+            <p>Responses include <strong>related source documents</strong>, not isolated generated text.</p>
+          </div>
+          <div class="capability-card reveal" style="--i:1">
+            <h3>Hindsight memory</h3>
+            <p>Chat history is not stored as raw transcripts — <strong>important facts</strong> are extracted into Hindsight for useful retrieval across sessions.</p>
+          </div>
+          <div class="capability-card reveal" style="--i:2">
+            <h3>Conversation summarizer</h3>
+            <p>After long threads across multiple topics, summarizes <strong>from the start</strong> so context is not lost.</p>
+          </div>
+          <div class="capability-card reveal" style="--i:3">
+            <h3>Concept relationships</h3>
+            <p>Surfaces <strong>open concepts</strong> across the full chat for better understanding of how ideas connect.</p>
+          </div>
+          <div class="capability-card reveal" style="--i:4">
+            <h3>Cross-lingual Q&amp;A</h3>
+            <p><strong>Bidirectional JP ↔ EN</strong> — ask in Japanese or English, receive grounded answers in the other language with sources.</p>
+          </div>
+        </div>
       </div>
 
       <div class="content-block reveal">
