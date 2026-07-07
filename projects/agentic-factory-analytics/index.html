@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Agentic Factory Analytics (EDAS) — Vinayaka</title>
-  <meta name="description" content="EDAS — Event Driven Analysis System. LangGraph multi-agent IoT data analysis on factory PostgreSQL. Manager, Planner, and Executor agents with a shared Task Registry. Part 2 of the IIoT platform." />
+  <meta name="description" content="Case study: Event-driven multi-agent factory analytics on PostgreSQL — Dynamic Schema Fetcher for context-bloat mitigation, AST-based SQL security guardrails with transactional rollbacks, and SELECT...FOR UPDATE SKIP LOCKED concurrency control." />
   <link rel="stylesheet" href="../../css/style.css" />
   <link rel="stylesheet" href="../../css/hero.css" />
   <link rel="stylesheet" href="../../css/sections.css" />
@@ -28,10 +28,11 @@
     <div class="project-hero-content reveal">
       <div class="project-hero-tags hero-tags-stagger">
         <span class="tag">LangGraph</span><span class="tag">Agentic AI</span><span class="tag">EDAS</span>
-        <span class="tag">PostgreSQL</span><span class="tag">Python</span><span class="tag">IoT</span>
+        <span class="tag">PostgreSQL</span><span class="tag">AST Guardrails</span><span class="tag">Concurrency Control</span>
+        <span class="tag">Semantic Router</span><span class="tag">Docker</span>
       </div>
       <h1 class="project-hero-title">Agentic Factory Analytics</h1>
-      <p class="project-hero-sub"><strong>EDAS</strong> (Event Driven Analysis System) — event-driven multi-agent analysis on factory PostgreSQL. Users describe what they want; Manager, Planner, and Executor agents coordinate through a shared Task Registry. Part 2 of the <a href="../opc-ua-transformation/index.html">IIoT Industrial Edge Data Platform</a>.</p>
+      <p class="project-hero-sub">An <strong>event-driven multi-agent analytics framework</strong> built with LangGraph that converts raw industrial PostgreSQL databases into interactive, conversational business intelligence. Production managers ask complex analytical questions in plain English — agents dynamically explore schemas, generate optimized queries, and deliver synthesized insights. Part 2 of the <a href="../opc-ua-transformation/index.html">IIoT Industrial Edge Data Platform</a>.</p>
       <div class="project-meta">
         <div class="meta-item"><span class="meta-label">Company</span><span class="meta-value">Somic Ishikawa</span></div>
         <div class="meta-item"><span class="meta-label">Role</span><span class="meta-value">R&amp;D Engineer</span></div>
@@ -49,33 +50,17 @@
 
       <div class="content-block reveal content-prose">
         <h2>Overview</h2>
-        <p>Modern factories have IoT teams that maintain PostgreSQL databases full of machine and sensor data — but <strong>schema, table relationships, and column formats</strong> are a black box to everyone else. Custom graphs and analysis usually require waiting on specialists who know the data layout.</p>
-        <p><strong>EDAS</strong> bridges that gap: users describe analysis goals in natural language; agents resolve line, time range, and aims against the IoT catalog, then plan and execute queries. The name reflects the <strong>event-driven architecture</strong> — how agents coordinate — not the data format itself.</p>
-        <p>This is <strong>Part 2</strong> of the factory data initiative at Somic Ishikawa. It builds on the <a href="../opc-ua-transformation/index.html">IIoT platform</a>, where TRITON edge ingestion and n8n + FastAPI processing persist granular shop-floor data in <strong>PostgreSQL</strong> — replacing license- and register-limited legacy IoT.</p>
-        <p>Instead of a rigid pipeline where every step waits on the previous one, EDAS uses a shared <strong>Task Registry</strong>: each agent drops and picks work independently. That enables parallel execution, targeted scaling, and <strong>resume-from-failure</strong> instead of restarting from scratch.</p>
+        <p>Traditional factory analytics relies on <strong>static dashboards</strong> (Grafana, PowerBI). When a production manager needs an ad-hoc insight — <em>"Why did Power Tester 3 spike in energy consumption last Tuesday during the night shift?"</em> — they must wait for a data engineer to manually write, test, and run a complex SQL join query across multiple tables. This creates a severe operational bottleneck.</p>
+        <p><strong>EDAS</strong> (Event Driven Analysis System) eliminates this bottleneck: a decoupled multi-agent coordinator where non-technical stakeholders ask analytical questions in <strong>plain English</strong>, and specialized AI agents dynamically explore database structures, generate optimized queries, and deliver synthesized insights — all without exposing the underlying schema complexity.</p>
+        <p>This is <strong>Part 2</strong> of the factory data initiative at Somic Ishikawa. It builds on the <a href="../opc-ua-transformation/index.html">IIoT platform</a>, where TRITON edge ingestion persists granular shop-floor data in <strong>PostgreSQL</strong>. Instead of a rigid pipeline, EDAS uses a shared <strong>Task Registry</strong>: each agent drops and picks work independently, enabling parallel execution, targeted scaling, and <strong>resume-from-failure</strong> instead of restarting from scratch.</p>
       </div>
 
-      <div class="content-block reveal">
-        <h2>Agent Capabilities</h2>
-        <p class="section-lead">Natural-language factory analysis through decoupled LangGraph agents and a PostgreSQL task hub.</p>
-        <div class="capability-grid">
-          <div class="capability-card reveal" style="--i:0">
-            <h3>Natural-language factory analysis</h3>
-            <p>Users state goals in plain language — machines, time ranges, and aims — without knowing table schemas or SQL.</p>
-          </div>
-          <div class="capability-card reveal" style="--i:1">
-            <h3>Event-driven Task Registry</h3>
-            <p>Agents communicate through <strong>PostgreSQL <code>task_registry</code></strong> — decoupled by design, not chained in a single pipeline.</p>
-          </div>
-          <div class="capability-card reveal" style="--i:2">
-            <h3>Catalog-aware validation</h3>
-            <p>The <strong>Manager Agent</strong> validates tables against the IoT catalog, parses relative time phrases, and fills slots before handoff.</p>
-          </div>
-          <div class="capability-card reveal" style="--i:3">
-            <h3>Smart error routing</h3>
-            <p>The <strong>Executor</strong> sends data/table errors back to the <strong>Planner</strong>; format and code issues are fixed locally and retried.</p>
-          </div>
-        </div>
+      <div class="content-block reveal content-prose">
+        <h2>Production Context &amp; Business Impact</h2>
+        <p><strong>The Target Users:</strong> Production managers, plant operators, and operations executives who require immediate, ad-hoc insights from live factory floor data — but lack direct database access or SQL knowledge.</p>
+        <p><strong>The Core Bottleneck:</strong> Traditional factory analytics relies on static dashboards. Complex analytical questions — multi-table joins, time-range correlations, anomaly root-cause analysis — require a data engineer to manually write, test, and run SQL queries. This causes delays measured in hours or days for what should be a 30-second answer.</p>
+        <p><strong>The Solution (EDAS):</strong> A decoupled multi-agent coordinator where users ask analytical questions in plain English, and specialized agents dynamically explore database schemas, generate optimized read-only queries, and deliver synthesized insights — no SQL knowledge required.</p>
+        <p><strong>Key Design Constraints:</strong> Queries execute against a live operational PostgreSQL database holding years of manufacturing telemetry. The system must guarantee non-destructive read-only execution, handle massive schema bloat without hallucinating joins, and coordinate multiple concurrent agent threads without race conditions.</p>
       </div>
 
       <div class="content-block reveal">
@@ -124,20 +109,24 @@
       </div>
 
       <div class="content-block reveal">
-        <h2>Challenges Tackled</h2>
-        <p class="section-lead">Design constraints that motivated event-driven agents over a traditional pipeline.</p>
+        <h2>Core Engineering Challenges &amp; Solutions</h2>
         <div class="challenge-grid">
           <div class="challenge-card reveal" style="--i:0">
-            <h3>Pipeline bottlenecks vs. registry</h3>
-            <p>Rigid step-by-step pipelines scale every stage together and restart from scratch on mid-flow failure. The Task Registry lets each agent scale, upgrade, or resume independently.</p>
+            <h3>1. Mitigating Schema Context Bloat</h3>
+            <p><strong>The Challenge:</strong> Feeding an entire enterprise relational database schema (dozens of tables, hundreds of columns, and data types) directly into an LLM context window causes extreme token bloat, high costs, and severe attention degradation — causing the planner to hallucinate invalid table joins.</p>
+            <p><strong>The Solution (Dynamic Schema Fetcher):</strong> The database schema is stored natively inside a localized lookup table. Before the Planner Agent builds its roadmap, a lightweight semantic search routing step identifies <strong>only</strong> the specific tables and columns relevant to the user's query, injecting a minimized, hyper-focused schema definition into the prompt context window.</p>
           </div>
           <div class="challenge-card reveal" style="--i:1">
-            <h3>Schema black box for non-IoT users</h3>
-            <p>Column names and table relationships are opaque to analysts and managers. The Manager validates against the IoT catalog and never requires users to know SQL or schema details.</p>
+            <h3>2. Deterministic SQL Security Guardrails</h3>
+            <p><strong>The Challenge:</strong> Running dynamically generated code against an active operational data store carries catastrophic risk. A minor agent hallucination or malicious prompt injection could generate a <code>DROP TABLE</code>, <code>DELETE</code>, or <code>UPDATE</code> command, corrupting live manufacturing telemetry.</p>
+            <p><strong>The Solution:</strong> Built a two-layer security framework for absolute non-destructive execution:</p>
+            <p><strong>1. Regex AST Parser:</strong> Every string generated by the Executor Agent passes through a strict inspection layer that blocks any query containing mutation keywords or non-<code>SELECT</code> statements.</p>
+            <p><strong>2. Transactional Rollbacks:</strong> The query runs under a restricted, read-only database user profile inside an isolated transaction block that auto-rolls back if any data modification is attempted.</p>
           </div>
           <div class="challenge-card reveal" style="--i:2">
-            <h3>Cross-agent error recovery</h3>
-            <p>Query failures can be data issues or code issues. Splitting retry logic between Planner and Executor avoids blind restarts and keeps conversation state intact.</p>
+            <h3>3. Distributed State Coordination</h3>
+            <p><strong>The Challenge:</strong> In an event-driven multi-agent architecture, scalability introduces concurrency risks. If multiple agent threads poll the shared PostgreSQL Task Registry simultaneously, they encounter race conditions — two workers grabbing the same "Pending" task at the same millisecond, causing duplicate LLM execution, wasted token costs, and corrupted state updates.</p>
+            <p><strong>The Solution — Pessimistic Concurrency Control:</strong> Workers pull jobs from the state table using an atomic <code>SELECT ... FOR UPDATE SKIP LOCKED</code> query block. This ensures that the moment an agent reads a task to change its status to <code>running</code>, that specific database row is instantly locked to other threads. Competing workers seamlessly skip it and process the next available task — no bottlenecks, no duplicates.</p>
           </div>
         </div>
       </div>
@@ -158,20 +147,45 @@
       </div>
 
       <div class="content-block reveal content-prose">
-        <h2>Key Achievements</h2>
+        <h2>Key Achievements &amp; Impact</h2>
         <ul class="achievement-list">
-          <li>Designed and implemented <strong>EDAS</strong> — event-driven multi-agent architecture on factory PostgreSQL</li>
+          <li>Designed and implemented <strong>EDAS</strong> — event-driven multi-agent architecture converting raw factory PostgreSQL into conversational business intelligence</li>
+          <li>Built <strong>Dynamic Schema Fetcher</strong> — lightweight semantic routing to mitigate LLM context bloat, injecting only relevant tables/columns into Planner prompts</li>
+          <li>Developed <strong>two-layer SQL security framework</strong> — Regex AST Parser blocks mutation keywords; transactional rollbacks enforce read-only execution on live operational databases</li>
+          <li>Implemented <strong>Pessimistic Concurrency Control</strong> via <code>SELECT ... FOR UPDATE SKIP LOCKED</code> — eliminating task registry race conditions across concurrent agent threads</li>
           <li>Built <strong>Manager Agent</strong> LangGraph flow (27 nodes, 6 targeted LLM calls) with catalog validation, slot filling, and Task Registry handoff</li>
-          <li>Deployed shared <strong>Task Registry</strong> pattern — Manager, Planner, and Executor decoupled by design</li>
-          <li>Published <strong><a href="https://medium.com/@vinayakasomic/building-edas-an-event-driven-multi-agent-approach-to-iot-data-analysis-with-langgraph-da48994e12d5" target="_blank" rel="noopener noreferrer">Blog 1 on Medium</a></strong> documenting architecture and Manager Agent design</li>
-          <li>Released <strong><a href="https://github.com/vinayakas1997/IOT-AI-agentic-analysis-" target="_blank" rel="noopener noreferrer">open prompt templates on GitHub</a></strong> for the Manager Agent LLM calls</li>
+          <li>Deployed shared <strong>Task Registry</strong> pattern — Manager, Planner, and Executor decoupled by design with resume-from-failure recovery</li>
+          <li>Published <strong><a href="https://medium.com/@vinayakasomic/building-edas-an-event-driven-multi-agent-approach-to-iot-data-analysis-with-langgraph-da48994e12d5" target="_blank" rel="noopener noreferrer">Blog 1 on Medium</a></strong> + released <strong><a href="https://github.com/vinayakas1997/IOT-AI-agentic-analysis-" target="_blank" rel="noopener noreferrer">open prompt templates on GitHub</a></strong></li>
           <li>Connected to <strong><a href="../opc-ua-transformation/index.html">Part 1 IIoT platform</a></strong> — higher-granularity factory data as the analytics foundation</li>
         </ul>
       </div>
 
       <div class="content-block reveal">
+        <h2>Agent Capabilities</h2>
+        <p class="section-lead">Natural-language factory analysis through decoupled LangGraph agents and a PostgreSQL task hub.</p>
+        <div class="capability-grid">
+          <div class="capability-card reveal" style="--i:0">
+            <h3>Natural-language factory analysis</h3>
+            <p>Users state goals in plain language — machines, time ranges, and aims — without knowing table schemas or SQL.</p>
+          </div>
+          <div class="capability-card reveal" style="--i:1">
+            <h3>Event-driven Task Registry</h3>
+            <p>Agents communicate through <strong>PostgreSQL <code>task_registry</code></strong> — decoupled by design, not chained in a single pipeline.</p>
+          </div>
+          <div class="capability-card reveal" style="--i:2">
+            <h3>Catalog-aware validation</h3>
+            <p>The <strong>Manager Agent</strong> validates tables against the IoT catalog, parses relative time phrases, and fills slots before handoff.</p>
+          </div>
+          <div class="capability-card reveal" style="--i:3">
+            <h3>Smart error routing</h3>
+            <p>The <strong>Executor</strong> sends data/table errors back to the <strong>Planner</strong>; format and code issues are fixed locally and retried.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-block reveal">
         <h2>Tech Stack</h2>
-        <div class="tech-grid">
+        <div class="tech-grid stack-wide">
           <div class="tech-item reveal" style="--i:0">
             <div class="tech-icon"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" width="28" height="28" loading="lazy" /></div>
             <div class="tech-name">Python</div>
@@ -188,14 +202,29 @@
             <div class="tech-desc">Agent orchestration</div>
           </div>
           <div class="tech-item reveal" style="--i:3">
+            <div class="tech-icon"><span class="tech-icon-text">AST</span></div>
+            <div class="tech-name">AST Token Parser</div>
+            <div class="tech-desc">SQL mutation guardrails</div>
+          </div>
+          <div class="tech-item reveal" style="--i:4">
             <div class="tech-icon"><span class="tech-icon-text">EDAS</span></div>
             <div class="tech-name">EDAS</div>
             <div class="tech-desc">Event Driven Analysis System</div>
           </div>
-          <div class="tech-item reveal" style="--i:4">
+          <div class="tech-item reveal" style="--i:5">
             <div class="tech-icon"><span class="tech-icon-text">REG</span></div>
             <div class="tech-name">Task Registry</div>
             <div class="tech-desc">Shared agent coordination</div>
+          </div>
+          <div class="tech-item reveal" style="--i:6">
+            <div class="tech-icon"><span class="tech-icon-text">SR</span></div>
+            <div class="tech-name">Semantic Router</div>
+            <div class="tech-desc">Dynamic schema routing</div>
+          </div>
+          <div class="tech-item reveal" style="--i:7">
+            <div class="tech-icon"><img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker" width="28" height="28" loading="lazy" /></div>
+            <div class="tech-name">Docker</div>
+            <div class="tech-desc">Containerized deployment</div>
           </div>
         </div>
       </div>
@@ -203,39 +232,48 @@
     </main>
     <aside class="project-sidebar">
       <div class="sidebar-card sidebar-card--pipeline reveal">
-        <h4>Platform at a Glance</h4>
+        <h4>Architecture at a Glance</h4>
         <div class="sidebar-layer">
           <span class="sidebar-layer-key">Part 1</span>
           <span class="sidebar-layer-val"><a href="../opc-ua-transformation/index.html">IIoT Edge Platform</a></span>
-        </div>
-        <div class="sidebar-layer">
-          <span class="sidebar-layer-key">Store</span>
-          <span class="sidebar-layer-val">PostgreSQL + task_registry</span>
         </div>
         <div class="sidebar-layer">
           <span class="sidebar-layer-key">Manager</span>
           <span class="sidebar-layer-val">Conversation + slot filling</span>
         </div>
         <div class="sidebar-layer">
+          <span class="sidebar-layer-key">Schema</span>
+          <span class="sidebar-layer-val">Dynamic Schema Fetcher</span>
+        </div>
+        <div class="sidebar-layer">
           <span class="sidebar-layer-key">Planner</span>
-          <span class="sidebar-layer-val">Query plans</span>
+          <span class="sidebar-layer-val">Query plan generation</span>
+        </div>
+        <div class="sidebar-layer">
+          <span class="sidebar-layer-key">Security</span>
+          <span class="sidebar-layer-val">AST parser + rollbacks</span>
         </div>
         <div class="sidebar-layer">
           <span class="sidebar-layer-key">Executor</span>
-          <span class="sidebar-layer-val">Run + error routing</span>
+          <span class="sidebar-layer-val">Read-only SQL execution</span>
+        </div>
+        <div class="sidebar-layer">
+          <span class="sidebar-layer-key">State</span>
+          <span class="sidebar-layer-val"><code>SELECT ... FOR UPDATE SKIP LOCKED</code></span>
         </div>
         <div class="sidebar-layer">
           <span class="sidebar-layer-key">Blog</span>
           <span class="sidebar-layer-val"><a href="https://medium.com/@vinayakasomic/building-edas-an-event-driven-multi-agent-approach-to-iot-data-analysis-with-langgraph-da48994e12d5" target="_blank" rel="noopener noreferrer">Medium — Blog 1</a></span>
         </div>
         <div class="sidebar-layer">
-          <span class="sidebar-layer-key">Code</span>
-          <span class="sidebar-layer-val"><a href="https://github.com/vinayakas1997/IOT-AI-agentic-analysis-" target="_blank" rel="noopener noreferrer">GitHub repo</a></span>
+          <span class="sidebar-layer-key">Repo</span>
+          <span class="sidebar-layer-val"><a href="https://github.com/vinayakas1997/IOT-AI-agentic-analysis-" target="_blank" rel="noopener noreferrer">GitHub</a></span>
         </div>
       </div>
       <div class="sidebar-card sidebar-card--projects reveal">
         <h4>Other Projects</h4>
-        <a href="../somic-ai-agent/index.html" class="sidebar-proj-link"><span>🧠</span> Intelligent RAG with Knowledge Graph</a>
+        <a href="../somic-ai-agent/index.html" class="sidebar-proj-link"><span>📄</span> Intelligent RAG with Knowledge Graph (Phase 1)</a>
+        <a href="../somic-ai-agent-part-2/index.html" class="sidebar-proj-link"><span>📊</span> Phase 2: HITL Evaluation &amp; Specialized Ingestion</a>
         <a href="../opc-ua-transformation/index.html" class="sidebar-proj-link"><span>🔌</span> IIoT Industrial Edge Data Platform</a>
         <a href="../robotic-hand/index.html" class="sidebar-proj-link"><span>🦾</span> Robotic Hand R&amp;D</a>
         <a href="../power-testing/index.html" class="sidebar-proj-link"><span>⚡</span> US–Japan Power Tester</a>

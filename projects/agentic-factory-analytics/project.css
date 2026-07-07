@@ -209,7 +209,14 @@
 }
 .challenge-card:hover { border-color: rgba(108,99,255,0.55); transform: translateY(-2px); }
 .challenge-card h3 { font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 10px; }
-.challenge-card p { font-size: 0.92rem; color: hsl(240, 12%, 86%); line-height: 1.65; margin: 0; }
+.challenge-card p { font-size: 0.92rem; color: hsl(240, 12%, 86%); line-height: 1.65; margin-bottom: 12px; }
+.challenge-card p:last-child { margin-bottom: 0; }
+.challenge-metric { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+.metric-pill { font-family: var(--font-mono); font-size: 0.72rem; padding: 6px 12px; border-radius: 6px; font-weight: 600; }
+.metric-pill--from { background: #1a1a1a; border: 1px solid #555; color: hsl(240, 10%, 75%); }
+.metric-pill--to { background: #0f2e26; border: 1px solid #1D9E75; color: #6ee7b7; }
+.metric-arrow { color: var(--diag-label); font-weight: 700; }
+.metric-count { color: #6ee7b7; font-weight: 700; }
 
 .achievement-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
 .achievement-list li { display: flex; align-items: flex-start; gap: 12px; color: hsl(240, 12%, 86%); font-size: 0.95rem; line-height: 1.6; }
