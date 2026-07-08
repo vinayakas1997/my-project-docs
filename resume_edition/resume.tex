@@ -14,7 +14,7 @@
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{verbatim}
 \usepackage{enumitem}
-\usepackage[hidelinks]{hyperref}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue]{hyperref}
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
@@ -104,9 +104,9 @@
 \section{Technical Skills}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
-     \textbf{Languages \& Frameworks}{: Python, C/C++, TypeScript, React, LangGraph, LangChain, FastAPI, PyTorch, ROS2} \\
+     \textbf{Languages \& Frameworks}{: Python, C/C++, TS, React, LangGraph, LangChain, FastAPI, PyTorch, ROS2} \\
      \textbf{AI \& Data}{: Multi-Agent Architectures, RAG, Vector DBs (Hindsight), Guardrails (AST/Regex), Knowledge Graphs} \\
-     \textbf{Systems \& IIoT}{: OPC UA, PostgreSQL, Docker, Linux, Grafana, Prometheus, Ansible, TRITON, Jetson Nano} \\
+     \textbf{Systems \& IIoT}{: OPC UA, PG, Docker, Linux, Grafana, Prometheus, Ansible, TRITON, Jetson Nano} \\
      \textbf{Languages}{: English (Fluent), Japanese (Conversational), Hindi (Native)}
     }}
  \end{itemize}
@@ -145,25 +145,25 @@
 \section{Projects}
     \resumeSubHeadingListStart
       \resumeProjectHeading
-          {\textbf{Agentic Factory Analytics (EDAS)} $|$ \emph{LangGraph, PostgreSQL, AST Guardrails} \hfill \href{https://vinayakas1997.github.io/my-project-docs/projects/agentic-factory-analytics/}{\small [Case Study]} \href{https://github.com/vinayakas1997/IOT-AI-agentic-analysis-}{\small [GitHub]} \href{https://medium.com/@vinayakasomic/building-edas-an-event-driven-multi-agent-approach-to-iot-data-analysis-with-langgraph-da48994e12d5}{\small [Blog]}}{2024 -- Present}
+          {\textbf{Agentic Factory Analytics (EDAS)} $|$ \emph{LangGraph, PG, AST Guardrails} \hfill \href{https://vinayakas1997.github.io/my-project-docs/projects/agentic-factory-analytics/}{\small \underline{[Case Study]}} \href{https://github.com/vinayakas1997/IOT-AI-agentic-analysis-}{\small \underline{[GitHub]}} \href{https://medium.com/@vinayakasomic/building-edas-an-event-driven-multi-agent-approach-to-iot-data-analysis-with-langgraph-da48994e12d5}{\small \underline{[Blog]}}}{2024 -- Present}
           \resumeItemListStart
             \resumeItem{Built event-driven multi-agent framework converting raw factory PostgreSQL into conversational BI -- Manager, Planner, and Executor agents decoupled via shared Task Registry with resume-from-failure recovery}
             \resumeItem{Developed Dynamic Schema Fetcher for context-bloat mitigation + two-layer SQL security (Regex AST Parser, transactional rollbacks) and \texttt{SELECT...FOR UPDATE SKIP LOCKED} concurrency control}
           \resumeItemListEnd
       \resumeProjectHeading
-          {\textbf{Intelligent RAG with Knowledge Graph} $|$ \emph{LangGraph, Hindsight, Atlas, DGX Spark} \hfill \href{https://vinayakas1997.github.io/my-project-docs/projects/somic-ai-agent/}{\small [Phase 1]} \href{https://vinayakas1997.github.io/my-project-docs/projects/somic-ai-agent-part-2/}{\small [Phase 2]}}{2024 -- Present}
+          {\textbf{Intelligent RAG with Knowledge Graph} $|$ \emph{LangGraph, Hindsight, Atlas} \hfill \href{https://vinayakas1997.github.io/my-project-docs/projects/somic-ai-agent/}{\small \underline{[Phase 1]}} \href{https://vinayakas1997.github.io/my-project-docs/projects/somic-ai-agent-part-2/}{\small \underline{[Phase 2]}}}{2024 -- Present}
           \resumeItemListStart
             \resumeItem{Delivered fully autonomous on-premise RAG pipeline for 10-member Planning team -- ingested 2,500+ bilingual docs, algorithmic hallucination guardrails, optimized inference (vLLM 35 $\to$ Atlas 80 tok/s), latency 90s $\to$ 6-10s}
             \resumeItem{Built Phase 2: HITL Evaluation Dashboard with Golden Dataset management + specialized PLC ingestion achieving 85-90\% retrieval accuracy via entity-anchored metadata enrichment (Hindsight Tagging)}
           \resumeItemListEnd
       \resumeProjectHeading
-          {\textbf{Parallel Multi-Agent 1:1 Corporate Interviewer} $|$ \emph{LangGraph, FastAPI, React+TypeScript, Docker} \hfill \href{https://vinayakas1997.github.io/my-project-docs/projects/multi-agent-interviewer/}{\small [Case Study]} \href{https://github.com/vinayakas1997/Parallel-Multi-Agent-1-1-Corporate-Interviewer}{\small [GitHub]}}{2025}
+          {\textbf{Parallel Multi-Agent 1:1 Interviewer} $|$ \emph{LangGraph, React+TS, Docker} \hfill \href{https://vinayakas1997.github.io/my-project-docs/projects/multi-agent-interviewer/}{\small \underline{[Case Study]}} \href{https://github.com/vinayakas1997/Parallel-Multi-Agent-1-1-Corporate-Interviewer}{\small \underline{[GitHub]}}}{2024 -- Present}
           \resumeItemListStart
             \resumeItem{Architected 4-agent pipeline (Planner $\to$ Interviewer $\to$ Extractor $\to$ Synthesis) compressing 10+ hours of manual 1:1 meetings into under 1 hour with 7 configurable production guardrails}
             \resumeItem{Built full-stack application with React+TypeScript frontend and FastAPI backend -- one-command \texttt{docker compose up} deployment, LLM-agnostic architecture}
           \resumeItemListEnd
       \resumeProjectHeading
-          {\textbf{IIoT Industrial Edge Data Platform} $|$ \emph{OPC UA, Python, FastAPI, PostgreSQL, Grafana, MQTT, Ansible} \hfill \href{https://vinayakas1997.github.io/my-project-docs/projects/opc-ua-transformation/}{\small [Case Study]}}{2024 -- Present}
+          {\textbf{IIoT Industrial Edge Platform} $|$ \emph{OPC UA, Py, PG, Grafana, MQTT, Ansible} \hfill \href{https://vinayakas1997.github.io/my-project-docs/projects/opc-ua-transformation/}{\small \underline{[Case Study]}}}{2024 -- Present}
           \resumeItemListStart
             \resumeItem{Replaced license-limited legacy IoT with self-owned edge-to-PostgreSQL pipeline on LINX TRITON controllers -- Python FINS bridge, multi-path ingestion (OPC UA/MQTT/CSV), Grafana dashboards, Prometheus monitoring}
           \resumeItemListEnd
