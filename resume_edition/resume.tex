@@ -1,0 +1,186 @@
+%-------------------------
+% Resume in Latex
+% Author : Vinayaka Sajjanshetty
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\input{glyphtounicode}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Vinayaka Sajjanshetty} \\ \vspace{4pt}
+    \small
+    \faIcon{phone-alt} \thinspace +81-7084689061 \quad
+    \faIcon{envelope} \thinspace \href{mailto:hellovinayakasajjanshetty@gmail.com}{hellovinayakasajjanshetty@gmail.com} \quad
+    \faIcon{map-marker-alt} \thinspace Hamamatsu, Japan \\ \vspace{3pt}
+    \faIcon{linkedin} \thinspace \href{https://www.linkedin.com/in/vinayaka-sajjanshetty-91033111a}{linkedin.com/in/vinayaka-sajjanshetty} \quad
+    \faIcon{github} \thinspace \href{https://github.com/vinayakas1997}{github.com/vinayakas1997} \quad
+    \faIcon{globe} \thinspace \href{https://vinayakas1997.github.io/my-project-docs/}{vinayakas1997.github.io}
+\end{center}
+
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages \& Frameworks}{: Python, C/C++, TypeScript, React, LangGraph, LangChain, FastAPI, PyTorch, ROS2} \\
+     \textbf{AI \& Data}{: Multi-Agent Architectures, RAG, Vector DBs (Hindsight), Guardrails (AST/Regex), Knowledge Graphs} \\
+     \textbf{Systems \& IIoT}{: OPC UA, PostgreSQL, Docker, Linux, Grafana, Prometheus, Ansible, TRITON, Jetson Nano} \\
+     \textbf{Languages}{: English (Fluent), Japanese (Conversational), Hindi (Native)}
+    }}
+ \end{itemize}
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Somic Ishikawa}{Shizuoka, Japan}
+      {Applied AI \& Systems Engineer (R\&D)}{Oct 2024 -- Present}
+      \resumeItemListStart
+        \resumeItem{Led end-to-end lifecycle of AI system deployments for enterprise manufacturing partners -- scoped ambiguous business requirements, designed full-stack architectures, and shipped production-grade agentic and LLM solutions on factory floors}
+        \resumeItem{Served as primary technical liaison between US engineering partners and Japan factory teams -- drove cross-border product validation, diagnosed production data issues, and translated field insights into product improvements}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Legato Health Technologies}{Bangalore, India}
+      {Software Engineer, Data \& Analytics}{Sep 2022 -- Sep 2024}
+      \resumeItemListStart
+        \resumeItem{Delivered data analytics solutions for healthcare clients -- gathered cross-functional requirements, maintained backward-compatible data models, improved data accuracy through root-cause analysis on production data issues}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Bosch Automotive Electronics}{Bangalore, India}
+      {Engineering Intern}{Jan 2019 -- Mar 2019}
+      \resumeItemListStart
+        \resumeItem{Investigated heat-induced manufacturing failures and built 3 POC monitoring models including computer vision (OpenCV), enabling data-driven identification of optimal operating windows}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Agentic Factory Analytics (EDAS)} $|$ \emph{LangGraph, PostgreSQL, AST Guardrails} \hfill \href{https://github.com/vinayakas1997/IOT-AI-agentic-analysis-}{\small [GitHub]} \href{https://medium.com/@vinayakasomic/building-edas-an-event-driven-multi-agent-approach-to-iot-data-analysis-with-langgraph-da48994e12d5}{\small [Blog]}}{2024 -- Present}
+          \resumeItemListStart
+            \resumeItem{Built event-driven multi-agent framework converting raw factory PostgreSQL into conversational BI -- Manager, Planner, and Executor agents decoupled via shared Task Registry with resume-from-failure recovery}
+            \resumeItem{Developed Dynamic Schema Fetcher for context-bloat mitigation + two-layer SQL security (Regex AST Parser, transactional rollbacks) and \texttt{SELECT...FOR UPDATE SKIP LOCKED} concurrency control}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{Intelligent RAG with Knowledge Graph} $|$ \emph{LangGraph, MinerU, Hindsight, BGE-M3, Atlas, DGX Spark}}{2024 -- Present}
+          \resumeItemListStart
+            \resumeItem{Delivered fully autonomous on-premise RAG pipeline for 10-member Planning team -- ingested 2,500+ bilingual docs, algorithmic hallucination guardrails, optimized inference (vLLM 35 $\to$ Atlas 80 tok/s), latency 90s $\to$ 6-10s}
+            \resumeItem{Built Phase 2: HITL Evaluation Dashboard with Golden Dataset management + specialized PLC ingestion achieving 85-90\% retrieval accuracy via entity-anchored metadata enrichment (Hindsight Tagging)}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{Parallel Multi-Agent 1:1 Corporate Interviewer} $|$ \emph{LangGraph, FastAPI, React+TypeScript, Docker} \hfill \href{https://github.com/vinayakas1997/Parallel-Multi-Agent-1-1-Corporate-Interviewer}{\small [GitHub]}}{2025}
+          \resumeItemListStart
+            \resumeItem{Architected 4-agent pipeline (Planner $\to$ Interviewer $\to$ Extractor $\to$ Synthesis) compressing 10+ hours of manual 1:1 meetings into under 1 hour with 7 configurable production guardrails}
+            \resumeItem{Built full-stack application with React+TypeScript frontend and FastAPI backend -- one-command \texttt{docker compose up} deployment, LLM-agnostic architecture}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{IIoT Industrial Edge Data Platform} $|$ \emph{OPC UA, Python, FastAPI, PostgreSQL, Grafana, MQTT, Ansible}}{2024 -- Present}
+          \resumeItemListStart
+            \resumeItem{Replaced license-limited legacy IoT with self-owned edge-to-PostgreSQL pipeline on LINX TRITON controllers -- Python FINS bridge, multi-path ingestion (OPC UA/MQTT/CSV), Grafana dashboards, Prometheus monitoring}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Shizuoka University}{Shizuoka, Japan}
+      {Master of Science in Computer Science}{Oct 2022 -- Sep 2024}
+    \resumeSubheading
+      {PES University}{Bangalore, India}
+      {Bachelor of Engineering in Electronics \& Communication}{Jul 2015 -- Jun 2019}
+  \resumeSubHeadingListEnd
+
+
+%-------------------------------------------
+\end{document}

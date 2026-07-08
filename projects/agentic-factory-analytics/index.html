@@ -165,6 +165,28 @@
       </div>
 
       <div class="content-block reveal content-prose">
+        <h2>Production Code: SQL Security Guardrails</h2>
+        <p class="section-lead">Defense-in-depth pipeline — <strong>3 layers</strong> that validate and bound every LLM-generated SQL before execution against the live factory database.</p>
+        <div style="background:#0a0a12;border:1px solid rgba(108,99,255,0.35);border-radius:12px;padding:20px 24px;overflow-x:auto;margin-top:12px;">
+          <pre style="margin:0;font-family:'SF Mono','Fira Code','Cascadia Code',monospace;font-size:0.78rem;line-height:1.7;color:hsl(240,12%,82%);"><span style="color:#6ee7b7;"># Layer 1: Regex Pre-screen</span>
+<span style="color:#e8c547;">MUTATION_PATTERN</span> = <span style="color:#a5d6a7;">r"\b(DROP|DELETE|UPDATE|INSERT|ALTER|...)\b"</span>
+<span style="color:#e8c547;">if</span> re.search(<span style="color:#a5d6a7;">MUTATION_PATTERN</span>, sql, re.IGNORECASE):
+    <span style="color:#e8c547;">return</span> <span style="color:#7dd3fc;">False</span>  <span style="color:#6ee7b7;"># Fast rejection — 0.1ms</span>
+
+<span style="color:#6ee7b7;"># Layer 2: AST Structural (sqlglot)</span>
+parsed = sqlglot.parse_one(sql)
+<span style="color:#e8c547;">for</span> node <span style="color:#e8c547;">in</span> parsed.find_all(exp.Expression):
+    <span style="color:#e8c547;">if</span> isinstance(node, (exp.Insert, exp.Update, exp.Delete, exp.Drop)):
+        <span style="color:#e8c547;">return</span> <span style="color:#7dd3fc;">None</span>  <span style="color:#6ee7b7;"># Blocked at AST level</span>
+
+<span style="color:#6ee7b7;"># Layer 3: AST-level LIMIT Guard</span>
+target.set(<span style="color:#a5d6a7;">"limit"</span>, exp.Limit(expression=exp.Literal.number(<span style="color:#7dd3fc;">500</span>)))
+<span style="color:#e8c547;">return</span> target.sql()  <span style="color:#6ee7b7;"># Safe, bounded SQL</span></pre>
+        </div>
+        <p style="margin-top:14px;font-size:0.9rem;color:hsl(240,10%,72%);">Full source: <a href="https://github.com/vinayakas1997/IOT-AI-agentic-analysis-/blob/main/sql_guardrails.py" target="_blank" rel="noopener noreferrer" style="color:var(--accent-light);">sql_guardrails.py on GitHub ↗</a> — 3-layer pipeline with <code>sqlglot</code> AST parsing, CTE/UNION-safe LIMIT injection, and a unified <code>safe_sql_executor</code> orchestrator.</p>
+      </div>
+
+      <div class="content-block reveal content-prose">
         <h2>Writing &amp; Code</h2>
         <p class="section-lead">Technical write-ups and open prompt templates for the EDAS agent stack.</p>
         <div class="resource-links">
