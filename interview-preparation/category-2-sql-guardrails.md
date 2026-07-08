@@ -25,7 +25,7 @@ Layer 3: AST LIMIT Guard     (injxn)  — Injects hard row cap at AST level
 
 **Layer 3 — AST LIMIT Guard:**
 - Not a security check per se — a **safety bound**. Injects a hard row cap (default 500) at the AST tree level, not via string concatenation
-- Handles edge cases: existing LIMIT (respected unless >500), CTEs (`WITH...SELECT`), UNION queries
+- Handles edge cases: existing LIMIT (respected unless >500), CTEs (`WITH...SELECT` — Common Table Expression, a temporary named query result), UNION queries
 - String-level `+ "LIMIT 500"` breaks on CTEs and subqueries — AST-level injection handles all SQL structures correctly
 
 **Why 3 layers instead of 1?**
