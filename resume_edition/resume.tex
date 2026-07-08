@@ -18,7 +18,7 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
-\usepackage{fontawesome5}
+\usepackage{fontawesome}
 \input{glyphtounicode}
 
 
@@ -91,12 +91,12 @@
 \begin{center}
     \textbf{\Huge \scshape Vinayaka Sajjanshetty} \\ \vspace{4pt}
     \small
-    \faIcon{phone-alt} \thinspace +81-7084689061 \quad
-    \faIcon{envelope} \thinspace \href{mailto:hellovinayakasajjanshetty@gmail.com}{hellovinayakasajjanshetty@gmail.com} \quad
-    \faIcon{map-marker-alt} \thinspace Hamamatsu, Japan \\ \vspace{3pt}
-    \faIcon{linkedin} \thinspace \href{https://www.linkedin.com/in/vinayaka-sajjanshetty-91033111a}{linkedin.com/in/vinayaka-sajjanshetty} \quad
-    \faIcon{github} \thinspace \href{https://github.com/vinayakas1997}{github.com/vinayakas1997} \quad
-    \faIcon{globe} \thinspace \href{https://vinayakas1997.github.io/my-project-docs/}{vinayakas1997.github.io}
+    \faPhone \thinspace +81-7084689061 \quad
+    \faEnvelope \thinspace \href{mailto:hellovinayakasajjanshetty@gmail.com}{hellovinayakasajjanshetty@gmail.com} \quad
+    \faMapMarker \thinspace Hamamatsu, Japan \\ \vspace{3pt}
+    \faLinkedin \thinspace \href{https://www.linkedin.com/in/vinayaka-sajjanshetty-91033111a}{linkedin.com/in/vinayaka-sajjanshetty} \quad
+    \faGithub \thinspace \href{https://github.com/vinayakas1997}{github.com/vinayakas1997} \quad
+    \faGlobe \thinspace \href{https://vinayakas1997.github.io/my-project-docs/}{vinayakas1997.github.io}
 \end{center}
 
 
@@ -145,25 +145,25 @@
 \section{Projects}
     \resumeSubHeadingListStart
       \resumeProjectHeading
-          {\textbf{Agentic Factory Analytics (EDAS)} $|$ \emph{LangGraph, PostgreSQL, AST Guardrails} \hfill \href{https://github.com/vinayakas1997/IOT-AI-agentic-analysis-}{\small [GitHub]} \href{https://medium.com/@vinayakasomic/building-edas-an-event-driven-multi-agent-approach-to-iot-data-analysis-with-langgraph-da48994e12d5}{\small [Blog]}}{2024 -- Present}
+          {\textbf{Agentic Factory Analytics (EDAS)} $|$ \emph{LangGraph, PostgreSQL, AST Guardrails} \hfill \href{https://vinayakas1997.github.io/my-project-docs/projects/agentic-factory-analytics/}{\small [Case Study]} \href{https://github.com/vinayakas1997/IOT-AI-agentic-analysis-}{\small [GitHub]} \href{https://medium.com/@vinayakasomic/building-edas-an-event-driven-multi-agent-approach-to-iot-data-analysis-with-langgraph-da48994e12d5}{\small [Blog]}}{2024 -- Present}
           \resumeItemListStart
             \resumeItem{Built event-driven multi-agent framework converting raw factory PostgreSQL into conversational BI -- Manager, Planner, and Executor agents decoupled via shared Task Registry with resume-from-failure recovery}
             \resumeItem{Developed Dynamic Schema Fetcher for context-bloat mitigation + two-layer SQL security (Regex AST Parser, transactional rollbacks) and \texttt{SELECT...FOR UPDATE SKIP LOCKED} concurrency control}
           \resumeItemListEnd
       \resumeProjectHeading
-          {\textbf{Intelligent RAG with Knowledge Graph} $|$ \emph{LangGraph, MinerU, Hindsight, BGE-M3, Atlas, DGX Spark}}{2024 -- Present}
+          {\textbf{Intelligent RAG with Knowledge Graph} $|$ \emph{LangGraph, Hindsight, Atlas, DGX Spark} \hfill \href{https://vinayakas1997.github.io/my-project-docs/projects/somic-ai-agent/}{\small [Phase 1]} \href{https://vinayakas1997.github.io/my-project-docs/projects/somic-ai-agent-part-2/}{\small [Phase 2]}}{2024 -- Present}
           \resumeItemListStart
             \resumeItem{Delivered fully autonomous on-premise RAG pipeline for 10-member Planning team -- ingested 2,500+ bilingual docs, algorithmic hallucination guardrails, optimized inference (vLLM 35 $\to$ Atlas 80 tok/s), latency 90s $\to$ 6-10s}
             \resumeItem{Built Phase 2: HITL Evaluation Dashboard with Golden Dataset management + specialized PLC ingestion achieving 85-90\% retrieval accuracy via entity-anchored metadata enrichment (Hindsight Tagging)}
           \resumeItemListEnd
       \resumeProjectHeading
-          {\textbf{Parallel Multi-Agent 1:1 Corporate Interviewer} $|$ \emph{LangGraph, FastAPI, React+TypeScript, Docker} \hfill \href{https://github.com/vinayakas1997/Parallel-Multi-Agent-1-1-Corporate-Interviewer}{\small [GitHub]}}{2025}
+          {\textbf{Parallel Multi-Agent 1:1 Corporate Interviewer} $|$ \emph{LangGraph, FastAPI, React+TypeScript, Docker} \hfill \href{https://vinayakas1997.github.io/my-project-docs/projects/multi-agent-interviewer/}{\small [Case Study]} \href{https://github.com/vinayakas1997/Parallel-Multi-Agent-1-1-Corporate-Interviewer}{\small [GitHub]}}{2025}
           \resumeItemListStart
             \resumeItem{Architected 4-agent pipeline (Planner $\to$ Interviewer $\to$ Extractor $\to$ Synthesis) compressing 10+ hours of manual 1:1 meetings into under 1 hour with 7 configurable production guardrails}
             \resumeItem{Built full-stack application with React+TypeScript frontend and FastAPI backend -- one-command \texttt{docker compose up} deployment, LLM-agnostic architecture}
           \resumeItemListEnd
       \resumeProjectHeading
-          {\textbf{IIoT Industrial Edge Data Platform} $|$ \emph{OPC UA, Python, FastAPI, PostgreSQL, Grafana, MQTT, Ansible}}{2024 -- Present}
+          {\textbf{IIoT Industrial Edge Data Platform} $|$ \emph{OPC UA, Python, FastAPI, PostgreSQL, Grafana, MQTT, Ansible} \hfill \href{https://vinayakas1997.github.io/my-project-docs/projects/opc-ua-transformation/}{\small [Case Study]}}{2024 -- Present}
           \resumeItemListStart
             \resumeItem{Replaced license-limited legacy IoT with self-owned edge-to-PostgreSQL pipeline on LINX TRITON controllers -- Python FINS bridge, multi-path ingestion (OPC UA/MQTT/CSV), Grafana dashboards, Prometheus monitoring}
           \resumeItemListEnd
