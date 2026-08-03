@@ -426,6 +426,26 @@
       </div>
 
       <div class="content-block reveal content-prose">
+        <h2>Evaluation &amp; Continuous Improvement</h2>
+        <p class="section-lead">Golden Dataset-driven regression and LLM-as-Judge scoring ensure consistent retrieval quality as the document corpus and models evolve.</p>
+
+        <div class="challenge-grid">
+          <div class="challenge-card reveal" style="--i:0">
+            <h3>Golden Dataset Eval Per Upload Batch</h3>
+            <p>Every document upload batch requires the planning team to define <strong>golden questions paired with expected answers and source pages</strong>. After ingestion, the RAG pipeline is automatically tested against these ground-truth pairs — measuring retrieval <strong>precision</strong> (was the correct document retrieved?), <strong>recall</strong> (were all relevant chunks surfaced?), and <strong>grounding</strong> (does the generated answer cite the right sources?). This closes the loop between ingestion and model updates — the team reverse-engineers content gaps directly from failed eval cases.</p>
+          </div>
+          <div class="challenge-card reveal" style="--i:1">
+            <h3>Edge Case Handling &amp; Retrieval Quality</h3>
+            <p>Eval uncovered key retrieval failure patterns that drove architecture improvements: <strong>rotated table layouts</strong> (45% OCR failure → solved with MinerU routing), <strong>cross-lingual ambiguity</strong> (JP queries retrieving EN chunks with lower similarity scores → solved with bilingual BGE-M3 embeddings), and <strong>high-density technical tables</strong> (factual drift → solved with Mean Anagram Hash-Mapping guardrails).</p>
+          </div>
+          <div class="challenge-card reveal" style="--i:2">
+            <h3>Continuous Eval Pipeline → HITL Dashboard (Phase 2)</h3>
+            <p>Golden Dataset evaluation was automated as a regression test, but LLM-as-Judge suffered from <strong>high False Negative rates</strong> — marking semantically correct answers as "Failed" when phrasing differed. This drove the <a href="../somic-ai-agent-part-2/index.html">Phase 2 HITL Evaluation Dashboard</a>, which added human override capability and achieved <strong>85–90% retrieval precision</strong> on specialized PLC engineering manuals with entity-anchored metadata enrichment. The eval process is now self-service: non-technical domain experts manage ground-truth QA pairs, trigger regression runs, and audit results independently — no engineering intervention needed.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-block reveal content-prose">
         <h2>Key Achievements &amp; Impact</h2>
         <ul class="achievement-list">
           <li>Delivered <strong>fully autonomous ingestion</strong> — folder upload → file segregation → OCR → quality gates → indexed memory, zero manual intervention</li>

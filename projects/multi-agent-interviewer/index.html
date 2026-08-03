@@ -161,8 +161,25 @@
         </div>
       </div>
 
-      <div class="content-block reveal">
-        <h2>Achievements</h2>
+      <div class="content-block reveal content-prose">
+        <h2>Deployment &amp; Operations</h2>
+        <p class="section-lead">One-command deployment with production-ready containerization, session lifecycle management, and LLM provider flexibility.</p>
+
+        <div class="challenge-grid">
+          <div class="challenge-card reveal" style="--i:0">
+            <h3>One-Command Docker Deployment</h3>
+            <p>The full stack deploys with a single <code>docker compose up</code> — <strong>FastAPI</strong> backend (4 REST endpoints), <strong>React 19 + TypeScript + Vite</strong> frontend, and <strong>Nginx</strong> production proxy — all built via multi-stage Dockerfiles. No external orchestration needed. The FastAPI service exposes health-check endpoints and manages session state with <strong>MemorySaver</strong> checkpointing backed by configurable SQLite.</p>
+          </div>
+          <div class="challenge-card reveal" style="--i:1">
+            <h3>Session Lifecycle &amp; Fault Tolerance</h3>
+            <p>Each interview session runs with a <strong>30-minute TTL</strong> — inactive sessions auto-expire and clean up. <strong>Tenacity</strong> provides exponential backoff retry (3 attempts, 2–10s intervals) on LLM failures. The LangGraph <strong>MemorySaver</strong> checkpoints conversation state at every turn, enabling a <strong>graceful resume</strong> if the backend restarts mid-session. The Employee and Management dashboards are fully decoupled — a backend restart doesn't lose the management overview because extraction state persists to a structured session store.</p>
+          </div>
+          <div class="challenge-card reveal" style="--i:2">
+            <h3>LLM-Agnostic Architecture &amp; Horizontal Scaling</h3>
+            <p>The system accepts any OpenAI-compatible endpoint — OpenAI, Azure OpenAI, Ollama, vLLM, or custom providers — configurable via <code>OPENAI_BASE_URL</code> and model name. For production scaling beyond the single-node memory backend, the architecture supports migration to <strong>PostgresSaver</strong> for persistent state storage, <strong>Redis</strong> for session caching, and <strong>Celery worker pools</strong> for distributing parallel interview sessions across multiple compute nodes — scaling from 10 to 100+ concurrent 1:1s without re-architecture.</p>
+          </div>
+        </div>
+      </div>
         <ul class="achievement-list">
           <li><strong>10× Time Compression</strong> — 10+ hours of manual 1:1 meetings reduced to under 1 hour of autonomous parallel processing.</li>
           <li><strong>4 Specialized Autonomous Agents</strong> — Planner, Interviewer, Extractor, and Synthesis agents, each with a dedicated role in the LangGraph state machine.</li>

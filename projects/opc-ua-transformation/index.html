@@ -257,18 +257,38 @@
         </div>
       </div>
 
+      <div class="content-block reveal">
+        <h2>Deployment &amp; Hardening</h2>
+        <p class="section-lead">Production-grade operations — fleet automation, observability, and failure recovery for zero-touch reliability.</p>
+        <div class="challenge-grid">
+          <div class="challenge-card reveal" style="--i:0">
+            <h3>Fleet Management &amp; Zero-Touch Provisioning</h3>
+            <p><strong>Ansible Semaphore</strong> provides repeatable, auditable provisioning across the <strong>TRITON controller fleet</strong> — new controllers onboard in minutes with automated playbook execution, not hours of manual SSH configuration. All playbooks are versioned and rollback-safe.</p>
+          </div>
+          <div class="challenge-card reveal" style="--i:1">
+            <h3>Observability &amp; Pipeline Health</h3>
+            <p><strong>Prometheus</strong> monitors n8n workflow health, FastAPI service metrics, and PostgreSQL ingestion latency with <strong>real-time alerting</strong> on pipeline stall or data gap events. <strong>Grafana</strong> dashboards expose both operations metrics (throughput, latency) and business KPIs (production counts, machine state history) — one unified view across edge and analytics layers.</p>
+          </div>
+          <div class="challenge-card reveal" style="--i:2">
+            <h3>Resilience &amp; Failure Recovery</h3>
+            <p>All services run under <strong>Docker Compose</strong> with health checks and auto-restart policies. <strong>n8n workflows</strong> include retry logic with exponential backoff for transient PLC connection drops. The pipeline is designed for <strong>graceful degradation</strong> — individual protocol paths fail independently without cascading, and PostgreSQL write-ahead logging ensures zero data loss on restart. Entire stack deploys from a single <code>docker compose up</code> (3 containers: n8n, FastAPI, PostgreSQL) with Kestra orchestration integrating n8n retry pipelines with failure alerts.</p>
+          </div>
+        </div>
+      </div>
+
       <div class="content-block reveal content-prose">
-        <h2>Key Achievements</h2>
+        <h2>Key Achievements &amp; Business Impact</h2>
         <ul class="achievement-list">
-          <li>Replaced <strong>license- and register-limited</strong> legacy IoT with a <strong>self-owned</strong> edge-to-PostgreSQL pipeline, reducing vendor dependency and cost</li>
-          <li>Built a <strong>Python FINS bridge</strong> for Omron PLCs — no PLC hardware replacement required</li>
-          <li>Deployed <strong><a href="https://linx.jp/product/triton/" target="_blank" rel="noopener noreferrer">LINX TRITON</a></strong> edge controllers as the OPC UA aggregation layer</li>
-          <li>Designed <strong>multi-path ingestion</strong> (OPC UA, MQTT, CSV) matched to data velocity and volume</li>
+          <li>Eliminated <strong>legacy IoT vendor licensing costs</strong> — replaced a license- and register-capped commercial stack with a <strong>fully self-owned</strong> edge-to-PostgreSQL pipeline, unlocking <strong>unrestricted register-level access</strong> for analytics teams</li>
+          <li>Built a <strong>Python FINS bridge</strong> for Omron PLCs — no PLC hardware replacement required, zero hardware CapEx</li>
+          <li>Deployed <strong><a href="https://linx.jp/product/triton/" target="_blank" rel="noopener noreferrer">LINX TRITON</a></strong> edge controllers as the OPC UA aggregation layer across production lines</li>
+          <li>Designed <strong>multi-path ingestion</strong> (OPC UA, MQTT, CSV) matched to data velocity and volume — not one protocol forced on every signal</li>
           <li>Implemented <strong>n8n workflows</strong> and a <strong>FastAPI</strong> processing node → <strong>PostgreSQL</strong> as system of record</li>
-          <li>Delivered <strong>Grafana dashboards</strong> querying PostgreSQL for production analytics</li>
-          <li>Unlocked <strong>higher-granularity factory data</strong> for the <strong>agentic AI team</strong> — <a href="../agentic-factory-analytics/index.html">Part 2: Agentic Factory Analytics</a></li>
-          <li>Introduced <strong>Ansible Semaphore</strong> for repeatable TRITON fleet provisioning and configuration</li>
-          <li>Used <strong>Prometheus</strong> for pipeline and log health monitoring with failure detection</li>
+          <li>Delivered <strong>Grafana dashboards</strong> querying PostgreSQL for production analytics — real-time shop-floor visibility for operators and engineering</li>
+          <li>Unlocked <strong>higher-granularity factory data</strong> for the <strong>agentic AI team</strong> — <a href="../agentic-factory-analytics/index.html">Part 2: Agentic Factory Analytics</a> running on the same PostgreSQL layer</li>
+          <li>Introduced <strong>Ansible Semaphore</strong> for repeatable TRITON fleet provisioning — new edge controllers onboard in minutes, not hours</li>
+          <li>Deployed <strong>Prometheus</strong> for pipeline health monitoring with real-time alerting on data gaps and service failures</li>
+          <li>Containerized the full stack with <strong>Docker Compose</strong> for one-command deployment and zero-touch service recovery</li>
         </ul>
       </div>
 

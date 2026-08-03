@@ -1,0 +1,196 @@
+%-------------------------
+% Resume in Latex (日本語版)
+% Author : Vinayaka Sajjanshetty
+% License : MIT
+% Compile : XeLaTeX
+%------------------------
+
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[colorlinks=true, urlcolor=blue, linkcolor=blue]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{fontawesome}
+\usepackage{xeCJK}
+
+\setCJKmainfont{Noto Serif CJK JP}
+\setCJKsansfont{Noto Sans CJK JP}
+\setCJKmonofont{Noto Sans Mono CJK JP}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins to expand printable text height
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.0in}
+\addtolength{\topmargin}{-.65in}
+\addtolength{\textheight}{1.3in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Balanced itemize spacing
+\setlist[itemize]{noitemsep, topsep=1pt, parsep=0.5pt, partopsep=0pt}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-1pt}\bfseries\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-4pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-1pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{1.5pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \vspace{1.5pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-3pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge ヴィナヤカ・サジャンシェッティ} \\ \vspace{1pt}
+    \small \textsc{Vinayaka Sajjanshetty} \\ \vspace{2pt}
+    \small
+    \faPhone \thinspace +81-7084689061 \quad
+    \faEnvelope \thinspace \href{mailto:hellovinayakasajjanshetty@gmail.com}{hellovinayakasajjanshetty@gmail.com} \quad
+    \faMapMarker \thinspace 静岡県浜松市 \\ \vspace{1pt}
+    \faLinkedin \thinspace \href{https://www.linkedin.com/in/vinayaka-sajjanshetty-91033111a}{linkedin.com/in/vinayaka-sajjanshetty} \quad
+    \faGithub \thinspace \href{https://github.com/vinayakas1997}{github.com/vinayakas1997} \quad
+    \faGlobe \thinspace \href{https://vinayakas1997.github.io/my-project-docs/}{vinayakas1997.github.io}
+\end{center}
+
+
+%-----------職務要約-----------
+\section{職務要約}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Forward Deployed AI \& Systems Engineer}（AIシステムの現場展開を担うエンジニア）として、4年以上のフルスタック開発経験を持つ。マルチエージェントオーケストレーション（LangGraph）、LLM評価フレームワーク（ゴールデンデータセット）、オンプレミスシステム設計、製造現場のリアルタイムテレメトリを専門とし、本番用AIアジェンティックワークフローおよびエッジインフラの構築・展開に従事。
+    }}
+ \end{itemize}
+
+
+%-----------技術スキル-----------
+\section{技術スキル}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{AIおよびエージェントシステム}{：マルチエージェントオーケストレーション（LangGraph）、エンタープライズRAG、LLM評価（ゴールデンデータセット）、ガードレール（AST/正規表現）、ナレッジグラフ（Hindsight）、vLLM、Atlas推論エンジン} \\
+     \textbf{言語およびコア技術}{：Python、C/C++、TypeScript、React、FastAPI、PyTorch、SQL、Docker、Linux、Git、ROS2} \\
+     \textbf{システムおよびIIoT}{：OPC UA、PostgreSQL、Prometheus、Grafana、Ansible、FINSプロトコル、LINX TRITONエッジコントローラ、Jetson Nano} \\
+     \textbf{使用言語}{：英語（流暢）、日本語（ビジネスレベル／技術的業務での積極的活用）、ヒンディー語（母国語）}
+    }}
+ \end{itemize}
+
+
+%-----------職務経歴-----------
+\section{職務経歴}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {株式会社ソミック石川（Somic Ishikawa）}{静岡県}
+      {応用AI・システムエンジニア（研究開発）}{2024年10月 〜 現在}
+      \resumeItemListStart
+        \resumeItem{\textbf{技術ディスカバリと本番展開の主導：}工場現場における企業向けAIシステムの要件定義から本番展開まで一貫して主導。米国エンジニアリングパートナーと日本の工場チームとの間でクロスボーダー技術連携の主担当として、データボトルネックの解消およびフィールドフィードバックのプロダクト・モデルロードマップへの反映を主導。}
+        \resumeItem{\textbf{エグゼクティブ向けフィジビリティスタディ：}クラウドSaaSからエアギャップ環境のセルフホスト型 Gitea + PostgreSQL スタックへの移行可否を評価する技術フィジビリティスタディを作成。コンピュータリソースの制約を基準に6つのプラットフォームを比較評価し、ローカルLLMコードレビューアー統合に向けたGPUトレードオフを検討・整理。}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Legato Health Technologies}{インド・バンガロール}
+      {ソフトウェアエンジニア（データ＆アナリティクス）}{2020年9月 〜 2022年9月}
+      \resumeItemListStart
+        \resumeItem{\textbf{ETLデータモデル設計と品質改善：}医療分野のクロスファンクショナルなステークホルダーと連携し、患者アナリティクスを処理するスケーラブルで後方互換性のあるETLデータモデルを設計。自動バリデーションにより本番データの異常を25\%削減。}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {ボッシュ・オートモーティブ・エレクトロニクス（Bosch）}{インド・バンガロール}
+      {エンジニアリングインターン}{2019年1月 〜 2019年3月}
+      \resumeItemListStart
+        \resumeItem{\textbf{熱誘発不良の調査とCVモデル開発：}熱誘発による製造不良を調査し、OpenCVを活用したリアルタイムCVモニタリングモデルを3件開発。最適な動作条件を特定し、不良診断のターンアラウンドを30\%短縮。}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------プロジェクト-----------
+\section{プロジェクト}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{産業IIoT・マルチエージェント工場アナリティクスプラットフォーム} \hfill \href{https://vinayakas1997.github.io/my-project-docs/projects/opc-ua-transformation/}{\small [フェーズ1]} \href{https://vinayakas1997.github.io/my-project-docs/projects/agentic-factory-analytics/}{\small [フェーズ2]} \href{https://github.com/vinayakas1997/IOT-AI-agentic-analysis-}{\small [GitHub]}}{2024年 〜 現在}
+          \resumeItemListStart
+            \resumeItem{\textbf{フェーズ1（エッジ取り込みとコスト最適化）：}高コストなレガシーIoTベンダーライセンスとデータレート制限を廃止し、LINX TRITONコントローラ（OPC UA/MQTT/FINS）上にオープンなエッジ〜PostgreSQLパイプラインを構築。アナリティクスチーム向けに制限なしの高粒度な工場フロアデータアクセスを実現し、Grafana/Prometheusによるリアルタイムテレメトリを確立。}
+            \resumeItem{\textbf{フェーズ2（デュアルユーザー向けAIアジェンティック・アナリティクス）：}LangGraphマルチエージェントシステムを展開し、2つの目的に対応するオペレーショナルインテリジェンスを実現：（1）機械近傍の現場作業員向けに当日計画の達成可否やダウンタイムリスクをリアルタイムで解説するシフト実現可能性コメンタリー機能、（2）エンジニアリングチーム向けに自己補正クエリと自動グラフ生成を備えた自律的な深層分析機能。}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{ナレッジグラフ統合インテリジェントRAGシステム} \hfill \href{https://vinayakas1997.github.io/my-project-docs/projects/somic-ai-agent/}{\small [フェーズ1]} \href{https://vinayakas1997.github.io/my-project-docs/projects/somic-ai-agent-part-2/}{\small [フェーズ2]}}{2024年 〜 現在}
+          \resumeItemListStart
+            \resumeItem{\textbf{プラットフォーム導入と全社横断展開：}2,500件以上の日英バイリンガル文書を対象にオンプレミス自律型RAGプラットフォームを構築。クエリ合成を数時間から10秒未満へ高速化（360倍高速化）。PLCエンジニアリングチームやビジネスチームへ、ドメイン固有の取り込みガイドライン付きでプラットフォームを横展開。}
+            \resumeItem{\textbf{VLM信頼性とハードウェア最適化：}MinerUのレイアウト対応解析と3段階VLMフォールバックにより、回転レイアウトでのOCR失敗率45\%を解消。DGX Spark上のAtlasエンジンによりオンプレミス推論スループットを35から80 tok/sへ倍増（レイテンシ90秒→6秒）。フェーズ2ではゴールデンデータセットを用いたHITL評価ダッシュボードを構築し、85〜90\%の検索精度を達成。}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{並列マルチエージェント1on1コーポレートインタビュアー} \hfill \href{https://vinayakas1997.github.io/my-project-docs/projects/multi-agent-interviewer/}{\small [ケーススタディ]} \href{https://github.com/vinayakas1997/Parallel-Multi-Agent-1-1-Corporate-Interviewer}{\small [GitHub]}}{2024年 〜 現在}
+          \resumeItemListStart
+            \resumeItem{\textbf{目的とビジネスインパクト：}会議疲れの解消と組織的なボトルネックの発見を目的とした自律型面談プラットフォームを設計。マネージャーが10人に対して手動で行う10時間以上の1on1面談を、並列AIカンバセーショナルストリームに置き換え、\textbf{10倍の時間短縮（1時間未満）}と匿名化された公正なチームセンチメント収集を実現。}
+            \resumeItem{\textbf{システムアーキテクチャ：}プランナー → インタビュアー → エクストラクター → シンセシスの4エージェントステートマシンを構築。ユーザーの回答をリアルタイムでインテリジェントに分析し、次の質問を的確にリフレームする適応型対話ロジックを実装し、エグゼクティブレポートを自動合成。}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+
+%-----------学歴-----------
+\section{学歴}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {静岡大学（Shizuoka University）}{静岡県}
+      {情報学研究科 修士課程（コンピュータサイエンス）}{2022年10月 〜 2024年9月}
+    \resumeSubheading
+      {PES大学（PES University）}{インド・バンガロール}
+      {工学部 電子・通信工学科 学士課程}{2015年7月 〜 2019年6月}
+  \resumeSubHeadingListEnd
+
+
+%-------------------------------------------
+\end{document}

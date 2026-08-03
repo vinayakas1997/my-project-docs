@@ -192,7 +192,28 @@
       </div>
 
       <div class="content-block reveal content-prose">
-        <h2>Key Achievements &amp; Impact</h2>
+        <h2>LLM Eval Methodology — Golden Datasets &amp; HITL Scoring</h2>
+        <p class="section-lead">How the evaluation framework ensures retrieval quality stays measurable, auditable, and continuously improving — without relying on brittle LLM-as-Judge alone.</p>
+
+        <div class="challenge-grid">
+          <div class="challenge-card reveal" style="--i:0">
+            <h3>Golden Dataset Architecture</h3>
+            <p>Domain experts define <strong>ground-truth question-answer pairs</strong> with explicit <strong>source page references</strong> for each document upload batch. Each pair is versioned, tagged by document type (PLC manual, quotation spec, etc.), and stored in PostgreSQL. The evaluation pipeline scores every answer on two axes: <strong>(1) Correctness</strong> — does the generated answer match the expected response? <strong>(2) Attribution Accuracy</strong> — does the answer cite the correct source document and page? Scoring is weighted: a correct answer with wrong attribution gets a lower score than a correct answer with correct attribution.</p>
+          </div>
+          <div class="challenge-card reveal" style="--i:1">
+            <h3>LLM-as-Judge + HITL Override Pipeline</h3>
+            <p><strong>First Pass:</strong> An LLM Judge auto-evaluates every response against the golden dataset, scoring correctness and source attribution independently. <strong>Second Pass (HITL Override):</strong> Since LLM-as-Judge produces excessive <strong>False Negatives</strong> (marking semantically equivalent answers as "Failed" when phrasing differs), a dashboard surfaces flagged failures to domain experts. They can audit, override the machine verdict, and re-mark cases as passed. Over time, overrides produce a <strong>clean, enterprise-audited benchmark</strong> that grows more accurate with each audit cycle — eliminating the false-negative bottleneck without sacrificing rigor.</p>
+          </div>
+          <div class="challenge-card reveal" style="--i:2">
+            <h3>Precision, Recall &amp; Grounding Metrics</h3>
+            <p>The eval framework tracks three core retrieval metrics across every test run: <strong>Precision</strong> (fraction of retrieved chunks that are relevant), <strong>Recall</strong> (fraction of all relevant chunks successfully retrieved), and <strong>Grounding</strong> (fraction of generated claims backed by a cited source). On general planning documents, Phase 1 retrieval achieved high precision but variable grounding. Phase 2's entity-anchored metadata enrichment (Hindsight Tagging) combined with Hybrid Filtering (Exact Metadata Match + Semantic Similarity) raised precision on PLC engineering manuals from <strong>~45% to 85–90%</strong> — with grounding scores tracking proportionally. These metrics are monitored per document category and per model update, giving the team data-driven confidence before deploying.</p>
+          </div>
+          <div class="challenge-card reveal" style="--i:3">
+            <h3>Edge Cases &amp; Continuous Improvement Loop</h3>
+            <p>Eval surfaced critical failure patterns: (1) <strong>Register-level queries</strong> on automation manuals that naive chunking couldn't handle (→ solved with entity-anchored ingestion), (2) <strong>Cross-lingual ambiguity</strong> where JP queries missed EN-only chunks (→ solved with bilingual BGE-M3 embeddings from Phase 1), and (3) <strong>Table-dense pages</strong> where OCR output was incoherent (→ solved with MinerU layout-aware parsing). Each edge case becomes a new golden question pair added to the dataset, and regression is automatically re-run on every model or pipeline change — closing the loop between discovery and prevention.</p>
+          </div>
+        </div>
+      </div>
         <ul class="achievement-list">
           <li>Delivered <strong>self-serve Golden Dataset Management Dashboard</strong> — non-technical teams manage ground-truth QA pairs, trigger regression eval runs, and inspect results independently</li>
           <li>Built <strong>HITL Override System</strong> — domain experts audit and override LLM-as-judge false negatives, producing a clean enterprise-audited benchmark over time</li>
