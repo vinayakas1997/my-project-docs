@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume — Vinayaka Sajjanshetty</title>
+  <meta name="description" content="Download Vinayaka Sajjanshetty's resume in English or Japanese (日本語版履歴書). Forward Deployed AI &amp; Systems Engineer — LangGraph, RAG, on-prem LLM deployment, industrial IoT." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/sections.css" />
+  <style>
+    .resume-page { padding: 180px 0 60px; min-height: calc(100vh - 140px); }
+    .resume-headline { text-align: center; max-width: 640px; margin: 0 auto 56px; }
+    .resume-headline .section-eyebrow { justify-content: center; }
+    .resume-sub { color: var(--text-muted); font-size: 1.02rem; }
+
+    .resume-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 24px; max-width: 860px; margin: 0 auto;
+    }
+    .resume-card {
+      position: relative; overflow: hidden;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--card-radius); padding: 34px 30px;
+      transition: transform var(--med), border-color var(--fast), box-shadow var(--med);
+    }
+    .resume-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: var(--grad-card); opacity: 0; transition: opacity var(--fast);
+    }
+    .resume-card:hover {
+      transform: translateY(-6px); border-color: var(--border-hover);
+      box-shadow: 0 16px 48px var(--accent-glow);
+    }
+    .resume-card:hover::before { opacity: 1; }
+
+    .resume-card-lang {
+      font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
+    }
+    .resume-card-title {
+      font-family: var(--font-display); font-size: 1.7rem; font-weight: 700;
+      color: var(--white); margin-bottom: 6px;
+    }
+    .resume-card-role { color: var(--accent-light); font-size: 0.95rem; margin-bottom: 14px; }
+    .resume-card-desc { color: var(--text-muted); font-size: 0.88rem; margin-bottom: 18px; }
+    .resume-card-meta {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px;
+    }
+    .resume-card-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    @media (max-width: 768px) {
+      .resume-grid { grid-template-columns: 1fr; }
+      .resume-page { padding: 140px 0 40px; }
+    }
+  </style>
+</head>
+<body>
+  <div id="progress-bar"></div><div id="cursor-glow"></div>
+  <nav id="navbar"><div class="container nav-inner">
+    <a href="index.html" class="nav-logo">&lt;<span>Vinayaka</span> /&gt;</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="resume.html" class="nav-resume">Resume ↗</a></li>
+    </ul>
+  </div></nav>
+
+  <section class="resume-page"><div class="container">
+    <div class="resume-headline reveal">
+      <p class="section-eyebrow">Résumé / 履歴書</p>
+      <h1 class="section-title">Choose a Resume</h1>
+      <p class="resume-sub">Vinayaka Sajjanshetty — Forward Deployed AI &amp; Systems Engineer. Pick a language to view or download the PDF.</p>
+    </div>
+
+    <div class="resume-grid">
+      <div class="resume-card reveal" style="--i:0">
+        <p class="resume-card-lang">English</p>
+        <h2 class="resume-card-title">English Resume</h2>
+        <p class="resume-card-role">Forward Deployed AI &amp; Systems Engineer</p>
+        <p class="resume-card-desc">
+          4+ years full-stack, production AI agentic workflows and edge infrastructure — LangGraph multi-agent orchestration, LLM evals (Golden Datasets), on-prem system scoping, and real-time factory telemetry.
+        </p>
+        <div class="resume-card-meta">
+          <span class="tag">1 Page</span>
+          <span class="tag">ATS-friendly</span>
+          <span class="tag">PDF</span>
+        </div>
+        <div class="resume-card-actions">
+          <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View ↗</a>
+          <a href="resume.pdf" download="Vinayaka-Sajjanshetty-Resume.pdf" class="btn btn-outline">Download</a>
+        </div>
+      </div>
+
+      <div class="resume-card reveal" style="--i:1">
+        <p class="resume-card-lang">日本語</p>
+        <h2 class="resume-card-title">Japanese Resume</h2>
+        <p class="resume-card-role">応用AI・システムエンジニア</p>
+        <p class="resume-card-desc">
+          4年以上のフルスタック開発経験を持つフォワードデプロイAI・システムエンジニア。LangGraphマルチエージェント、ゴールデンデータセットによるLLM評価、オンプレミスシステム設計、製造現場のリアルタイムテレメトリを専門とします。
+        </p>
+        <div class="resume-card-meta">
+          <span class="tag">2 Pages</span>
+          <span class="tag">履歴書</span>
+          <span class="tag">PDF</span>
+        </div>
+        <div class="resume-card-actions">
+          <a href="resume-ja.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View ↗</a>
+          <a href="resume-ja.pdf" download="Vinayaka-Sajjanshetty-Resume-Japanese.pdf" class="btn btn-outline">Download</a>
+        </div>
+      </div>
+    </div>
+  </div></section>
+
+  <footer><div class="container footer-inner">
+    <p class="footer-copy">© 2025 <span>Vinayaka Sajjanshetty</span></p>
+    <div class="footer-links"><a href="index.html">Home</a><a href="resume.pdf" target="_blank">English</a><a href="resume-ja.pdf" target="_blank">日本語</a></div>
+  </div></footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
