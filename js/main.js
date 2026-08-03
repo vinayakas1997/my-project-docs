@@ -169,6 +169,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.6 }).observe(el);
   });
 
+  // ── Expandable stat details (tap / press) ─
+  document.querySelectorAll('.stat-card').forEach(card => {
+    card.addEventListener('click', e => {
+      if (e.target.closest('a')) return;
+      card.classList.toggle('open');
+    });
+  });
+
   // ── Animated data flow in diagrams ───────
   document.querySelectorAll('.diag-arrow').forEach((arrow, i) => {
     const pulse = document.createElement('span');

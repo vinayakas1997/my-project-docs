@@ -10,7 +10,7 @@
 .about-text p { color:var(--text-muted); font-size:1rem; line-height:1.88; margin-bottom:22px; }
 .about-text p strong { color:var(--text); font-weight:500; }
 
-.about-stats { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:44px; }
+.about-stats { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:44px; align-items:start; }
 
 .stat-card {
   background: var(--bg-card); border:1px solid var(--border);
@@ -27,6 +27,36 @@
 
 .stat-num { font-family:var(--font-display); font-size:2.2rem; font-weight:700; line-height:1; margin-bottom:5px; background:var(--grad-primary); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; display:inline-block; }
 .stat-label { font-size:0.78rem; color:var(--text-muted); font-family:var(--font-mono); }
+
+/* ── Expandable stat details ── */
+.stat-details {
+  max-height:0; opacity:0; overflow:hidden;
+  transform: translateY(-6px);
+  transition: max-height .45s cubic-bezier(.4,0,.2,1), opacity .3s ease, transform .35s ease;
+  margin-top:0;
+}
+.stat-card:hover .stat-details,
+.stat-card.open .stat-details {
+  max-height:180px; opacity:1;
+  transform: translateY(0);
+  margin-top:14px;
+  padding-top:12px;
+  border-top:1px solid hsla(263,70%,60%,0.25);
+}
+.stat-detail {
+  display:flex; align-items:center; flex-wrap:wrap; gap:6px;
+  font-size:0.82rem; font-weight:500; color:var(--text);
+  padding:4px 0; line-height:1.4;
+}
+.stat-detail-meta {
+  font-family:var(--font-mono); font-size:0.68rem;
+  color:var(--accent-light); letter-spacing:0.02em;
+}
+.stat-dot {
+  width:6px; height:6px; border-radius:50%;
+  background:var(--grad-primary); box-shadow:0 0 8px var(--accent-glow);
+  flex:none;
+}
 
 .about-skills h3 { font-family:var(--font-display); font-size:0.9rem; font-weight:600; color:var(--text-muted); margin-bottom:14px; margin-top:28px; letter-spacing:0.05em; }
 .about-skills h3:first-child { margin-top:0; }
